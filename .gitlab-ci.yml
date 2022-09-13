@@ -1,0 +1,12 @@
+stages:
+- test
+sonarqube-check:
+  stage: test
+  image:
+    name: sonarsource/sonar-scanner-cli:4.7.0.2747
+    entrypoint: [""]
+  script:
+    - sonar-scanner -X -Dsonar.sources=. -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password=$SONAR_PASSWORD
+  allow_failure: true
+  only:
+    - main
