@@ -1,0 +1,47 @@
+.more-information-form-div-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#leadSource{
+    width: 15%;
+    margin-top: 5px;
+    height: 25px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    font-style: italic;
+}
+
+.more-information-label-form{
+    text-align: left;
+    display: block;
+    margin-bottom: 13px;
+    margin-top: 20px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.more-infromation-horizontal-line{
+    height: 2px;
+    color: #ccc;
+    width: 50%;
+   margin-right: 50%;
+}
+
+.more-information-dotted-horizontal-line-bottom{
+    width: 50%;
+    border:none;
+  border-top:2px dotted #ccc; 
+  color:#fff;
+  background-color:#fff;
+  height:1px;
+}
+
+.more-information-dotted-horizontal-line{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    
+}

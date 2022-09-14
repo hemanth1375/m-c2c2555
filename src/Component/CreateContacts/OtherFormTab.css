@@ -1,0 +1,22 @@
+.other-infromation-form-container{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.other-form-label-container{
+    width: 48%;
+    text-align: left;
+    display: block;
+    margin-bottom: 13px;
+    margin-top: 20px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.other-form-input-container{
+    border: none;
+    outline: none;
+    background-color: #f8f8f8;
+}
