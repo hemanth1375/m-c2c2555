@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "src", //to avoid using ../../ like this paths you can avoid
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
