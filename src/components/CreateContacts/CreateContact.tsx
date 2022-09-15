@@ -32,6 +32,7 @@ type TabsType = {
   const CreateContact = () => {
     const [selectedTab, setSelectedTab] = useState<number>(tabs[0].index);
     return(
+      //form page
         <div className="create-contacts-bg-container">
             <div className="contacts-top-container">
             <div>
@@ -46,6 +47,7 @@ type TabsType = {
             <hr className="contacts-hr-line" />
             <div>
                 <div className="contacts-three-button-container">
+                  {/* tabs*/}
                 <Tabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
                
                

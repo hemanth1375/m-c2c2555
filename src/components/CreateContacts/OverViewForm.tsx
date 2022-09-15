@@ -24,13 +24,13 @@ const resolver: Resolver<FormValues> = async (values) => {
 };
 
 const OverViewForm: FC<{}> = () => {
-  const [selectedOption, setSelectedOption] = useState<String>();
+  const [selectedOption, setSelectedOption] = useState<string>();
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const [value, setValue] = useState<String>();
+  const [value, setValue] = useState<string>();
   // This function is triggered when the select changes
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    setSelectedOption(value);
+    const TriggredValue = event.target.value;
+    setSelectedOption(TriggredValue);
   };
   const {
     register,
@@ -47,6 +47,7 @@ const OverViewForm: FC<{}> = () => {
   };
 
   return (
+    //overview form
     <div className="App">
       <form onSubmit={onSubmit} className="overview-form">
         <div className="over-view-form-flex-container">
@@ -59,16 +60,17 @@ const OverViewForm: FC<{}> = () => {
                 <select
                   onChange={selectChange}
                   className="overview-select-item"
+                 
                 >
                   <option selected disabled>
                     Select an item
                   </option>
-                  <option value="mr">Mr.</option>
-                  <option value="ms">Ms.</option>
-                  <option value="mrs">Mrs.</option>
-                  <option value="miss">Miss.</option>
-                  <option value="dr">Dr.</option>
-                  <option value="pro">Pro.</option>
+                  <option value={selectedOption}>Mr.</option>
+                  <option value={selectedOption}>Ms.</option>
+                  <option value={selectedOption}>Mrs.</option>
+                  <option value={selectedOption}>Miss.</option>
+                  <option value={selectedOption}>Dr.</option>
+                  <option value={selectedOption}>Pro.</option>
                 </select>
               </div>
               <div>

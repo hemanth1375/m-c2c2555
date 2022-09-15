@@ -1,8 +1,10 @@
-import React, { FC, Fragment, useState } from "react";
+import React, { FC, Fragment } from "react";
 import "./OtherFormTab.css";
 
 const OtherFormTab: FC<{}> = () => {
   return (
+
+    //other information tab form
     <Fragment>
       <div>
         <form>

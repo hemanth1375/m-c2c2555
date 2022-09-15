@@ -141,7 +141,10 @@
   color:#fff;
   background-color:#fff;
   height:1px;
-  
+  display: flex;
+  justify-content: flex-end;
+  width: 49%;
+  margin-right: 51%;
   }
 
   .dotted-horizontal-line-bottom{
@@ -154,12 +157,12 @@
   
   }
 
-  .dotted-horizontal-line{
+  /* .dotted-horizontal-line{
     display: flex;
     justify-content: flex-end;
     width: 49%;
     margin-right: 51%;
-    }
+    } */
 
     .dotted-horizontal-line-container-bottom{
         width: 100%;

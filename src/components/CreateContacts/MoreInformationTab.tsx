@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useState } from "react";
+import React, { FC, Fragment} from "react";
 
 import './MoreInformationTab.css';
 
@@ -9,6 +9,7 @@ console.log(44)
 
 
     return (
+      //more information tab form
       <Fragment>
         <div>
           <div>

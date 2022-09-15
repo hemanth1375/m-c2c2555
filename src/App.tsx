@@ -1,6 +1,7 @@
+import CreateContact from 'components/CreateContacts/CreateContact';
 import React from 'react';
 import './App.css';
-import CreateContact from './Component/CreateContacts/CreateContacts';
+
 
 
 function App() {
