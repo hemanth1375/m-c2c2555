@@ -1,46 +1,84 @@
-import React, { FC, Fragment} from "react";
+import React, { FC, Fragment } from "react";
 
-import './MoreInformationTab.css';
+import "./MoreInformationTab.css";
 
 const MoreInformationTab: FC<{}> = () => {
   const cursorHandler = () => {
-console.log(44)
-  }
+    console.log(44);
+  };
 
-
-    return (
-      //more information tab form
-      <Fragment>
+  return (
+    //more information form tab
+    <Fragment>
+      <div>
         <div>
-          <div>
-            <form>
-              <div className="more-information-form-div-container">
-                <label htmlFor="leadSource" className="more-information-label-form">LEAD SOURCE:</label>
-                <input type="text" id="leadSource" placeholder="Select an item..." onClick={cursorHandler}/>
-                <hr className="more-infromation-horizontal-line" onClick={cursorHandler}/>
-              </div>
-              <div className="more-information-dotted-horizontal-line">
+          <form>
+            <div className="more-information-form-div-container">
+              <label
+                htmlFor="leadSource"
+                className="more-information-label-form"
+              >
+                LEAD SOURCE:
+              </label>
+              <input
+                type="text"
+                id="leadSource"
+                placeholder="Select an item..."
+                onClick={cursorHandler}
+              />
+              <hr
+                className="more-infromation-horizontal-line"
+                onClick={cursorHandler}
+              />
+            </div>
+            <div className="more-information-dotted-horizontal-line">
               <hr className="more-information-dotted-horizontal-line-bottom" />
             </div>
-              <div>
+            <div>
               <div className="over-view-form-bottom-containers">
-          <div className="left-container">
-          <label htmlFor="leadSource" className="more-information-label-form">REPORTS TO:</label>
-                <input type="text" id="leadSource" placeholder="Select an item..." onClick={cursorHandler}/>
-                <hr className="more-infromation-horizontal-line" onClick={cursorHandler}/>
-          </div>
-          <div className="right-container">
-          <label htmlFor="leadSource" className="more-information-label-form">CAMPAIGN:</label>
-                <input type="text" id="leadSource" placeholder="Select an item..." onClick={cursorHandler}/>
-                <hr className="more-infromation-horizontal-line" onClick={cursorHandler}/>
-          </div>
-        </div>
+                <div className="left-container">
+                  <label
+                    htmlFor="leadSource"
+                    className="more-information-label-form"
+                  >
+                    REPORTS TO:
+                  </label>
+                  <input
+                    type="text"
+                    id="leadSource"
+                    placeholder="Select an item..."
+                    onClick={cursorHandler}
+                  />
+                  <hr
+                    className="more-infromation-horizontal-line"
+                    onClick={cursorHandler}
+                  />
+                </div>
+                <div className="right-container">
+                  <label
+                    htmlFor="leadSource"
+                    className="more-information-label-form"
+                  >
+                    CAMPAIGN:
+                  </label>
+                  <input
+                    type="text"
+                    id="leadSource"
+                    placeholder="Select an item..."
+                    onClick={cursorHandler}
+                  />
+                  <hr
+                    className="more-infromation-horizontal-line"
+                    onClick={cursorHandler}
+                  />
+                </div>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-      </Fragment>
-    );
-  };
+      </div>
+    </Fragment>
+  );
+};
 
 export default MoreInformationTab;

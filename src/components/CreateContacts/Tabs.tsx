@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import './Tabs.css'
 
 
 type TabsProps = {

@@ -7,6 +7,12 @@ type FormValues = {
   lastName: string;
   officePhone: number;
   mobile: number;
+  jobTitle: string;
+  fax: string | number;
+  email: string | number;
+  primaryAddress: string | number;
+  otherAddress: string | number;
+  description: string;
 };
 
 const resolver: Resolver<FormValues> = async (values) => {
@@ -24,6 +30,7 @@ const resolver: Resolver<FormValues> = async (values) => {
 };
 
 const OverViewForm: FC<{}> = () => {
+  const [phoneNumber, setPhoneNumber] = useState<string>();
   const [selectedOption, setSelectedOption] = useState<string>();
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [value, setValue] = useState<string>();
@@ -46,6 +53,10 @@ const OverViewForm: FC<{}> = () => {
     setValue(event.target.value);
   };
 
+  const phoneNumberValidation = (event:any) => {
+    setPhoneNumber(event.target.value)
+  }
+
   return (
     //overview form
     <div className="App">
@@ -65,7 +76,7 @@ const OverViewForm: FC<{}> = () => {
                   <option selected disabled>
                     Select an item
                   </option>
-                  <option value={selectedOption}>Mr.</option>
+                  <option value={selectedOption} >Mr.</option>
                   <option value={selectedOption}>Ms.</option>
                   <option value={selectedOption}>Mrs.</option>
                   <option value={selectedOption}>Miss.</option>
@@ -126,7 +137,12 @@ const OverViewForm: FC<{}> = () => {
               <input
                 {...register("mobile")}
                 className="overview-input-form-bottom"
+                onChange={phoneNumberValidation}
               />
+              {/* {
+              
+              if(phoneNumber.length<=9){return <h1>enter 10 numbers</h1>}
+} */}
             </div>
 
             <div className="dotted-horizontal-line-container-bottom">
