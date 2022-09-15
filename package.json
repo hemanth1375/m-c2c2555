@@ -40,5 +40,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "jest-sonar-reporter": "^2.0.0"
+  }, 
+    "jestSonar": {  
+      "reportPath": "reports",  
+      "reportFile": "test-report.xml",  
+      "indent": 4  
+    }  
 }
