@@ -20,3 +20,9 @@
     outline: none;
     background-color: #f8f8f8;
 }
+
+.other-information-tab-bg-container{
+    background-color: #ccc;
+    background-size: cover;
+   width: 100%;
+}

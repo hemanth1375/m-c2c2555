@@ -36,15 +36,14 @@ type TabsType = {
         <div className="create-contacts-bg-container">
             <div className="contacts-top-container">
             <div>
-                <h4 className="contacts-h4-heading">CONTACTS <br/><span className="contacts-h2-heading">Create</span></h4>
-                {/* <h2 className="contacts-h2-heading d-flex">Create</h2> */}
+                <h4 className="contacts-h4-heading">CONTACTS CREATE</h4>
             </div>
             <div>
                 <button className="contact-save-button">Save</button>
                 <button className="contact-cancel-button">Cancel</button>
             </div>
             </div>
-            <hr className="contacts-hr-line" />
+            <hr className="contacts-hr-line"/>
             <div>
                 <div className="contacts-three-button-container">
                   {/* tabs*/}
