@@ -21,7 +21,7 @@ type TabsProps = {
  * @param onClick Function to set the active tab
  * @param orientation Tab orientation Vertical | Horizontal
  */
-const Tabs: FC<TabsProps> = ({
+const FormTabs: FC<TabsProps> = ({
   className = "tabs-component",
   tabs = [],
   selectedTab = 0,
@@ -63,4 +63,37 @@ const Tabs: FC<TabsProps> = ({
     </div>
   );
 };
-export default Tabs;
+export default FormTabs;
+
+
+
+//how to use this tab component !!!!important 
+//use the below code from which component you use this component
+
+// type TabsType = {
+//     label: string;
+//     index: number;
+//     Component: React.FC<{}>;
+//   }[];
+  
+//   // Tabs Array
+//   const tabs: TabsType = [
+//     {
+//       label: "OVERVIEW",
+//       index: 1,
+//       Component: OverViewForm
+//     },
+//     {
+//         label: "MORE INFORMATION",
+//         index: 2,
+//         Component: MoreInformationTab
+//       },
+//     {
+//         label: "OTHER",
+//         index: 3,
+//         Component: OtherFormTab
+//       }
+//   ]
+
+// const [selectedTab, setSelectedTab] = useState<number>(tabs[0].index);
+// <FormTabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />

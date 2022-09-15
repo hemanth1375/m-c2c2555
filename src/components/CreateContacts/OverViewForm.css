@@ -178,10 +178,12 @@
         font-size: 14px;
         text-align: left;
         height: 30px;
+        outline: none;
     }
     .overview-input-form-bottom:focus{
         border: 2px solid #007bff;
     }
+    
 
     .account-name{
         border: none;
@@ -192,7 +194,7 @@
     }
     .account-name:focus{
         border: 3px solid #007bff;
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        /* transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
       }
 
     .over-view-form-bottom-containers{

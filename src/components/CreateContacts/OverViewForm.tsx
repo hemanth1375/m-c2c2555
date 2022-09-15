@@ -1,3 +1,4 @@
+
 import React, { FC, useState, useRef } from "react";
 import { useForm, Resolver } from "react-hook-form";
 import "./OverViewForm.css";
@@ -343,6 +344,7 @@ const OverViewForm: FC<{}> = () => {
                 className="overview-input-form-bottom assigned-to-form"
                 placeholder="type to search.."
               />
+              
             </div>
 
             <div className="dotted-horizontal-line-container-bottom">
