@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import SideNavigation from "./components/Template1/SideNavigationbar";
+import { Col, Row } from "reactstrap";
+import Header from "./components/Template1/NavbarHeader";
+import "./App.css";
+import Footer from "./components/Template1/footer";
+import Template from "./components/Template1/Template";
 
-function App() {
+const App = () => {
+  // const styles = {
+  //   contentDiv: {
+  //     display: "flex",
+  //   },
+  //   contentMargin: {
+  //     marginLeft: "10px",
+  //     width: "100%",
+  //   },
+  // };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Template/>
   );
-}
-
+};
 export default App;
