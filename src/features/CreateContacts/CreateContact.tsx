@@ -3,7 +3,7 @@ import './CreateContact.css';
 import OverViewForm from "./OverViewForm";
 import MoreInformationTab from "./MoreInformationTab";
 import OtherFormTab from "./OtherFormTab";
-import Tabs from "./Tabs";
+import { FormTabs } from "components/forms";
 
 type TabsType = {
     label: string;
@@ -47,7 +47,7 @@ type TabsType = {
             <div>
                 <div className="contacts-three-button-container">
                   {/* tabs*/}
-                <Tabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
+                <FormTabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
                
                
   {/* {

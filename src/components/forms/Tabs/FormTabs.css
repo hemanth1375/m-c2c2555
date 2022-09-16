@@ -1,3 +1,4 @@
+
   .tabs-component [role="tablist"] {
     display: flex;
     flex-wrap: wrap;
@@ -70,4 +71,3 @@
   .tabs-component.vertical [role="tablist"] button:hover {
     border-color: #e9ecef transparent #e9ecef #b41c1c;
   }
-  
