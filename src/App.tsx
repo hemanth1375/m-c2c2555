@@ -1,3 +1,4 @@
+import React from 'react';
 import Home from 'Pages/Home';
 import Accounts from 'Pages/Accounts';
 import Contacts from 'Pages/Contacts';
@@ -6,7 +7,6 @@ import Leads from 'Pages/Leads';
 import Opportunities from 'Pages/Opportunities';
 import Quotes from 'Pages/Quotes';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import React from 'react';
 import './App.css';
 
 
