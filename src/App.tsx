@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Home from 'Pages/Home';
 import Accounts from 'Pages/Accounts';
 import Contacts from 'Pages/Contacts';
@@ -26,7 +26,6 @@ function App() {
       </Routes>
       </BrowserRouter>
     </div>
-  );
-}
-
+ );
+};
 export default App;

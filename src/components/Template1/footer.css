@@ -1,0 +1,18 @@
+.footer-bg{
+    background-color: lightgray;
+    padding:10px;
+    position:fixed;
+    width:100%;
+    bottom:0;
+    height: 13%;
+    text-align: center;
+}
+.footer-bg .copyright{
+    font-weight: bold;
+}
+p{
+    color:black;
+}
+.social-media-icons{
+    margin-right:10px;
+}
