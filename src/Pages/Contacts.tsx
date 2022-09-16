@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateContact from 'components/CreateContacts/CreateContact';
+import CreateContact from 'features/CreateContacts/CreateContact';
 
 const Contacts = () => {
     return (
