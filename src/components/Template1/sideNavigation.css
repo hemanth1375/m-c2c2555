@@ -4,3 +4,7 @@
 .menuitem:hover{
    background-color:black;
 }
+
+.sidebar-height{
+    position: fixed;
+}

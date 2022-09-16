@@ -42,14 +42,14 @@ const OverViewForm: FC<{}> = () => {
   };
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: resolver,
   });
 
-  const onSubmit = handleSubmit((data) => alert(JSON.stringify(data)));
-
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+  }
   const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value);
   };
@@ -61,7 +61,7 @@ const OverViewForm: FC<{}> = () => {
   return (
     //overview form
     <div className="App">
-      <form onSubmit={onSubmit} className="overview-form">
+      <form onSubmit={handleSubmit} className="overview-form">
         <div className="over-view-form-flex-container">
           <div className="half-overview-form">
             <div className="overview-form-name-container">

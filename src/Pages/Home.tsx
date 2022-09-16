@@ -1,10 +1,11 @@
+import Template from "components/Template1/Template";
 import React from "react"
 
 
 const Home = () => {
     return (
         <div>
-            Home
+            <Template />
         </div>
     );
 };
