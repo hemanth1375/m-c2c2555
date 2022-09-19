@@ -2,12 +2,16 @@ import React, { FC, Fragment } from "react";
 import "./OtherFormTab.css";
 
 const OtherFormTab: FC<{}> = () => {
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+  }
   return (
 
     //other information tab form
     <Fragment>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="other-infromation-form-container">
             <div className="other-form-label-container">
               <label>DATE CREATED:</label>
