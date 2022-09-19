@@ -1,0 +1,44 @@
+.nav-container{
+    background-color: #3c8dbc !important;
+    height: 7vh;
+    display:flex;
+    justify-content: space-between;
+    padding:10px;
+    
+}
+.navbar-header-profile-icon{
+    height:40px;
+    width:30px;
+    color:white;
+}
+
+#collasible-nav-dropdown{
+    color:white;
+}
+.h1{
+    color:white;
+    margin-left:10px;
+    font-size:20px !important;
+}
+.navbar-profile-container{
+    display:flex;
+    color:white;
+    border:0px;
+    height:30px;
+    background-color: transparent;
+}
+.navbar-profile-container p{
+    color:white;
+}
+.navbar-profile-container:hover,
+.navbar-profile-container:focus{
+    background-color:#3c8dbc;
+    border-width:0px;
+    border:none;
+    outline: none;
+}
+.button-profile-icon{
+    margin-right:5px;
+    height:25px;
+    width:25px;
+}
