@@ -1,4 +1,5 @@
 import React, { FC, Fragment } from "react";
+import { translate } from "languages";
 
 import "./MoreInformationTab.css";
 

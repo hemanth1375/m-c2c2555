@@ -11,22 +11,21 @@
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.6",
     "bootstrap": "4.5",
+    "lodash": "^4.17.21",
+    "pascalcase": "^2.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "2.5",
     "react-bootstrap-sidebar": "^0.0.1",
     "react-bootstrap-sidebar-menu": "^2.0.3",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
+    "react-hook-form": "^7.35.0",
     "react-icons": "^4.4.0",
+    "react-intl": "^6.1.1",
+    "react-lodash": "^0.1.2",
     "react-pro-sidebar": "^0.7.1",
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.4",
-=======
-    "react-hook-form": "^7.35.0",
-    "react-router-dom": "^6.4.0",
-    "react-scripts": "5.0.1",
->>>>>>> 611e2c4b50ac5ae20456a584bb24885d9139d2fd
     "styled-components": "^5.3.5",
     "typescript": "^4.8.3",
     "web-vitals": "^2.1.4"
@@ -56,16 +55,14 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@types/styled-components": "^5.1.26"
-  }
-=======
+    "@types/lodash": "^4.14.185",
+    "@types/pascalcase": "^1.0.1",
+    "@types/styled-components": "^5.1.26",
     "jest-sonar-reporter": "^2.0.0"
-  }, 
-    "jestSonar": {  
-      "reportPath": "reports",  
-      "reportFile": "test-report.xml",  
-      "indent": 4  
-    }  
->>>>>>> 611e2c4b50ac5ae20456a584bb24885d9139d2fd
+  },
+  "jestSonar": {
+    "reportPath": "reports",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  }
 }
