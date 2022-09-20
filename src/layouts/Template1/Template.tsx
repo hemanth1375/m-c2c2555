@@ -1,21 +1,14 @@
 import React from "react";
 import "./Template.css";
-import Header from "./NavHeader/NavbarHeader";
-import SideNavigation from "./SideNavBar/SideNavigationbar";
-import Footer from "./Footer/footer";
+import Header from "./NavbarHeader";
+import Footer from "./footer";
 
-type childProps = {
-  children: React.ReactNode;
-};
-
-const Template = (props: childProps) => {
+import SideBar from "./Sidebar";
+const Template = (props: any) => {
   return (
     <div className="app-container">
       <Header />
-      <div className="body-container">
-        <SideNavigation />
-        {props.children}
-      </div>
+      <SideBar {...props} />
       <Footer />
     </div>
   );

@@ -8,12 +8,16 @@ const MoreInformationTab: FC<{}> = () => {
     console.log(44);
   };
 
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+  }
+
   return (
     //more information form tab
     <Fragment>
       <div>
         <div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="more-information-form-div-container">
               <label
                 htmlFor="leadSource"
