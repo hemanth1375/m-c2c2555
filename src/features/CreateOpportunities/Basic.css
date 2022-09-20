@@ -255,9 +255,12 @@
 
     .vline {
       border-right: 1px solid black;
-      height: 500px;
+      height: 100%;
       position: absolute;
       
       margin-left: -3px;
       top: 0;
+    }
+    .row-height{
+      height:100%;
     }

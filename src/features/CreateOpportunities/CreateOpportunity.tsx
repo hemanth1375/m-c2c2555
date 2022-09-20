@@ -1,10 +1,9 @@
 import React, {useState} from "react";
-import './CreateContact.css';
-import OverViewForm from "./OverViewForm";
-// import MoreInformationTab from "./MoreInformationTab";
+import './CreateOpportunities.css';
+import OverViewForm from "./Basic";
 import OtherFormTab from "./OtherFormTab";
 import { FormTabs } from "components/forms";
-
+import Basic from './Basic';
 type TabsType = {
     label: string;
     index: number;
@@ -14,9 +13,9 @@ type TabsType = {
   // Tabs Array
   const tabs: TabsType = [
     {
-      label: "OVERVIEW",
+      label: "BASIC",
       index: 1,
-      Component: OverViewForm
+      Component: Basic
     },
     {
         label: "OTHER",
@@ -45,19 +44,6 @@ type TabsType = {
                 <FormTabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
                
                
-  {/* {
-    label: "Tab Two",
-    index: 2,
-    Component: TabTwo
-  },
-  {
-    label: "Tab Three",
-    index: 3,
-    Component: TabThree
-  } */}
- {/* <button className="">OVERVIEW</button>
-                    <button>MORE INFORMATION</button>
-                    <button>OTHER</button> */}
                 </div>
             </div>
         </div>

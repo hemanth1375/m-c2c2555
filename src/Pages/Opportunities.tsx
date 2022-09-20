@@ -1,4 +1,4 @@
-import CreateOpportunity from 'components/CreateOpportunities/CreateOpportunity';
+import CreateOpportunity from 'features/CreateOpportunities/CreateOpportunity';
 import React from 'react';
 
 const Opportunities = () => {

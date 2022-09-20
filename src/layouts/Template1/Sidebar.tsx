@@ -1,10 +1,10 @@
-import { NavLink, Route } from "react-router-dom";
-import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
-import { BiAnalyse, BiSearch } from "react-icons/bi";
-import { BiCog } from "react-icons/bi";
-import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
-import { BsCartCheck } from "react-icons/bs";
+import { NavLink,} from "react-router-dom";
+import { FaBars, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
+
+import { BiSearch } from "react-icons/bi";
+
+import { AiTwotoneFileExclamation } from "react-icons/ai";
+
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
@@ -16,22 +16,22 @@ const routes = [
 		icon: <AiTwotoneFileExclamation />,
 		subRoutes: [
 		  {
-			path: "/accounts/create account",
+			path: "/accounts/createaccount",
 			name: "Create Account ",
 			icon: <FaUser />,
 		  },
 		  {
-			path: "/accounts/view account",
+			path: "/accounts/viewaccount",
 			name: "View Account",
 			icon: <FaLock />,
 		  },
 		  {
-			path: "/accounts/import accounts",
+			path: "/accounts/importaccounts",
 			name: "Import Account",
 			icon: <FaMoneyBill />,
 			},
 			{
-				path: "/accounts/recently viewed",
+				path: "/accounts/recentlyviewed",
 				name: "Recently Viewed",
 				icon: <FaMoneyBill />,
 			  },
@@ -43,27 +43,27 @@ const routes = [
 		icon: <AiTwotoneFileExclamation />,
 		subRoutes: [
 		  {
-			path: "/contacts/create contact",
+			path: "/contacts/createcontact",
 			name: "Create contact ",
 			icon: <FaUser />,
 			},
 			{
-				path: "/contacts/create contact from vcard",
+				path: "/contacts/createcontactfromvcard",
 				name: "Create Contact From vCard",
 				icon: <FaUser />,
 			  },
 		  {
-			path: "/contacts/view contacts",
+			path: "/contacts/viewcontacts",
 			name: "View Contact",
 			icon: <FaLock />,
 		  },
 		  {
-			path: "/contacts/import contacts",
+			path: "/contacts/importcontacts",
 			name: "Import Contacts",
 			icon: <FaMoneyBill />,
 			},
 			{
-				path: "/contacts/recently viewed",
+				path: "/contacts/recentlyviewed",
 				name: "Recently Viewed",
 				icon: <FaMoneyBill />,
 			  },
@@ -76,22 +76,22 @@ const routes = [
 		icon: <AiTwotoneFileExclamation />,
 		subRoutes: [
 		  {
-			path: "/opportunities/create opportunity",
+			path: "/opportunities/createopportunity",
 			name: "Create Oppotunity ",
 			icon: <FaUser />,
 		  },
 		  {
-			path: "/opportunities/view opportunity",
+			path: "/opportunities/viewopportunity",
 			name: "View Opportunity",
 			icon: <FaLock />,
 		  },
 		  {
-			path: "/opportunities/import opportunity",
+			path: "/opportunities/importopportunity",
 			name: "Import Opportunity",
 			icon: <FaMoneyBill />,
 			},
 			{
-				path: "/opportunities/recently viewed",
+				path: "/opportunities/recentlyviewed",
 				name: "Recently Viewed",
 				icon: <FaMoneyBill />,
 			  },
@@ -108,22 +108,22 @@ const routes = [
 			icon: <FaUser />,
 			},
 			{
-				path: "/leads/create lead from vcard",
+				path: "/leads/createleadfromvcard",
 				name: "Create Lead From vCard ",
 				icon: <FaUser />,
 			  },
 		  {
-			path: "/leads/view leads",
+			path: "/leads/viewleads",
 			name: "View Leads",
 			icon: <FaLock />,
 		  },
 		  {
-			path: "/leads/import leads",
+			path: "/leads/importleads",
 			name: "Import Leads",
 			icon: <FaMoneyBill />,
 			},
 			{
-				path: "/leads/recently viewed",
+				path: "/leads/recentlyviewed",
 				name: "Recently Viewed",
 				icon: <FaMoneyBill />,
 			  },
@@ -135,22 +135,22 @@ const routes = [
 		icon: <AiTwotoneFileExclamation />,
 		subRoutes: [
 		  {
-			path: "/quotes/create quote",
+			path: "/quotes/createquote",
 			name: "Create Quote ",
 			icon: <FaUser />,
 			},
 		  {
-			path: "/quotes/view quotes",
+			path: "/quotes/viewquotes",
 			name: "View Quotes",
 			icon: <FaLock />,
 		  },
 		  {
-			path: "/quotes/import quotes",
+			path: "/quotes/importquotes",
 			name: "Import Quotes",
 			icon: <FaMoneyBill />,
 			},
 			{
-				path: "/quotes/import line items",
+				path: "/quotes/importlineitems",
 				name: "Import Line Items",
 				icon: <FaMoneyBill />,
 			  },
@@ -162,17 +162,17 @@ const routes = [
 		icon: <AiTwotoneFileExclamation />,
 		subRoutes: [
 		  {
-			path: "/calender/schedule meeting",
+			path: "/calender/schedulemeeting",
 			name: "Schedule Meeting ",
 			icon: <FaUser />,
 			},
 			{
-				path: "/calender/schedule call",
+				path: "/calender/schedulecall",
 				name: "Schedule Call ",
 				icon: <FaUser />,
 			  },
 		  {
-			path: "/calender/create task",
+			path: "/calender/createtask",
 			name: "Create Task",
 			icon: <FaLock />,
 		  },
@@ -292,11 +292,10 @@ const SideBar = ({ children }:any) => {
   };
 
   return (
-    <>
       <div className="main-container">
         <motion.div
           animate={{
-            width: isOpen ? "180px" : "45px",
+            width: isOpen ? "11%" : "3%",
 
             transition: {
               duration: 0.5,
@@ -304,7 +303,7 @@ const SideBar = ({ children }:any) => {
               damping: 10,
             },
           }}
-          className={`sidebar `}
+          className={`sidebar`}
         >
           <div className="top_section">
             <AnimatePresence>
@@ -383,9 +382,19 @@ const SideBar = ({ children }:any) => {
           </section>
         </motion.div>
 
-			  <main style={{ width: "100%",height:"auto"}}>{children}</main>
+			  <motion.div
+				  animate={{
+					width: isOpen ? "89%" : "97%",
+		
+					transition: {
+					  duration: 0.5,
+					  type: "spring",
+					  damping: 10,
+					},
+				  }}
+				 
+				  className='sidebar-children'>{children}</motion.div>
       </div>
-    </>
   );
 };
 
