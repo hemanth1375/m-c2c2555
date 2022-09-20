@@ -2,12 +2,10 @@ import React, { FC, Fragment } from "react";
 import "./OtherFormTab.css";
 
 const OtherFormTab: FC<{}> = () => {
-
   const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+  };
   return (
-
     //other information tab form
     <Fragment>
       <div>
@@ -15,11 +13,11 @@ const OtherFormTab: FC<{}> = () => {
           <div className="other-infromation-form-container">
             <div className="other-form-label-container">
               <label>DATE CREATED:</label>
-              <input type="text" className="other-form-input-container"/>
+              <input type="text" className="other-form-input-container" />
             </div>
             <div className="other-form-label-container">
               <label>DATE MODIFIED:</label>
-              <input type="text" className="other-form-input-container"/>
+              <input type="text" className="other-form-input-container" />
             </div>
           </div>
         </form>

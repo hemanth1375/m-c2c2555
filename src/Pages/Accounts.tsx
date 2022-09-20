@@ -1,13 +1,12 @@
+import CreateAccount from "features/accountsManagement/CreateAccount/CreateAccount";
+import React from "react";
 
- import CreateAccountForm from 'features/accountsManagement/CreateAccount/CreateAccountForm';
-import React from 'react';
- 
- const Accounts = () => {
-    return (
-        <div>
-            <CreateAccountForm/>
-        </div>
-    );
- };
- 
- export default Accounts;
+const Accounts = () => {
+  return (
+    <div>
+      <CreateAccount />
+    </div>
+  );
+};
+
+export default Accounts;

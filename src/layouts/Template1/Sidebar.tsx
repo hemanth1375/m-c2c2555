@@ -103,7 +103,7 @@ const routes = [
 		icon: <AiTwotoneFileExclamation />,
 		subRoutes: [
 		  {
-			path: "/leads/create lead",
+			path: "/leads/createlead",
 			name: "Create Lead ",
 			icon: <FaUser />,
 			},

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./Template.css";
 import Header from './NavbarHeader';
 import Footer from './footer';
