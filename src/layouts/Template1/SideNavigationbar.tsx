@@ -24,8 +24,11 @@ const SideNavigation = () => {
   const [collapsed, setCollapsed] = useState(false);
   const styles = {
     sideBarHeight: {
-        height:"78%",
+      height: "86vh",
+      // minWidth: "200px",
+      // width:"200px"
     },
+    
     menuIcon: {
       float: "right",
       margin: "10px"
@@ -35,7 +38,7 @@ const SideNavigation = () => {
     setCollapsed(!collapsed);
   };
   return (
-    <ProSidebar style={styles.sideBarHeight} collapsed={collapsed}>
+    <ProSidebar style={styles.sideBarHeight} collapsed={collapsed} id="width">
       <SidebarHeader>
         <div onClick={onClickMenuIcon}>
           <AiOutlineMenu className="sidebar-menu-icon"/>
@@ -46,27 +49,40 @@ const SideNavigation = () => {
           <MenuItem className="menuitem">Create Account</MenuItem>
           <MenuItem className="menuitem">View Accounts</MenuItem>
           <MenuItem className="menuitem">Import Accounts</MenuItem>
-          <MenuItem className="menuitem">Recently viewed</MenuItem>
+          {/* <MenuItem className="menuitem">Recently viewed</MenuItem> */}
+          <SubMenu title="Recently Viewed">
+          <MenuItem className="menuitem">NW Capital Corp</MenuItem>
+          </SubMenu>
         </SubMenu>
         <SubMenu title="Contacts" icon={<FaThList />}>
           <MenuItem className="menuitem">Create Contact</MenuItem>
           <MenuItem className="menuitem">Create Contact from view card</MenuItem>
           <MenuItem className="menuitem">View Contacts</MenuItem>
           <MenuItem className="menuitem">Import Contacts</MenuItem>
-          <MenuItem className="menuitem">Recently viewed</MenuItem>
+          {/* <MenuItem className="menuitem">Recently viewed</MenuItem> */}
+          <SubMenu title="Recently Viewed">
+          <MenuItem className="menuitem">Malcolm Chmura</MenuItem>
+          </SubMenu>
         </SubMenu>
         <SubMenu title="Oppotunities" icon={<FaThList />}>
           <MenuItem className="menuitem">Create Opportunity</MenuItem>
           <MenuItem className="menuitem">View Opportunities</MenuItem>
           <MenuItem className="menuitem">Import Oppotunities</MenuItem>
-          <MenuItem className="menuitem">Recently viewed</MenuItem>
+          {/* <MenuItem className="menuitem">Recently viewed</MenuItem> */}
+          <SubMenu title="Recently Viewed">
+          <MenuItem className="menuitem">Q.R.&E. Corp=1000 units</MenuItem>
+          </SubMenu>
         </SubMenu>
         <SubMenu title="Leads" icon={<FaThList />}>
           <MenuItem className="menuitem">Create Lead</MenuItem>
           <MenuItem className="menuitem">Create Lead From vCard</MenuItem>
           <MenuItem className="menuitem">View Leads</MenuItem>
           <MenuItem className="menuitem">Import Leads</MenuItem>
-          <MenuItem className="menuitem">Recently viewed</MenuItem>
+          {/* <MenuItem className="menuitem">Recently viewed</MenuItem> */}
+          <SubMenu title="Recently Viewed">
+            <MenuItem className="menuitem">Marla Garrity</MenuItem>
+            <MenuItem className="menuitem">Ariel Weight</MenuItem>
+          </SubMenu>
         </SubMenu>
         <SubMenu title="Quotes" icon={<FaThList />}>
           <MenuItem className="menuitem">Create Quote</MenuItem>

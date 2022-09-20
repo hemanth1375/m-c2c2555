@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.6",
     "bootstrap": "4.5",
     "formik": "^2.2.9",
+    "framer-motion": "^7.3.5",
     "react": "^18.2.0",
     "react-bootstrap": "2.5",
     "react-bootstrap-sidebar": "^0.0.1",

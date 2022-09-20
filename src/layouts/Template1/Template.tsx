@@ -4,13 +4,14 @@ import Header from './NavbarHeader';
 import SideNavigation from './SideNavigationbar';
 import Footer from './footer';
 
-const Template = () => {
+import SideBar from './Sidebar';
+const Template = (props: any) => {
     return (
         <div className="app-container">
-      <Header />
-      <SideNavigation />
-      <Footer />
-    </div>
+          <Header />
+          <SideBar {...props}/>   
+          <Footer />
+        </div>
     );
 };
 

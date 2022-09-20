@@ -5,6 +5,8 @@
    background-color:black;
 }
 
-.sidebar-height{
-    position: fixed;
+#width{
+    position:fixed;
+     /* min-width:200px;
+    width:200px;  */
 }

@@ -1,5 +1,7 @@
 import React, { FC } from "react";
-import "./FormTabs.css"
+
+import './FormTabs.css'
+
 
 
 type TabsProps = {

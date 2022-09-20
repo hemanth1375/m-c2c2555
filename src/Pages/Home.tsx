@@ -1,11 +1,12 @@
-import Template from "components/Template1/Template";
+import Template from "layouts/Template1/Template";
 import React from "react"
 
 
 const Home = () => {
     return (
         <div>
-            <Template />
+           <h1>Home</h1>
+            
         </div>
     );
 };
