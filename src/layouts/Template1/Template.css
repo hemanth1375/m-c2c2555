@@ -2,8 +2,17 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
   }
-
-/*  .disply-flex{
-    display: flex;
-  } */
+  .header-container{
+    height: 7%;
+    width: 100vw;
+  }
+  .sidebar-container{
+    height: 88%;
+  
+  }
+  .footer-container{
+    height: 5%;
+    background-color: lightgray;
+  }

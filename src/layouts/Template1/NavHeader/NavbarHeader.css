@@ -1,0 +1,22 @@
+.nav-container{
+    background-color: #3c8dbc !important;
+    height: 9%;
+    display:flex;
+    justify-content: space-between;
+    padding:10px;
+    
+}
+.navbar-header-profile-icon{
+    height:50px;
+    width:30px;
+    color:white;
+}
+
+#collasible-nav-dropdown{
+    color:white;
+}
+.h1{
+    color:white;
+    margin-left:10px;
+    font-size:30px !important;
+}

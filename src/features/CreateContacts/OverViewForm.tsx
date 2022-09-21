@@ -81,17 +81,17 @@ interface MyFormProps {
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const [selectedOption, setSelectedOption] = useState<string>();
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const [value, setValue] = useState<string>();
-  // This function is triggered when the select changes
-  const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const TriggredValue = event.target.value;
-    setSelectedOption(TriggredValue);
-  };
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+    const [value, setValue] = useState<string>();
+    // This function is triggered when the select changes
+    const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      const TriggredValue = event.target.value;
+      setSelectedOption(TriggredValue);
+    };
 
-  const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(event.target.value);
-  };
+    const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setValue(event.target.value);
+    };
 
   const {
     values,
@@ -839,7 +839,9 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                   )}
                 </div>
               </div>
-
+                  )}
+                </div>
+              </div>
               <div className="dotted-horizontal-line-container-bottom">
                 <hr className="dotted-horizontal-line-bottom" />
               </div>

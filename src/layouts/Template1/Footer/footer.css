@@ -1,13 +1,17 @@
 .footer-bg{
-    background-color:lightgray;
+    background-color: lightgray;
     padding:10px;
+    /* position:fixed; */
     width:100%;
+    bottom:0;
+    height: 7vh;
     display: flex;
-    height: 5vh;
     justify-content: space-between;
     font-size:12px;
 }
-
+.footer-bg .copyright{
+    font-weight: bold;
+}
 p{
     color:black;
 }

@@ -7,7 +7,7 @@ export const BasicFormInput = styled.input`
 &{
 // property2: ${(props:any) => (props.name === "" ? "value2" : "value3")};
 border-radius: 4px;
-border: ${(props:inputProps) => (props.red===true? "1px solid red" : "1px solid #ccc")} ;
+border: 1px solid #ccc;
 margin-top:5px;
 margin-bottom: 5px;
 width: 100%;
@@ -24,7 +24,8 @@ border: 2px solid #007bff;
 //to apply pseudo classes to styled components we use `{}&{}`
 
 export interface Props {
-    bold?:boolean
+    bold?:boolean,
+    children?:any,
   }
 
 // pass props to this styeled component as weight props

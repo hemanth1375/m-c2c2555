@@ -1,31 +1,29 @@
 import React, { FC, Fragment } from "react";
-import "./OtherFormTab.css";
+import { BasicFormInput, BasicFormInputLabel } from "components/forms";
+import { translate } from "languages";
+import "./Other.css";
 
 const OtherFormTab: FC<{}> = () => {
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-  };
   return (
     //other information tab form
     <Fragment>
       <div>
-      <div className="heading-form-container">
-        <h5 className="heading-form">OTHER INFORMATION</h5>
-      </div>  
-      <div className="contacts-white-form">
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="other-infromation-form-container">
             <div className="other-form-label-container">
-              <label>DATE CREATED:</label>
+              <BasicFormInputLabel>
+                {translate("DATE CREATED")}:
+              </BasicFormInputLabel>
               <input type="text" className="other-form-input-container" />
             </div>
             <div className="other-form-label-container">
-              <label>DATE MODIFIED:</label>
+              <BasicFormInputLabel>
+                {translate("DATE MODIFIED")}:
+              </BasicFormInputLabel>
               <input type="text" className="other-form-input-container" />
             </div>
           </div>
         </form>
-        </div>
       </div>
     </Fragment>
   );
