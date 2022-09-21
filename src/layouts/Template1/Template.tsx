@@ -1,10 +1,10 @@
 import React from "react";
 import "./Template.css";
 import Header from './NavbarHeader';
-import Footer from './footer';
 import SideBar from './Sidebar';
 const Template = (props:any) => {
-    return (
+  return (
+      
       <div className='app-container'>
         <div className='header-container'>
           <Header />
@@ -12,10 +12,11 @@ const Template = (props:any) => {
         <div className='sidebar-container'>
         <SideBar {...props} />   
         </div>
-        <div className='footer-container'>
+        {/* <div className='footer-container'>
           <Footer/>
-        </div>
-        </div>
+        </div> */}
+      </div>
+      
     );
 };
 

@@ -13,7 +13,7 @@ const Header = () => {
 
     <Nav className="nav-container1">
             
-       <span className="navbar-brand mb-0 h1">M-C2C</span>
+       <span className="navbar-brand mb-0 title">M-C2C</span>
             
             
         <div className="navbar-header-select">
@@ -28,7 +28,7 @@ const Header = () => {
           <p>Will Westin</p>
           </button>
           </div>
-        {isDisplay && <Modal />}
+        {isDisplay && <Modal/>}
          </Nav>
         
     

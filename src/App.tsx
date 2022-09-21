@@ -22,17 +22,12 @@ function App() {
   return (
     <IntlProvider locale={locale}>
       <div className="App">
-        <select value={locale} onChange={changeLocale}>
-          <option value={LOCALES.ENGLISH}>English</option>
-          <option value={LOCALES.FRENCH}>French</option>
-          <option value={LOCALES.GERMAN}>German</option>
-        </select>
         <BrowserRouter>
           <Template>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/accounts" element={<Accounts />} />
-              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/contacts/createcontact" element={<Contacts />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/leads" element={<Leads />} />
               <Route path="/opportunities" element={<Opportunities />} />

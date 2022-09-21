@@ -9,6 +9,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import './Sidebar.css'
+import Footer from "./footer";
+
 const routes = [
 	{
 		path: "/accounts",
@@ -254,9 +256,9 @@ const routes = [
 	
 ];
 
-const SideBar = ({ children }:any) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+const SideBar = ({ children }:any,props:any) => {
+	const [isOpen, setIsOpen] = useState(false);
+	const toggle = () => setIsOpen(!isOpen);
   const inputAnimation = {
     hidden: {
       width: 0,
@@ -295,7 +297,7 @@ const SideBar = ({ children }:any) => {
       <div className="main-container">
         <motion.div
           animate={{
-            width: isOpen ? "11%" : "3%",
+            width: isOpen ? "12%" : "3%",
 
             transition: {
               duration: 0.5,
@@ -349,7 +351,8 @@ const SideBar = ({ children }:any) => {
                     setIsOpen={setIsOpen}
                     route={route}
                     showAnimation={showAnimation}
-                    isOpen={isOpen}
+					isOpen={isOpen}
+					key={index}
                   />
                 );
               }
@@ -381,10 +384,10 @@ const SideBar = ({ children }:any) => {
             })}
           </section>
         </motion.div>
-
+			
 			  <motion.div
 				  animate={{
-					width: isOpen ? "89%" : "97%",
+					width: isOpen ? "88%" : "97%",
 		
 					transition: {
 					  duration: 0.5,
@@ -393,7 +396,11 @@ const SideBar = ({ children }:any) => {
 					},
 				  }}
 				 
-				  className='sidebar-children'>{children}</motion.div>
+			  className='sidebar-children'>
+			  <div>{children}</div>
+			  <div><Footer /></div>
+		  </motion.div>
+	
       </div>
   );
 };
