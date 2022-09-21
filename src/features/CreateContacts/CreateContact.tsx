@@ -1,5 +1,5 @@
 // import { FormTabs } from "components/forms";
-import MoreInformationTab from "./MoreInformationTab";
+
 // import OtherFormTab from "./OtherFormTab";
 import OverViewForm from "./OverViewForm";
 import {useState} from 'react'

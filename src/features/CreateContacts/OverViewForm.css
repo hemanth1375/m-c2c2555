@@ -16,7 +16,6 @@
   
   .overview-error-paragraph::before {
     display: inline;
-    content: "⚠ ";
   }
   
   .overview-input-form {

@@ -12,7 +12,7 @@
   
   .overview-error-paragraph::before {
     display: inline;
-    content: "⚠ ";
+    content: "";
   }
   
   .overview-input-form {
@@ -244,7 +244,7 @@
         outline: none;
     }
 
-<<<<<<<< HEAD:src/features/CreateOpportunities/Basic.css
+
     .vline {
       border-right: 1px solid black;
       height: 100%;
@@ -256,6 +256,3 @@
     .row-height{
       height:100%;
     }
-========
-  
->>>>>>>> 497b14dfe326606f505ce4df772d814373816084:src/features/accountsManagement/CreateAccount/OverViewForm.css

@@ -81,17 +81,17 @@ interface MyFormProps {
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const [selectedOption, setSelectedOption] = useState<string>();
-    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-    const [value, setValue] = useState<string>();
-    // This function is triggered when the select changes
-    const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-      const TriggredValue = event.target.value;
-      setSelectedOption(TriggredValue);
-    };
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const [value, setValue] = useState<string>();
+  // This function is triggered when the select changes
+  const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const TriggredValue = event.target.value;
+    setSelectedOption(TriggredValue);
+  };
 
-    const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setValue(event.target.value);
-    };
+  const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(event.target.value);
+  };
 
   const {
     values,
@@ -189,21 +189,20 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 </div>
               </div>
             </div>
-            
           </div>
           <div className="button-container">
-          <button
-            disabled={
-              isSubmitting ||
-              !!(errors.firstName && touched.firstName) ||
-              !!(errors.lastName && touched.lastName)
-            }
-            type="submit"
-            className="button-submit"
-          >
-            {" "}
-            Submit
-          </button>
+            <button
+              disabled={
+                isSubmitting ||
+                !!(errors.firstName && touched.firstName) ||
+                !!(errors.lastName && touched.lastName)
+              }
+              type="submit"
+              className="button-submit"
+            >
+              {" "}
+              Submit
+            </button>
           </div>
           <div className="dotted-horizontal-line-container">
             <hr className="dotted-horizontal-line" />
@@ -760,140 +759,134 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               </div>
             </div>
           </div>
-          </form>
-          </div>
-          <div className="heading-form-container">
-            <h5 className="heading-form">MORE INFORMATION</h5>
-          </div>
-          <div className="contacts-white-form">
+        </form>
+      </div>
+      <div className="heading-form-container">
+        <h5 className="heading-form">MORE INFORMATION</h5>
+      </div>
+      <div className="contacts-white-form">
         <form onSubmit={handleSubmit} className="overview-form">
           <div className="contacts-white-form-moreinfo">
-            <form onSubmit={handleSubmit}>
-              <div className="more-info-form-flex-container-row-three">
-                <div className="more-info-drop-down">
-                  <BasicFormInputLabel>LEAD SOURCE</BasicFormInputLabel>
-                  <div className="dropdown-container">
-                    <select
-                      onChange={selectChange}
-                      className="overview-select-item"
-                      placeholder="Select an item"
-                    >
-                      <option value={selectedOption}>Cold Call</option>
-                      <option value={selectedOption}>Existing Customer</option>
-                      <option value={selectedOption}>Self Generated</option>
-                      <option value={selectedOption}>Employee</option>
-                      <option value={selectedOption}>Partner</option>
-                      <option value={selectedOption}>
-                        Public Relationship
-                      </option>
-                      <option value={selectedOption}>Direct Mail</option>
-                      <option value={selectedOption}>Conference</option>
-                      <option value={selectedOption}>Trade Show</option>
-                      <option value={selectedOption}>Website</option>
-                      <option value={selectedOption}>Word of Mouth</option>
-                      <option value={selectedOption}>Email</option>
-                      <option value={selectedOption}>Campaign</option>
-                      <option value={selectedOption}>Other</option>
-                    </select>
-                  </div>
+            <div className="more-info-form-flex-container-row-three">
+              <div className="more-info-drop-down">
+                <BasicFormInputLabel>LEAD SOURCE</BasicFormInputLabel>
+                <div className="dropdown-container">
+                  <select
+                    onChange={selectChange}
+                    className="overview-select-item"
+                    placeholder="Select an item"
+                  >
+                    <option value={selectedOption}>Cold Call</option>
+                    <option value={selectedOption}>Existing Customer</option>
+                    <option value={selectedOption}>Self Generated</option>
+                    <option value={selectedOption}>Employee</option>
+                    <option value={selectedOption}>Partner</option>
+                    <option value={selectedOption}>Public Relationship</option>
+                    <option value={selectedOption}>Direct Mail</option>
+                    <option value={selectedOption}>Conference</option>
+                    <option value={selectedOption}>Trade Show</option>
+                    <option value={selectedOption}>Website</option>
+                    <option value={selectedOption}>Word of Mouth</option>
+                    <option value={selectedOption}>Email</option>
+                    <option value={selectedOption}>Campaign</option>
+                    <option value={selectedOption}>Other</option>
+                  </select>
                 </div>
-                <div className="over-view-form-input-box-width">
-                  <div>
-                    <BasicFormInputLabel htmlFor="leadSource">
-                      REPORTS TO:
-                    </BasicFormInputLabel>
-                    <BasicFormInput
-                      type="text"
-                      id="reportTo"
-                      placeholder="Type to search..."
-                      className="more-info-input-box"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.reportTo}
-                      red={touched.reportTo && errors.reportTo && true}
-                    />
-                  </div>
-                  {touched.reportTo && errors.reportTo && (
-                    <div className="form-validation-errors">
-                      {errors.reportTo}
-                    </div>
-                  )}
-                </div>
-                <div className="over-view-form-input-box-width">
+              </div>
+              <div className="over-view-form-input-box-width">
+                <div>
                   <BasicFormInputLabel htmlFor="leadSource">
-                    CAMPAIGN:
+                    REPORTS TO:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
-                    id="campaign"
+                    id="reportTo"
                     placeholder="Type to search..."
+                    className="more-info-input-box"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.campaign}
-                    red={touched.campaign && errors.campaign && true}
+                    value={values.reportTo}
+                    red={touched.reportTo && errors.reportTo && true}
                   />
-                  {touched.campaign && errors.campaign && (
-                    <div className="form-validation-errors">
-                      {errors.campaign}
-                    </div>
-                  )}
                 </div>
+                {touched.reportTo && errors.reportTo && (
+                  <div className="form-validation-errors">
+                    {errors.reportTo}
+                  </div>
+                )}
               </div>
-                  )}
-                </div>
+              <div className="over-view-form-input-box-width">
+                <BasicFormInputLabel htmlFor="leadSource">
+                  CAMPAIGN:
+                </BasicFormInputLabel>
+                <BasicFormInput
+                  type="text"
+                  id="campaign"
+                  placeholder="Type to search..."
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.campaign}
+                  red={touched.campaign && errors.campaign && true}
+                />
+                {touched.campaign && errors.campaign && (
+                  <div className="form-validation-errors">
+                    {errors.campaign}
+                  </div>
+                )}
               </div>
-              <div className="dotted-horizontal-line-container-bottom">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
+            </div>
+          </div>
 
-              <div className="other-infromation-form-container">
-                <div className="over-view-form-input-box-width">
-                  <BasicFormInputLabel htmlFor="dateCreated">
-                    DATE CREATED:
-                  </BasicFormInputLabel>
-                  <BasicFormInput
-                    type="date"
-                    className="more-info-date-input"
-                    id="dateCreated"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.dateCreated}
-                    red={touched.dateCreated && errors.dateCreated && true}
-                  />
-                  {touched.dateCreated && errors.dateCreated && (
-                    <div className="form-validation-errors">
-                      {errors.dateCreated}
-                    </div>
-                  )}
+          <div className="dotted-horizontal-line-container-bottom">
+            <hr className="dotted-horizontal-line-bottom" />
+          </div>
+
+          <div className="other-infromation-form-container">
+            <div className="over-view-form-input-box-width">
+              <BasicFormInputLabel htmlFor="dateCreated">
+                DATE CREATED:
+              </BasicFormInputLabel>
+              <BasicFormInput
+                type="date"
+                className="more-info-date-input"
+                id="dateCreated"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.dateCreated}
+                red={touched.dateCreated && errors.dateCreated && true}
+              />
+              {touched.dateCreated && errors.dateCreated && (
+                <div className="form-validation-errors">
+                  {errors.dateCreated}
                 </div>
-                <div className="over-view-form-input-box-width">
-                  <BasicFormInputLabel
-                    htmlFor="dateModified"
-                    className="address-form-margin"
-                  >
-                    DATE MODIFIED:
-                  </BasicFormInputLabel>
-                  <BasicFormInput
-                    type="date"
-                    placeholder="date"
-                    className="more-info-date-input address-form-margin"
-                    id="dateModified"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.dateModified}
-                    red={touched.dateModified && errors.dateModified && true}
-                  />
-                  {touched.dateModified && errors.dateModified && (
-                    <div className="form-validation-errors error-margin">
-                      {errors.dateModified}
-                    </div>
-                  )}
+              )}
+            </div>
+            <div className="over-view-form-input-box-width">
+              <BasicFormInputLabel
+                htmlFor="dateModified"
+                className="address-form-margin"
+              >
+                DATE MODIFIED:
+              </BasicFormInputLabel>
+              <BasicFormInput
+                type="date"
+                placeholder="date"
+                className="more-info-date-input address-form-margin"
+                id="dateModified"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.dateModified}
+                red={touched.dateModified && errors.dateModified && true}
+              />
+              {touched.dateModified && errors.dateModified && (
+                <div className="form-validation-errors error-margin">
+                  {errors.dateModified}
                 </div>
-              </div>
-              <div className="dotted-horizontal-line-container-bottom">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </form>
+              )}
+            </div>
+          </div>
+          <div className="dotted-horizontal-line-container-bottom">
+            <hr className="dotted-horizontal-line-bottom" />
           </div>
         </form>
       </div>
