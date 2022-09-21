@@ -9,10 +9,11 @@
     width: 100vw;
   }
   .sidebar-container{
-    height: 88%;
+    height: 93%;
   
   }
-  .footer-container{
+  /* .footer-container{
     height: 5%;
     background-color: lightgray;
-  }
+
+  } */

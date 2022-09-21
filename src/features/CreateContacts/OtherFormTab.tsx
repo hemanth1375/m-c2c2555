@@ -9,6 +9,10 @@ const OtherFormTab: FC<{}> = () => {
     //other information tab form
     <Fragment>
       <div>
+      <div className="heading-form-container">
+        <h5 className="heading-form">OTHER INFORMATION</h5>
+      </div>  
+      <div className="contacts-white-form">
         <form onSubmit={handleSubmit}>
           <div className="other-infromation-form-container">
             <div className="other-form-label-container">
@@ -21,6 +25,7 @@ const OtherFormTab: FC<{}> = () => {
             </div>
           </div>
         </form>
+        </div>
       </div>
     </Fragment>
   );

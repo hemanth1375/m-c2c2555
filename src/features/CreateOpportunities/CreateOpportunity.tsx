@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import './CreateOpportunities.css';
-import OverViewForm from "./Basic";
+import OverViewForm from "./BasicForm";
 import OtherFormTab from "./OtherFormTab";
 import { FormTabs } from "components/forms";
-import Basic from './Basic';
+import BasicForm from './BasicForm';
 type TabsType = {
     label: string;
     index: number;
@@ -15,7 +15,7 @@ type TabsType = {
     {
       label: "BASIC",
       index: 1,
-      Component: Basic
+      Component: BasicForm
     },
     {
         label: "OTHER",

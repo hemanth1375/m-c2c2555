@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="footer-bg">
       <div className="copyright">
         <p>
-          &copy; 2022 Massil Technologies|Cookie Policy|Privacy Policy|Terms And
+          &copy; 2022 Massil Technologies | Cookie Policy | Privacy Policy | Terms And
           Conditions
         </p>
       </div>

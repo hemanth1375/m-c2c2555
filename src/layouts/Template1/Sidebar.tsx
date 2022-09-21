@@ -10,6 +10,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { translate } from "languages";
 import "./Sidebar.css";
+import Footer from "./footer";
+
 const routes = [
   {
     path: "/accounts",
@@ -291,10 +293,10 @@ const SideBar = ({ children }: any) => {
   };
 
   return (
-    <div className="main-container">
-      <motion.div
-        animate={{
-          width: isOpen ? "11%" : "3%",
+      <div className="main-container">
+        <motion.div
+          animate={{
+            width: isOpen ? "12%" : "3%",
 
           transition: {
             duration: 0.5,
@@ -319,30 +321,41 @@ const SideBar = ({ children }: any) => {
             )}
           </AnimatePresence>
 
-          <div className="bars">
-            <FaBars onClick={toggle} />
+            <div className="bars">
+              <FaBars onClick={toggle} />
+            </div>
           </div>
-        </div>
-        <div className="search">
-          <div className="search_icon">
-            <BiSearch />
+          <div className="search">
+            <div className="search_icon">
+              <BiSearch />
+            </div>
+            <AnimatePresence>
+              {isOpen && (
+                <motion.input
+                  initial="hidden"
+                  animate="show"
+                  exit="hidden"
+                  variants={inputAnimation}
+                  type="text"
+                  placeholder="Search"
+                />
+              )}
+            </AnimatePresence>
           </div>
-          <AnimatePresence>
-            {isOpen && (
-              <motion.input
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                variants={inputAnimation}
-                type="text"
-                placeholder="Search"
-              />
-            )}
-          </AnimatePresence>
-        </div>
-        <section className="routes">
-          {routes.map((route, index) => {
-            if (route.subRoutes) {
+          <section className="routes">
+            {routes.map((route, index) => {
+              if (route.subRoutes) {
+                return (
+                  <SidebarMenu
+                    setIsOpen={setIsOpen}
+                    route={route}
+                    showAnimation={showAnimation}
+					isOpen={isOpen}
+					key={index}
+                  />
+                );
+              }
+
               return (
                 <SidebarMenu
                   setIsOpen={setIsOpen}
@@ -351,51 +364,27 @@ const SideBar = ({ children }: any) => {
                   isOpen={isOpen}
                 />
               );
-            }
-
-            return (
-              <NavLink
-                to={route.path}
-                key={index}
-                className="link"
-                //   activeClassName="active"
-              >
-                <div className="icon">{route.icon}</div>
-
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      variants={showAnimation}
-                      initial="hidden"
-                      animate="show"
-                      exit="hidden"
-                      className="link_text"
-                    >
-                      {route.name}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </NavLink>
-            );
-          })}
-        </section>
-      </motion.div>
-
-      <motion.div
-        animate={{
-          width: isOpen ? "89%" : "97%",
-
-          transition: {
-            duration: 0.5,
-            type: "spring",
-            damping: 10,
-          },
-        }}
-        className="sidebar-children"
-      >
-        {children}
-      </motion.div>
-    </div>
+            })}
+          </section>
+        </motion.div>
+			
+			  <motion.div
+				  animate={{
+					width: isOpen ? "88%" : "97%",
+		
+					transition: {
+					  duration: 0.5,
+					  type: "spring",
+					  damping: 10,
+					},
+				  }}
+				 
+			  className='sidebar-children'>
+			  <div>{children}</div>
+			  <div><Footer /></div>
+		  </motion.div>
+	
+      </div>
   );
 };
 

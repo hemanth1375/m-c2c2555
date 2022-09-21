@@ -6,7 +6,7 @@
 
 .main-container {
   display: flex;
-  height: 88vh;
+  height: 93vh;
 }
 .title {
   font-size: 3rem;
@@ -28,7 +28,9 @@
   height: 100%;
   margin-left: auto;
   overflow-x: hidden;
- 
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .top_section {
   display: flex;
