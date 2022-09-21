@@ -22,11 +22,6 @@ function App() {
   return (
     <IntlProvider locale={locale}>
       <div className="App">
-        <select value={locale} onChange={changeLocale}>
-          <option value={LOCALES.ENGLISH}>English</option>
-          <option value={LOCALES.FRENCH}>French</option>
-          <option value={LOCALES.GERMAN}>German</option>
-        </select>
         <BrowserRouter>
           <Template>
             <Routes>

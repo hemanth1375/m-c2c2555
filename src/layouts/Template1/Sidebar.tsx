@@ -8,253 +8,252 @@ import { BsCartCheck } from "react-icons/bs";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
-import './Sidebar.css'
+import { translate } from "languages";
+import "./Sidebar.css";
 const routes = [
-	{
-		path: "/accounts",
-		name: "Accounts",
-		icon: <AiTwotoneFileExclamation />,
-		subRoutes: [
-		  {
-			path: "/accounts/createaccount",
-			name: "Create Account ",
-			icon: <FaUser />,
-		  },
-		  {
-			path: "/accounts/viewaccount",
-			name: "View Account",
-			icon: <FaLock />,
-		  },
-		  {
-			path: "/accounts/importaccounts",
-			name: "Import Account",
-			icon: <FaMoneyBill />,
-			},
-			{
-				path: "/accounts/recentlyviewed",
-				name: "Recently Viewed",
-				icon: <FaMoneyBill />,
-			  },
-		],
-	},
-	{
-		path: "/contacts",
-		name: "Contacts",
-		icon: <AiTwotoneFileExclamation />,
-		subRoutes: [
-		  {
-			path: "/contacts/createcontact",
-			name: "Create contact ",
-			icon: <FaUser />,
-			},
-			{
-				path: "/contacts/createcontactfromvcard",
-				name: "Create Contact From vCard",
-				icon: <FaUser />,
-			  },
-		  {
-			path: "/contacts/viewcontacts",
-			name: "View Contact",
-			icon: <FaLock />,
-		  },
-		  {
-			path: "/contacts/importcontacts",
-			name: "Import Contacts",
-			icon: <FaMoneyBill />,
-			},
-			{
-				path: "/contacts/recentlyviewed",
-				name: "Recently Viewed",
-				icon: <FaMoneyBill />,
-			  },
-		],
-	},
-	
-	{
-		path: "/oppotunities",
-		name: "Opportunities",
-		icon: <AiTwotoneFileExclamation />,
-		subRoutes: [
-		  {
-			path: "/opportunities/createopportunity",
-			name: "Create Oppotunity ",
-			icon: <FaUser />,
-		  },
-		  {
-			path: "/opportunities/viewopportunity",
-			name: "View Opportunity",
-			icon: <FaLock />,
-		  },
-		  {
-			path: "/opportunities/importopportunity",
-			name: "Import Opportunity",
-			icon: <FaMoneyBill />,
-			},
-			{
-				path: "/opportunities/recentlyviewed",
-				name: "Recently Viewed",
-				icon: <FaMoneyBill />,
-			  },
-		],
-	},
-	{
-		path: "/leads",
-		name: "Leads",
-		icon: <AiTwotoneFileExclamation />,
-		subRoutes: [
-		  {
-			path: "/leads/createlead",
-			name: "Create Lead ",
-			icon: <FaUser />,
-			},
-			{
-				path: "/leads/createleadfromvcard",
-				name: "Create Lead From vCard ",
-				icon: <FaUser />,
-			  },
-		  {
-			path: "/leads/viewleads",
-			name: "View Leads",
-			icon: <FaLock />,
-		  },
-		  {
-			path: "/leads/importleads",
-			name: "Import Leads",
-			icon: <FaMoneyBill />,
-			},
-			{
-				path: "/leads/recentlyviewed",
-				name: "Recently Viewed",
-				icon: <FaMoneyBill />,
-			  },
-		],
-	},
-	{
-		path: "/quotes",
-		name: "Quotes",
-		icon: <AiTwotoneFileExclamation />,
-		subRoutes: [
-		  {
-			path: "/quotes/createquote",
-			name: "Create Quote ",
-			icon: <FaUser />,
-			},
-		  {
-			path: "/quotes/viewquotes",
-			name: "View Quotes",
-			icon: <FaLock />,
-		  },
-		  {
-			path: "/quotes/importquotes",
-			name: "Import Quotes",
-			icon: <FaMoneyBill />,
-			},
-			{
-				path: "/quotes/importlineitems",
-				name: "Import Line Items",
-				icon: <FaMoneyBill />,
-			  },
-		],
-	},
-	{
-		path: "/calender",
-		name: "Calender",
-		icon: <AiTwotoneFileExclamation />,
-		subRoutes: [
-		  {
-			path: "/calender/schedulemeeting",
-			name: "Schedule Meeting ",
-			icon: <FaUser />,
-			},
-			{
-				path: "/calender/schedulecall",
-				name: "Schedule Call ",
-				icon: <FaUser />,
-			  },
-		  {
-			path: "/calender/createtask",
-			name: "Create Task",
-			icon: <FaLock />,
-		  },
-		  {
-			path: "/calender/today",
-			name: "Today",
-			icon: <FaMoneyBill />,
-			},
-			
-		],
-	},
-	{
-		path: "/more",
-		name: "More",
-		icon: <AiTwotoneFileExclamation />,
-		subRoutes: [
-		  {
-			path: "/more/home",
-			name: "Home ",
-			icon: <FaUser />,
-			},
-			{
-				path: "/more/opportunities",
-				name: "Opportunities ",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/documents",
-				name: "documents ",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/email",
-				name: "Email",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/campaigns",
-				name: "Campaigns",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/calls",
-				name: "Calls",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/meeting",
-				name: "Meetings",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/task",
-				name: "Tasks ",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/notes",
-				name: "Notes ",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/invoice",
-				name: "Invoices",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/contracts",
-				name: "Contracts",
-				icon: <FaUser />,
-			},
-			{
-				path: "/more/cases",
-				name: "Cases ",
-				icon: <FaUser />,
-				},
-		],
-	},
-	
+  {
+    path: "/accounts",
+    name: translate("ACCOUNTS"),
+    icon: <AiTwotoneFileExclamation />,
+    subRoutes: [
+      {
+        path: "/accounts",
+        name: translate("Create Account"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/accounts/viewaccount",
+        name: translate("View Account"),
+        icon: <FaLock />,
+      },
+      {
+        path: "/accounts/importaccounts",
+        name: translate("Import Account"),
+        icon: <FaMoneyBill />,
+      },
+      {
+        path: "/accounts/recentlyviewed",
+        name: translate("Recently Viewed"),
+        icon: <FaMoneyBill />,
+      },
+    ],
+  },
+  {
+    path: "/contacts",
+    name: translate("Contacts"),
+    icon: <AiTwotoneFileExclamation />,
+    subRoutes: [
+      {
+        path: "/contacts",
+        name: translate("Create contact"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/contacts/createcontactfromvcard",
+        name: translate("Create Contact From vCard"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/contacts/viewcontacts",
+        name: translate("View Contact"),
+        icon: <FaLock />,
+      },
+      {
+        path: "/contacts/importcontacts",
+        name: translate("Import Contacts"),
+        icon: <FaMoneyBill />,
+      },
+      {
+        path: "/contacts/recentlyviewed",
+        name: translate("Recently Viewed"),
+        icon: <FaMoneyBill />,
+      },
+    ],
+  },
+
+  {
+    path: "/oppotunities",
+    name: translate("Opportunities"),
+    icon: <AiTwotoneFileExclamation />,
+    subRoutes: [
+      {
+        path: "/opportunities/createopportunity",
+        name: translate("Create Oppotunity"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/opportunities/viewopportunity",
+        name: translate("View Opportunity"),
+        icon: <FaLock />,
+      },
+      {
+        path: "/opportunities/importopportunity",
+        name: translate("Import Opportunity"),
+        icon: <FaMoneyBill />,
+      },
+      {
+        path: "/opportunities/recentlyviewed",
+        name: translate("Recently Viewed"),
+        icon: <FaMoneyBill />,
+      },
+    ],
+  },
+  {
+    path: "/leads",
+    name: translate("Leads"),
+    icon: <AiTwotoneFileExclamation />,
+    subRoutes: [
+      {
+        path: "/leads/createlead",
+        name: translate("Create Lead"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/leads/createleadfromvcard",
+        name: translate("Create Lead From vCard"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/leads/viewleads",
+        name: translate("View Leads"),
+        icon: <FaLock />,
+      },
+      {
+        path: "/leads/importleads",
+        name: translate("Import Leads"),
+        icon: <FaMoneyBill />,
+      },
+      {
+        path: "/leads/recentlyviewed",
+        name: translate("Recently Viewed"),
+        icon: <FaMoneyBill />,
+      },
+    ],
+  },
+  {
+    path: "/quotes",
+    name: translate("Quotes"),
+    icon: <AiTwotoneFileExclamation />,
+    subRoutes: [
+      {
+        path: "/quotes/createquote",
+        name: translate("Create Quote"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/quotes/viewquotes",
+        name: translate("View Quotes"),
+        icon: <FaLock />,
+      },
+      {
+        path: "/quotes/importquotes",
+        name: translate("Import Quotes"),
+        icon: <FaMoneyBill />,
+      },
+      {
+        path: "/quotes/importlineitems",
+        name: translate("Import Line Items"),
+        icon: <FaMoneyBill />,
+      },
+    ],
+  },
+  {
+    path: "/calender",
+    name: translate("Calender"),
+    icon: <AiTwotoneFileExclamation />,
+    subRoutes: [
+      {
+        path: "/calender/schedulemeeting",
+        name: translate("Schedule Meeting"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/calender/schedulecall",
+        name: translate("Schedule Call"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/calender/createtask",
+        name: translate("Create Task"),
+        icon: <FaLock />,
+      },
+      {
+        path: "/calender/today",
+        name: translate("Today"),
+        icon: <FaMoneyBill />,
+      },
+    ],
+  },
+  {
+    path: "/more",
+    name: translate("More"),
+    icon: <AiTwotoneFileExclamation />,
+    subRoutes: [
+      {
+        path: "/more/home",
+        name: translate("Home"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/opportunities",
+        name: translate("Opportunities"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/documents",
+        name: translate("documents"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/email",
+        name: translate("Email"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/campaigns",
+        name: translate("Campaigns"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/calls",
+        name: translate("Calls"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/meeting",
+        name: translate("Meetings"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/task",
+        name: translate("Tasks"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/notes",
+        name: translate("Notes"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/invoice",
+        name: translate("Invoices"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/contracts",
+        name: translate("Contracts"),
+        icon: <FaUser />,
+      },
+      {
+        path: "/more/cases",
+        name: translate("Cases"),
+        icon: <FaUser />,
+      },
+    ],
+  },
 ];
 
-const SideBar = ({ children }:any) => {
+const SideBar = ({ children }: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const inputAnimation = {
@@ -360,10 +359,10 @@ const SideBar = ({ children }:any) => {
                   to={route.path}
                   key={index}
                   className="link"
-                //   activeClassName="active"
+                  //   activeClassName="active"
                 >
-					  <div className="icon">{route.icon}</div>
-					  
+                  <div className="icon">{route.icon}</div>
+
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -383,7 +382,7 @@ const SideBar = ({ children }:any) => {
           </section>
         </motion.div>
 
-			  <main style={{ width: "100%",height:"auto"}}>{children}</main>
+        <main style={{ width: "100%", height: "auto" }}>{children}</main>
       </div>
     </>
   );
