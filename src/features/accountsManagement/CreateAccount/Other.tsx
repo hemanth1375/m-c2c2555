@@ -12,13 +12,13 @@ const OtherFormTab: FC<{}> = () => {
           <div className="other-infromation-form-container">
             <div className="other-form-label-container">
               <BasicFormInputLabel>
-                {translate("DATE CREATED")}:
+                {translate("dateCreated")}:
               </BasicFormInputLabel>
               <input type="text" className="other-form-input-container" />
             </div>
             <div className="other-form-label-container">
               <BasicFormInputLabel>
-                {translate("DATE MODIFIED")}:
+                {translate("dateModified")}:
               </BasicFormInputLabel>
               <input type="text" className="other-form-input-container" />
             </div>

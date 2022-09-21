@@ -69,7 +69,7 @@ const OverViewForm: FC<{}> = () => {
           <div className="left-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("NAME")}:
+                {translate("name")}:
               </BasicFormInputLabel>
               <BasicFormInput {...register("officePhone")} />
             </div>
@@ -80,7 +80,7 @@ const OverViewForm: FC<{}> = () => {
           <div className="right-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("OFFICE PHONE")}:
+                {translate("officePhone")}:
               </BasicFormInputLabel>
               <BasicFormInput
                 {...register("mobile")}
@@ -101,7 +101,7 @@ const OverViewForm: FC<{}> = () => {
           <div className="left-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("WEBSITE")}:
+                {translate("website")}:
               </BasicFormInputLabel>
               <BasicFormInput {...register("officePhone")} />
             </div>
@@ -112,7 +112,7 @@ const OverViewForm: FC<{}> = () => {
           <div className="right-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("FAX")}:
+                {translate("fax")}:
               </BasicFormInputLabel>
               <BasicFormInput {...register("mobile")} />
             </div>
@@ -127,7 +127,7 @@ const OverViewForm: FC<{}> = () => {
           <div className="right-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("EMAIL ADDRESS")}:
+                {translate("emailAddress")}:
               </BasicFormInputLabel>
               <BasicFormInput {...register("mobile")} />
             </div>
@@ -141,12 +141,12 @@ const OverViewForm: FC<{}> = () => {
           <div className="left-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("BILLING ADDRESS")}:
+                {translate("billingAddress")}:
               </BasicFormInputLabel>
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Billing Street")}
+                    {translate("billingStreet")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -154,7 +154,7 @@ const OverViewForm: FC<{}> = () => {
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Billing Postal Code")}
+                    {translate("billingPostalCode")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -162,7 +162,7 @@ const OverViewForm: FC<{}> = () => {
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Billing City")}
+                    {translate("billingCity")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -170,7 +170,7 @@ const OverViewForm: FC<{}> = () => {
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Billing State")}
+                    {translate("billingState")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -178,7 +178,7 @@ const OverViewForm: FC<{}> = () => {
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Billing Country")}
+                    {translate("billingCountry")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -192,12 +192,12 @@ const OverViewForm: FC<{}> = () => {
           <div className="right-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("SHIPPING ADDRESS")}:
+                {translate("shippingAddress")}:
               </BasicFormInputLabel>
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Shipping Street")}
+                    {translate("shippingStreet")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput
@@ -208,7 +208,7 @@ const OverViewForm: FC<{}> = () => {
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Shipping Postal Code")}
+                    {translate("shippingPostalCode")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -216,7 +216,7 @@ const OverViewForm: FC<{}> = () => {
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Shipping City")}
+                    {translate("shippingCity")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -224,7 +224,7 @@ const OverViewForm: FC<{}> = () => {
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Shipping State")}
+                    {translate("shippingState")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -232,7 +232,7 @@ const OverViewForm: FC<{}> = () => {
               <div className="over-view-address-form">
                 <div className="over-view-address-label-form">
                   <BasicFormInputLabel>
-                    {translate("Shipping Country")}
+                    {translate("shippingCountry")}
                   </BasicFormInputLabel>
                 </div>
                 <BasicFormInput {...register("officePhone")} />
@@ -248,7 +248,7 @@ const OverViewForm: FC<{}> = () => {
           <div className="left-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("DESCRIPTION")}:
+                {translate("description")}:
               </BasicFormInputLabel>
               <textarea
                 ref={textareaRef}
@@ -265,7 +265,7 @@ const OverViewForm: FC<{}> = () => {
           <div className="right-container">
             <div>
               <BasicFormInputLabel bold>
-                {translate("ASSIGNED TO")}:
+                {translate("assignedTo")}:
               </BasicFormInputLabel>
               <input
                 {...register("mobile")}

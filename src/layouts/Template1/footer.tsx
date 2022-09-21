@@ -1,7 +1,7 @@
 import { BsFacebook } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
-import './footer.css'
+import "./footer.css";
 const Footer = () => {
   return (
     <div className="footer-bg">

@@ -19,7 +19,7 @@ const MoreInformationTab: FC<{}> = () => {
               <div className="over-view-form-bottom-containers">
                 <div className="left-container">
                   <BasicFormInputLabel htmlFor="leadSource" bold>
-                    {translate("TYPE")}:
+                    {translate("type")}:
                   </BasicFormInputLabel>
                   <input
                     type="text"
@@ -39,7 +39,7 @@ const MoreInformationTab: FC<{}> = () => {
                 </div>
                 <div className="right-container">
                   <BasicFormInputLabel htmlFor="leadSource" bold>
-                    {translate("INDUSTRY")}:
+                    {translate("industry")}:
                   </BasicFormInputLabel>
                   <input
                     type="text"
@@ -61,7 +61,7 @@ const MoreInformationTab: FC<{}> = () => {
               <div className="over-view-form-bottom-containers">
                 <div className="left-container">
                   <BasicFormInputLabel htmlFor="leadSource" bold>
-                    {translate("ANNUAL REVENUE")}:
+                    {translate("annualRevenue")}:
                   </BasicFormInputLabel>
                   <input
                     type="text"
@@ -76,7 +76,7 @@ const MoreInformationTab: FC<{}> = () => {
                 </div>
                 <div className="right-container">
                   <BasicFormInputLabel htmlFor="leadSource" bold>
-                    {translate("EMPLOYEES")}:
+                    {translate("employees")}:
                   </BasicFormInputLabel>
                   <input
                     type="text"
@@ -95,7 +95,7 @@ const MoreInformationTab: FC<{}> = () => {
               <div className="over-view-form-bottom-containers">
                 <div className="left-container">
                   <BasicFormInputLabel htmlFor="leadSource" bold>
-                    {translate("MEMBER OF")}:
+                    {translate("memberOf")}:
                   </BasicFormInputLabel>
                   <input
                     type="text"
@@ -114,7 +114,7 @@ const MoreInformationTab: FC<{}> = () => {
               <div className="over-view-form-bottom-containers">
                 <div className="left-container">
                   <BasicFormInputLabel htmlFor="leadSource" bold>
-                    {translate("CAMPAIGN")}
+                    {translate("campaign")}
                   </BasicFormInputLabel>
                   <input
                     type="text"
