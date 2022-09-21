@@ -4,7 +4,8 @@ import { FormattedMessage } from "react-intl";
 // not converting to local camel or start case
 
 const translate = (id: string, value: object = {}) => {
-  console.log(id.toLocaleUpperCase());
-  return <FormattedMessage id={id} values={{ ...value }} />;
+  const convertedId = id.toLocaleLowerCase("fr-ca");
+
+  return <FormattedMessage id={convertedId} values={{ ...value }} />;
 };
 export default translate;

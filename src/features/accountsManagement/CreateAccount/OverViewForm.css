@@ -12,7 +12,7 @@
   
   .overview-error-paragraph::before {
     display: inline;
-    content: "⚠ ";
+    content: "";
   }
   
   .overview-input-form {

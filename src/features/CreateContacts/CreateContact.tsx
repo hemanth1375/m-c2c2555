@@ -1,36 +1,44 @@
-import React, {useState} from "react";
-import './CreateContact.css';
-import OverViewForm from "./OverViewForm";
-import MoreInformationTab from "./MoreInformationTab";
-import OtherFormTab from "./OtherFormTab";
-import { FormTabs } from "components/forms";
+// import { FormTabs } from "components/forms";
 
-type TabsType = {
-    label: string;
-    index: number;
-    Component: React.FC<{}>;
-  }[];
+// import OtherFormTab from "./OtherFormTab";
+import OverViewForm from "./OverViewForm";
+import {useState} from 'react'
+import './CreateContact.css';
+
+// type TabsType = {
+//     label: string;
+//     index: number;
+//     Component: React.FC<{}>;
+//   }[];
   
   // Tabs Array
-  const tabs: TabsType = [
-    {
-      label: "OVERVIEW",
-      index: 1,
-      Component: OverViewForm
-    },
-    {
-        label: "MORE INFORMATION",
-        index: 2,
-        Component: MoreInformationTab
-      },
-    {
-        label: "OTHER",
-        index: 3,
-        Component: OtherFormTab
-      }
-  ]
+  // const tabs: TabsType = [
+  //   {
+  //     label: "OVERVIEW",
+  //     index: 1,
+  //     Component: OverViewForm
+  //   },
+  //   {
+  //       label: "MORE INFORMATION",
+  //       index: 2,
+  //       Component: MoreInformationTab
+  //     },
+  //   {
+  //       label: "OTHER",
+  //       index: 3,
+  //       Component: OtherFormTab
+  //     }
+  // ]
   const CreateContact = () => {
-    const [selectedTab, setSelectedTab] = useState<number>(tabs[0].index);
+  //   const [selectedTab, setSelectedTab] = useState<number>(tabs[0].index);
+  //   const [disableSave, setDisableSave]=useState<boolean>(true)
+
+  //   const settingDisableSave=(bool:boolean)=>{
+  //     setDisableSave(bool)
+  //   }
+
+  const [submitStatus, setSubmitStatus]=useState(true)
+    
     return(
       //form page
         <div className="create-contacts-bg-container">
@@ -44,28 +52,18 @@ type TabsType = {
             </div>
             </div>
             <hr className="contacts-hr-line"/>
-            <div>
-                <div className="contacts-three-button-container">
+            {/* <div className="contacts-white-form"> */}
+                {/* <div className="contacts-three-button-container"> */}
                   {/* tabs*/}
-                <FormTabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
-               
-               
-  {/* {
-    label: "Tab Two",
-    index: 2,
-    Component: TabTwo
-  },
-  {
-    label: "Tab Three",
-    index: 3,
-    Component: TabThree
-  } */}
- {/* <button className="">OVERVIEW</button>
-                    <button>MORE INFORMATION</button>
-                    <button>OTHER</button> */}
+                {/* <FormTabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} /> */}
+                <div>
+                  <OverViewForm setSubmitStatus={setSubmitStatus}/>
+                  {/* <MoreInformationTab /> */}
+                  {/* <OtherFormTab/> */}
                 </div>
-            </div>
-        </div>
+                </div>
+            // </div>
+        // </div>
     )
 }
 export default CreateContact;
