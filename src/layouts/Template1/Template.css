@@ -1,8 +1,18 @@
-.app-container{
+ .app-container{
     height: 100vh;
-  }
-  .body-container{
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: stretch;
+  }
+  .header-container{
+    height: 7%;
+    width: 100vw;
+  }
+  .sidebar-container{
+    height: 88%;
+  
+  }
+  .footer-container{
+    height: 5%;
+    background-color: lightgray;
   }

@@ -1,9 +1,7 @@
-import React from "react";
-import { CgZeit } from "react-icons/cg";
-import "./footer.css";
 import { BsFacebook } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
+import './footer.css'
 const Footer = () => {
   return (
     <div className="footer-bg">

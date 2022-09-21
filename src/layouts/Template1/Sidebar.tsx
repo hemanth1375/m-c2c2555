@@ -1,10 +1,10 @@
-import { NavLink, Route } from "react-router-dom";
-import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
-import { BiAnalyse, BiSearch } from "react-icons/bi";
-import { BiCog } from "react-icons/bi";
-import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
-import { BsCartCheck } from "react-icons/bs";
+import { NavLink } from "react-router-dom";
+import { FaBars, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
+
+import { BiSearch } from "react-icons/bi";
+
+import { AiTwotoneFileExclamation } from "react-icons/ai";
+
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
@@ -291,100 +291,111 @@ const SideBar = ({ children }: any) => {
   };
 
   return (
-    <>
-      <div className="main-container">
-        <motion.div
-          animate={{
-            width: isOpen ? "180px" : "45px",
+    <div className="main-container">
+      <motion.div
+        animate={{
+          width: isOpen ? "11%" : "3%",
 
-            transition: {
-              duration: 0.5,
-              type: "spring",
-              damping: 10,
-            },
-          }}
-          className={`sidebar `}
-        >
-          <div className="top_section">
-            <AnimatePresence>
-              {isOpen && (
-                <motion.h1
-                  variants={showAnimation}
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  className="logo"
-                >
-                  M-C2C
-                </motion.h1>
-              )}
-            </AnimatePresence>
+          transition: {
+            duration: 0.5,
+            type: "spring",
+            damping: 10,
+          },
+        }}
+        className={`sidebar`}
+      >
+        <div className="top_section">
+          <AnimatePresence>
+            {isOpen && (
+              <motion.h1
+                variants={showAnimation}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                className="logo"
+              >
+                M-C2C
+              </motion.h1>
+            )}
+          </AnimatePresence>
 
-            <div className="bars">
-              <FaBars onClick={toggle} />
-            </div>
+          <div className="bars">
+            <FaBars onClick={toggle} />
           </div>
-          <div className="search">
-            <div className="search_icon">
-              <BiSearch />
-            </div>
-            <AnimatePresence>
-              {isOpen && (
-                <motion.input
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  variants={inputAnimation}
-                  type="text"
-                  placeholder="Search"
-                />
-              )}
-            </AnimatePresence>
+        </div>
+        <div className="search">
+          <div className="search_icon">
+            <BiSearch />
           </div>
-          <section className="routes">
-            {routes.map((route, index) => {
-              if (route.subRoutes) {
-                return (
-                  <SidebarMenu
-                    setIsOpen={setIsOpen}
-                    route={route}
-                    showAnimation={showAnimation}
-                    isOpen={isOpen}
-                  />
-                );
-              }
-
+          <AnimatePresence>
+            {isOpen && (
+              <motion.input
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                variants={inputAnimation}
+                type="text"
+                placeholder="Search"
+              />
+            )}
+          </AnimatePresence>
+        </div>
+        <section className="routes">
+          {routes.map((route, index) => {
+            if (route.subRoutes) {
               return (
-                <NavLink
-                  to={route.path}
-                  key={index}
-                  className="link"
-                  //   activeClassName="active"
-                >
-                  <div className="icon">{route.icon}</div>
-
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        variants={showAnimation}
-                        initial="hidden"
-                        animate="show"
-                        exit="hidden"
-                        className="link_text"
-                      >
-                        {route.name}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </NavLink>
+                <SidebarMenu
+                  setIsOpen={setIsOpen}
+                  route={route}
+                  showAnimation={showAnimation}
+                  isOpen={isOpen}
+                />
               );
-            })}
-          </section>
-        </motion.div>
+            }
 
-        <main style={{ width: "100%", height: "auto" }}>{children}</main>
-      </div>
-    </>
+            return (
+              <NavLink
+                to={route.path}
+                key={index}
+                className="link"
+                //   activeClassName="active"
+              >
+                <div className="icon">{route.icon}</div>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      variants={showAnimation}
+                      initial="hidden"
+                      animate="show"
+                      exit="hidden"
+                      className="link_text"
+                    >
+                      {route.name}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </NavLink>
+            );
+          })}
+        </section>
+      </motion.div>
+
+      <motion.div
+        animate={{
+          width: isOpen ? "89%" : "97%",
+
+          transition: {
+            duration: 0.5,
+            type: "spring",
+            damping: 10,
+          },
+        }}
+        className="sidebar-children"
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };
 

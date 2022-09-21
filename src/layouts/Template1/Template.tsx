@@ -1,17 +1,22 @@
 import React from "react";
 import "./Template.css";
-import Header from "./NavbarHeader";
-import Footer from "./footer";
-
-import SideBar from "./Sidebar";
-const Template = (props: any) => {
-  return (
-    <div className="app-container">
-      <Header />
-      <SideBar {...props} />
-      <Footer />
-    </div>
-  );
+import Header from './NavbarHeader';
+import Footer from './footer';
+import SideBar from './Sidebar';
+const Template = (props:any) => {
+    return (
+      <div className='app-container'>
+        <div className='header-container'>
+          <Header />
+        </div>
+        <div className='sidebar-container'>
+        <SideBar {...props} />   
+        </div>
+        <div className='footer-container'>
+          <Footer/>
+        </div>
+        </div>
+    );
 };
 
 export default Template;
