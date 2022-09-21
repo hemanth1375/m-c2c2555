@@ -5,13 +5,20 @@ import './FormTabs.css'
 
 
 type TabsProps = {
-  tabs: {
-    label: string;
-    index: number;
-    Component: FC<{ index: number }>;
-  }[];
-  selectedTab: number;
-  onClick: (index: number) => void;
+  overviewtab: {
+    // label: string;
+    // Component: FC<{ }>
+  };
+  moreInfoTab: {
+    // label: string;
+    // Component: FC<{ }>
+  };
+  otherTab: {
+    // label: string;
+    // Component: FC<{ }>
+  };
+  // selectedTab: number;
+  // onClick: (index: number) => void;
   orientation?: "horizontal" | "vertical";
   className?: string;
 };
@@ -26,12 +33,9 @@ type TabsProps = {
  */
 const FormTabs: FC<TabsProps> = ({
   className = "tabs-component",
-  tabs = [],
-  selectedTab = 0,
-  onClick,
   orientation = "horizontal"
 }) => {
-  const Panel = tabs && tabs.find((tab) => tab.index === selectedTab);
+  // const Panel = tabs && tabs.find((tab) => tab.index === selectedTab);
 
   return (
     <div
@@ -39,7 +43,7 @@ const FormTabs: FC<TabsProps> = ({
         orientation === "vertical" ? className + " vertical" : className
       }
     >
-      <div role="tablist" aria-orientation={orientation}>
+      {/* <div role="tablist" aria-orientation={orientation}>
         {tabs.map((tab) => (
           <button
             className={selectedTab === tab.index ? "active" : ""}
@@ -62,7 +66,7 @@ const FormTabs: FC<TabsProps> = ({
         id={`tabpanel-${selectedTab}`}
       >
         {Panel && <Panel.Component index={selectedTab} />}
-      </div>
+      </div> */}
     </div>
   );
 };

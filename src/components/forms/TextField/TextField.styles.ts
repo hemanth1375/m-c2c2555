@@ -1,14 +1,16 @@
 import styled from "styled-components";
-
+export interface inputProps {
+  red?:any
+}
 
 export const BasicFormInput = styled.input`
 &{
 // property2: ${(props:any) => (props.name === "" ? "value2" : "value3")};
 border-radius: 4px;
-border: 1px solid #ccc;
-margin-top:10px;
-margin-bottom: 10px;
-width: 50%;
+border: ${(props:inputProps) => (props.red===true? "1px solid red" : "1px solid #ccc")} ;
+margin-top:5px;
+margin-bottom: 5px;
+width: 100%;
 font-size: 14px;
 text-align: left;
 height: 30px;
