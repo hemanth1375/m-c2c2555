@@ -1,4 +1,4 @@
-.nav-container1{
+.nav-container{
     background-color: #3c8dbc !important;
     height: 7vh;
     display:flex;
@@ -11,43 +11,33 @@
 }
 .navbar-header-select{
     display:flex;
-
+    align-items: center;
+   
 }
 .select-button{
-    height:30px;
+    height:25px;
     width:100px;
     margin-right:10px;
     border-radius: 5px;
     border-width: 0;
 }
-.navbar-header-profile-icon{
-    height:40px;
-    width:30px;
-    color:white;
-}
 
-#collasible-nav-dropdown{
-    color:white;
-}
 .title{
     color:white;
     margin-left:10px;
-    font-size:20px !important;
+    font-size:14px !important;
 }
 
 
-.navbar-profile-container{
+.navbar-profile-button{
     display:flex;
     color:white;
     border:0px;
     background-color: transparent;
+    align-items: center;
 }
-.navbar-profile-container p{
-    color:white;
-    height:30px;
-}
-.navbar-profile-container:hover,
-.navbar-profile-container:focus{
+.navbar-profile-button:hover,
+.navbar-profile-button:focus{
     background-color:#3c8dbc;
     border-width:0px;
     border:none;
@@ -55,7 +45,27 @@
     height:30px;
 }
 .button-profile-icon{
-    margin-right:5px;
+    
     height:25px;
     width:25px;
 }
+.header-search{
+    border-radius:5px;
+    width:12rem;
+    border:0px;
+    margin-left:5px;
+}
+@media only screen and (max-width:767px){
+    .header-search{
+        width:4rem;
+    }
+}
+.title-search-container{
+    display:flex;
+    align-items: center;
+}
+
+
+
+
+

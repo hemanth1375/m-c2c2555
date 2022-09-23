@@ -1,20 +1,14 @@
 .footer-bg{
-    background-color: lightgray;
+    background-color:#cccccc;
     padding:10px;
-    /* position:fixed; */
     width:100%;
-    bottom:0;
-    height: 7vh;
-    display: flex;
-    justify-content: space-between;
+    
+    height: 100%;
     font-size:12px;
-}
-.footer-bg .copyright{
-    font-weight: bold;
-}
-p{
     color:black;
 }
+
 .social-media-icons{
     margin-right:10px;
 }
+

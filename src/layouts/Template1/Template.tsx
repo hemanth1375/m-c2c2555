@@ -1,6 +1,6 @@
 import React from "react";
 import "./Template.css";
-import Header from './NavbarHeader';
+import Header from "./NavHeader/NavbarHeader";
 import SideBar from './Sidebar';
 const Template = (props:any) => {
   return (
@@ -12,9 +12,6 @@ const Template = (props:any) => {
         <div className='sidebar-container'>
         <SideBar {...props} />   
         </div>
-        {/* <div className='footer-container'>
-          <Footer/>
-        </div> */}
       </div>
       
     );
