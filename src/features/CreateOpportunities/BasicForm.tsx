@@ -1,5 +1,6 @@
-import React, { FC, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./BasicForm.css";
+import { BasicFormInput, BasicFormInputLabel } from "components/forms";
 import { withFormik, FormikProps } from "formik";
 import * as Yup from "yup";
 
@@ -13,13 +14,27 @@ interface FormValues {
   accountName?: string;
   fax?: string | number;
   email?: string;
-  primaryAddress?: string | number;
-  otherAddress?: string | number;
+  primaryAddressStreet?: string | number;
+  primaryAddressPostalCode?: string | number;
+  primaryAddressCity?: string | number;
+  primaryAddressState?: string | number;
+  primaryAddressCountry?: string | number;
+  alternateAddressStreet?: string | number;
+  alternateAddressPostalCode?: string | number;
+  alternateAddressCity?: string | number;
+  alternateAddressState?: string | number;
+  alternateAddressCountry?: string | number;
+  assignTo?: string;
   description?: string;
+  reportTo?: string;
+  campaign?: string;
+  dateModified?: number;
+  dateCreated?: number;
 }
 
 interface OtherProps {
   ref?: any;
+  setSubmit: boolean;
 }
 
 interface MyFormProps {
@@ -27,25 +42,29 @@ interface MyFormProps {
   initialLastName?: string;
   initialOfficePhone?: number;
   initialMobile?: number;
+  initialDepartment?: string;
+  initialAccountName?: string;
   initialJobTitle?: string;
   initialFax?: string;
   initialEmail?: string;
   initialDescription?: string;
+  initialprimaryAddressStreet?: string | number;
+  initialPrimaryAddressPostalCode?: string | number;
+  initialPrimaryAddressCity?: string | number;
+  initialPrimaryAddressState?: string | number;
+  initialPrimaryAddressCountry?: string | number;
+  initialAlternateAddressStreet?: string | number;
+  initialAlternateAddressPostalCode?: string | number;
+  initialAlternateAddressCity?: string | number;
+  initialAlternateAddressState?: string | number;
+  initialAlternateAddressCountry?: string | number;
+  initialAssignTo?: string;
+  initialReportTo?: string;
+  initialCampaign?: string;
+  initialDateModified?: number;
+  initialDateCreated?: number;
   login?: any;
 }
-
-// const [selectedOption, setSelectedOption] = useState<string>();
-// const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-// const [value, setValue] = useState<string>();
-// // This function is triggered when the select changes
-// const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//   const TriggredValue = event.target.value;
-//   setSelectedOption(TriggredValue);
-// };
-
-// const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-//   setValue(event.target.value);
-// };
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const [selectedOption, setSelectedOption] = useState<string>();
@@ -72,247 +91,300 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     ref,
   } = props;
 
-  console.log(errors);
+  let submitStatus = true;
+  const disablingButton = () => {
+    isSubmitting ||
+    !!(errors.firstName && touched.firstName) ||
+    !!(errors.lastName && touched.lastName)
+      ? (submitStatus = false)
+      : (submitStatus = true);
+  };
+  disablingButton();
+  console.log(submitStatus);
+
   return (
     <React.Fragment>
-      <div className="App">
-        <form onSubmit={handleSubmit} className="overview-form">
-          
+      <div className="form-heading-container">
+        <h5 className="form-tab-heading">BASIC</h5>
+      </div>
+      
+      <div className="basic-white-form mb-4">
+        <form onSubmit={handleSubmit}>
+          <div className='container-fluid'>
+            <div className="row">
+                
+                  <div className="col-sm-12 col-md-6 col-lg-3">
+                    <BasicFormInputLabel id="formOfficePhone">
+                      OPPORTUNITY NAME:
+                    </BasicFormInputLabel>
+                    <BasicFormInput
+                      type="text"
+                      name="officePhone"
+                      id="formOfficePhone"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.officePhone}
+                      red={touched.officePhone && errors.officePhone && true}
+                    />
+                  </div>
+                  <div className="col-sm-12 col-md-6 col-lg-3">
+                  <BasicFormInputLabel htmlFor="formAccountName">
+                    ACCOUNT NAME:
+                  </BasicFormInputLabel>
+                  <BasicFormInput
+                    type="text"
+                    name="accountName"
+                    id="formAccountName"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                      value={values.accountName}
+                      placeholder="Type to search"
+                    red={touched.accountName && errors.accountName && true}
+                  />
+                  </div>
+                  <div className="col-sm-12 col-md-8 col-lg-6">
+                  <BasicFormInputLabel htmlFor="formAccountName">
+                    OPPORTUNITY AMOUNT:
+                    </BasicFormInputLabel>
+                  <div className="row">
+                      <div className="col-sm-6 inner-label">
+                        <div>
+                          <select
+                            onChange={selectChange}
+                            className="overview-select-item"
+                            defaultValue={"Select an item"}
+                          >
+                            <option value={selectedOption}>Currency</option>
+                            <option value={selectedOption}>USD</option>
+                            
+                          </select>
+                        </div>
+                  </div>
+                  <div className="col-sm-6 inner-label">
+                            
+                            <BasicFormInput
+                              type="text"
+                              name="officePhone"
+                              id="formOfficePhone"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              placeholder="Enter the amount"
+                              value={values.officePhone}
+                              red={touched.officePhone && errors.officePhone && true}
+                            />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="col-sm-12 col-md-4 col-lg-3">
+                  <BasicFormInputLabel htmlFor="formAccountName">
+                      EXPECTED CLOSE DATE:
+                    </BasicFormInputLabel> 
+                  <BasicFormInput
+                    type="date"
+                    id="dateCreated"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.dateCreated}
+                    red={touched.dateCreated && errors.dateCreated && true}
+                  />
+                  </div>
 
-          {/* second line form detailes */}
+                  <div className="col-sm-12 col-md-4 col-lg-3">
+                    <BasicFormInputLabel htmlFor="formAccountName">
+                      SALES STAGE:
+                    </BasicFormInputLabel>
+                        <div>
+                          <select
+                            onChange={selectChange}
+                            className="overview-select-item"
+                            defaultValue={"Select an item"}
+                          >
+                            <option value={selectedOption}>Select an item</option>
+                        <option value={selectedOption}>Prospecting</option>
+                        <option value={selectedOption}>Qualifiction</option>
+                        <option value={selectedOption}>Needs Analysis</option>
+                            
+                          </select>
+                        </div>
+                  </div>
 
-          <div className="over-view-form-bottom-containers">
-            <div className="left-container">
-              <div>
-                <label
-                  className="overview-label-form-bottom"
-                  id="formOfficePhone"
-                >
-                  OPPORTUNITY NAME:
-                </label>
-                <input
-                  type="text"
-                  name="officePhone"
-                  id="formOfficePhone"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.officePhone}
-                  className="overview-input-form-bottom"
-                />
-              </div>
-              {touched.officePhone && errors.officePhone && (
-                <div className="invalid-feedback">{errors.officePhone}</div>
-              )}
-              <div className="dotted-horizontal-line-container">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </div>
-            <div className="right-container">
-            <div>
-                <label
-                  className="overview-label-form-bottom"
-                  htmlFor="formAccountName"
-                >
-                  ACCOUNT NAME:
-                </label>
-                <input
-                  type="text"
-                  name="accountName"
-                  id="formAccountName"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.accountName}
-                  className="overview-input-form-bottom account-name"
-                />
-              </div>
-              {touched.accountName && errors.accountName && (
-                <div className="invalid-feedback">{errors.accountName}</div>
-              )}
-              <div className="dotted-horizontal-line-container">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </div>
-          </div>
-          <div className="over-view-form-bottom-containers">
-            <div className="left-container">
-              <div>
-                <label className="overview-label-form-bottom" id="formJobTitle">
-                  OPPORTUNITY AMOUNT:
-                </label>
-                <div className="dropdown-container">
-                  <select
-                    onChange={selectChange}
-                    className="overview-select-item"
-                    value={value}
-                  >
-                    <option value={selectedOption}>Select an item</option>
-                    <option value={selectedOption}>USD</option>
-                    
-                  </select>
-                </div>
-              </div>
+                  <div className="col-sm-12 col-md-4 col-lg-3">
+                    <BasicFormInputLabel htmlFor="formAccountName">
+                      TYPE:
+                    </BasicFormInputLabel>
+                        <div>
+                          <select
+                            onChange={selectChange}
+                            className="overview-select-item"
+                            defaultValue={"Select an item"}
+                          >
+                            <option value={selectedOption}>Select an item</option>
+                        <option value={selectedOption}>Existing Business</option>
+                        <option value={selectedOption}>New Business</option>
+                        
+                            
+                          </select>
+                        </div>
+                  </div>
+
+                  <div className="col-sm-12 col-md-4 col-lg-3">
+                    <BasicFormInputLabel id="formOfficePhone">
+                      PROBABILITY(%):
+                    </BasicFormInputLabel>
+                    <BasicFormInput
+                      type="text"
+                      name="officePhone"
+                      id="formOfficePhone"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.officePhone}
+                      red={touched.officePhone && errors.officePhone && true}
+                    />
+                  </div>
+
+                  <div className="col-sm-12 col-md-4 col-lg-3">
+                    <BasicFormInputLabel htmlFor="formAccountName">
+                      LEAD SOURCE:
+                    </BasicFormInputLabel>
+                        <div>
+                          <select
+                            onChange={selectChange}
+                            className="overview-select-item"            
+                    >                          
+                            <option value={selectedOption}>Select an item</option>
+                            <option value={selectedOption}>Cold Call</option>
+                            <option value={selectedOption}>Existing Customer</option>
+                            <option value={selectedOption}>Self Generated</option>
+                            <option value={selectedOption}>Employee</option>
+                            <option value={selectedOption}>Partner</option>
+                            <option value={selectedOption}>Public Relationship</option>
+                            <option value={selectedOption}>Direct Mail</option>
+                            <option value={selectedOption}>Conference</option>
+                            <option value={selectedOption}>Trade Show</option>
+                            <option value={selectedOption}>Website</option>
+                            <option value={selectedOption}>Word of Mouth</option>
+                            <option value={selectedOption}>Email</option>
+                            <option value={selectedOption}>Campaign</option>
+                            <option value={selectedOption}>Other</option>
+                        
+                            
+                          </select>
+                        </div>
+                  </div>
+
+                  <div className="col-sm-12 col-md-4 col-lg-3">
+                    <BasicFormInputLabel id="formOfficePhone">
+                      NEXT STEP:
+                    </BasicFormInputLabel>
+                    <BasicFormInput
+                      type="text"
+                      name="officePhone"
+                      id="formOfficePhone"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.officePhone}
+                      red={touched.officePhone && errors.officePhone && true}
+                    />
+                  </div>
+
+                  <div className="col-sm-12 col-md-4 col-lg-3">
+                    <BasicFormInputLabel htmlFor="formAccountName">
+                      CAMPAIGN:
+                    </BasicFormInputLabel>
+                    <BasicFormInput
+                    type="text"
+                    name="accountName"
+                    id="formAccountName"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                      value={values.accountName}
+                      placeholder="Type to search"
+                    red={touched.accountName && errors.accountName && true}
+                  />
+                  </div>
+
+                  <div className="col-sm-12 col-md-4 col-lg-3">
+                  <BasicFormInputLabel htmlFor="assignTo">
+                    ASSIGNED TO:
+                  </BasicFormInputLabel>
+                  <BasicFormInput
+                    type="text"
+                    name="assignTo"
+                    id="assignTo"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.assignTo}
+                    red={touched.assignTo && errors.assignTo && true}
+                    placeholder="type to search.."
+                  />
+                  </div>
               
+                  <div className="col-sm-12 col-md-8 col-lg-6">
+                    <BasicFormInputLabel htmlFor="formDesription">
+                      DESCRIPTION:
+                    </BasicFormInputLabel>
+                    <textarea
+                      className="over-view-form-textarea"
+                      id="formDescription"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.description}
+                      rows={2}
+                      cols={54}
+                    ></textarea>
+                  </div>
+                
               
-              <div className="dotted-horizontal-line-container">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </div>
-            <div className="right-container">
-              <div>
-                <label
-                  className="overview-label-form-bottom"
-                  htmlFor="formDepartment"
-                >
-                  DEPARTMENT:
-                </label>
-                <input
-                  type="text"
-                  name="department"
-                  id="formDepartment"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.department}
-                  className="overview-input-form-bottom"
-                />
-              </div>
-              {touched.department && errors.department && (
-                <div className="invalid-feedback">{errors.department}</div>
-              )}
-              <div className="dotted-horizontal-line-container-bottom">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
             </div>
           </div>
-          <div className="over-view-form-bottom-containers">
-            <div className="left-container">
-              <div>
-                <label
-                  className="overview-label-form-bottom"
-                  htmlFor="formAccountName"
-                >
-                  ACCOUNT NAME:
-                </label>
-                <input
-                  type="text"
-                  name="accountName"
-                  id="formAccountName"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.accountName}
-                  className="overview-input-form-bottom account-name"
-                />
-              </div>
-              {touched.accountName && errors.accountName && (
-                <div className="invalid-feedback">{errors.accountName}</div>
-              )}
-              <div className="dotted-horizontal-line-container">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </div>
-
-            <div className="right-container">
-              <div>
-                <label className="overview-label-form-bottom" htmlFor="formFax">
-                  FAX:
-                </label>
-                <input
-                  type="text"
-                  name="fax"
-                  id="formFax"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.fax}
-                  className="overview-input-form-bottom"
-                />
-              </div>
-              {touched.fax && errors.fax && (
-                <div className="invalid-feedback">{errors.fax}</div>
-              )}
-              <div className="dotted-horizontal-line-container-bottom">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="right-container">
-              <div>
-                <label
-                  className="overview-label-form-bottom"
-                  htmlFor="formEmail"
-                >
-                  EMAIL ADDRESS:
-                </label>
-                <input
-                  type="text"
-                  name="email"
-                  id="formEmail"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  className="overview-input-form-bottom"
-                />
-              </div>
-              {touched.email && errors.email && (
-                <div className="invalid-feedback">{errors.email}</div>
-              )}
-              <div className="dotted-horizontal-line-container-bottom">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </div>
-          </div>
-          
-          <div className="over-view-form-bottom-containers">
-            <div className="left-container">
-              <div>
-                <label
-                  className="overview-label-form-bottom"
-                  htmlFor="formDesription"
-                >
-                  DESCRIPTION:
-                </label>
-                <textarea
-                  className="over-view-form-textarea"
-                  id="formDescription"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.description}
-                ></textarea>
-              </div>
-              {touched.description && errors.description && (
-                <div className="invalid-feedback">{errors.description}</div>
-              )}
-              <div className="dotted-horizontal-line-container">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </div>
-            <div className="right-container">
-              <div>
-                <label className="overview-label-form-bottom">
-                  ASSIGNED TO:
-                </label>
-                <input
-                  type="text"
-                  className="overview-input-form-bottom assigned-to-form"
-                  placeholder="type to search.."
-                />
-              </div>
-
-              <div className="dotted-horizontal-line-container-bottom">
-                <hr className="dotted-horizontal-line-bottom" />
-              </div>
-            </div>
-          </div>
-          <button
-            disabled={
-              !!(errors.firstName && touched.firstName) ||
-              !!(errors.lastName && touched.lastName)
-            }
-            type="submit"
-          >
-            {" "}
-            Submit
-          </button>
         </form>
+      </div>
+      <div className="form-heading-container">
+        <h5 className="form-tab-heading"> OTHER</h5>
+      </div>
+      <div className="basic-white-form">
+        <form onSubmit={handleSubmit}>
+          <div className='container-fluid'>
+            <div className="row">
+              <div className="col-sm-12 col-md-6 col-lg-6">
+              <BasicFormInputLabel htmlFor="formAccountName">
+                      DATE MODIFIED:
+                    </BasicFormInputLabel> 
+                  <BasicFormInput
+                    type="date"
+                    id="dateCreated"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.dateCreated}
+                    red={touched.dateCreated && errors.dateCreated && true}
+                  />
+              </div>
+              <div className="col-sm-12 col-md-6 col-lg-6">
+              <BasicFormInputLabel htmlFor="formAccountName">
+                      DATE CREATED:
+                    </BasicFormInputLabel> 
+                  <BasicFormInput
+                    type="date"
+                    id="dateCreated"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.dateCreated}
+                    red={touched.dateCreated && errors.dateCreated && true}
+                />
+                </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <div className="container p-4">
+        <div className="row">
+          <div className="col-sm-12 text-sm-center text-md-right">
+            <button className="btn btn-primary mr-3">Save</button>
+            <button className="btn btn-primary">Cancel</button>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );
@@ -322,370 +394,71 @@ const FirstForm = withFormik<MyFormProps, FormValues>({
   mapPropsToValues: (props) => ({
     firstName: props.initialFirstName,
     lastName: props.initialLastName,
+    officePhone: props.initialOfficePhone,
+    mobile: props.initialMobile,
+    jobTitle: props.initialJobTitle,
+    department: props.initialDepartment,
+    accountName: props.initialAccountName,
+    fax: props.initialFax,
+    email: props.initialEmail,
+    assignTo: props.initialAssignTo,
+    description: props.initialDescription,
+    primaryAddressStreet: props.initialprimaryAddressStreet,
+    primaryAddressPostalCode: props.initialPrimaryAddressPostalCode,
+    primaryAddressCity: props.initialPrimaryAddressCity,
+    primaryAddressState: props.initialPrimaryAddressState,
+    primaryAddressCountry: props.initialPrimaryAddressCountry,
+    alternateAddressCity: props.initialAlternateAddressCity,
+    alternateAddressCountry: props.initialAlternateAddressCountry,
+    alternateAddressPostalCode: props.initialAlternateAddressPostalCode,
+    alternateAddressState: props.initialAlternateAddressState,
+    alternateAddressStreet: props.initialAlternateAddressStreet,
+    reportTo: props.initialReportTo,
+    campaign: props.initialCampaign,
+    dateCreated: props.initialDateCreated,
+    dateModified: props.initialDateModified,
   }),
   validationSchema: Yup.object().shape({
-    firstName: Yup.string().required("first name is required"),
-    lastName: Yup.string().required("last name is required"),
+    firstName: Yup.string().required("* First Name is Required"),
+    lastName: Yup.string().required("* Last Name is Required"),
+    officePhone: Yup.number().required("* Phone Number is Required"),
+    mobile: Yup.number().required("* Mobile Number is Required"),
+    jobTitle: Yup.string().required("* Job Title is Required"),
+    department: Yup.string().required("* Department is Required"),
+    accountName: Yup.string().required("* Account Name is Required"),
+    fax: Yup.string().required("* Fax is Required"),
+    email: Yup.string().required("* Email is Required"),
+    assignTo: Yup.string().required("* Assign to some one"),
+    description: Yup.string().required("* Description is required"),
+    primaryAddressStreet: Yup.string().required("* Required"),
+    primaryAddressPostalCode: Yup.string().required("* Required"),
+    primaryAddressCity: Yup.string().required("* Required"),
+    primaryAddressState: Yup.string().required("* Required"),
+    primaryAddressCountry: Yup.string().required("* Required"),
+    alternateAddressStreet: Yup.string().required("*Required"),
+    alternateAddressPostalCode: Yup.string().required("*Required"),
+    alternateAddressCity: Yup.string().required("*Required"),
+    alternateAddressState: Yup.string().required("*Required"),
+    alternateAddressCountry: Yup.string().required("*Required"),
+    reportTo: Yup.string().required("* Report to Someone"),
+    campaign: Yup.string().required("* Campaign to Someone"),
+    dateCreated: Yup.number().required("* Date is Required"),
+    dateModified: Yup.number().required("* Modified Date is Required"),
   }),
-  handleSubmit({ firstName, lastName }: FormValues) {
+  handleSubmit({ firstName, lastName, officePhone }: FormValues) {
     console.log("firstName", firstName);
     console.log("lastName", lastName);
+    console.log("officePhone", officePhone);
   },
 })(InnerForm);
 
-// const resolver: Resolver<FormValues> = async (values) => {
-//   return {
-//     values: !values.lastName ? {} : values,
-//     errors: !values.lastName
-//       ? {
-//           lastName: {
-//             type: "required",
-//             message: "This is required.",
-//           },
-//         }
-//       : {},
-//   };
-// };
 
-const BasicForm: React.FC<{}> = (props: any) => {
+
+const BasicForm = (props: any) => {
   return (
     <div>
       <FirstForm />
     </div>
   );
 };
-//   const [phoneNumber, setPhoneNumber] = useState<string>();
-//   const [selectedOption, setSelectedOption] = useState<string>();
-//   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-//   const [value, setValue] = useState<string>();
-//   // This function is triggered when the select changes
-//   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//     const TriggredValue = event.target.value;
-//     setSelectedOption(TriggredValue);
-//   };
-//   // const {
-//   //   register,
-//   //   formState: { errors },
-//   // } = useForm<FormValues>({
-//   //   resolver: resolver,
-//   // });
-
-//   const handleSubmit = (event: React.FormEvent) => {
-//     event.preventDefault();
-//   };
-//   const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-//     setValue(event.target.value);
-//   };
-
-//   const phoneNumberValidation = (event: any) => {
-//     setPhoneNumber(event.target.value);
-//   };
-
-//   return (
-//     //overview form
-//     <div className="App">
-//       <form onSubmit={handleSubmit} className="overview-form">
-//         <div className="over-view-form-flex-container">
-//           <div className="half-overview-form">
-//             <div className="overview-form-name-container">
-//               <strong className="overview-form-name">NAME :</strong>
-//             </div>
-//             <div className="first-last-container">
-//               <div className="dropdown-container">
-//                 <select
-//                   onChange={selectChange}
-//                   className="overview-select-item"
-//                 >
-//                   <option selected disabled>
-//                     Select an item
-//                   </option>
-//                   <option value={selectedOption}>Mr.</option>
-//                   <option value={selectedOption}>Ms.</option>
-//                   <option value={selectedOption}>Mrs.</option>
-//                   <option value={selectedOption}>Miss.</option>
-//                   <option value={selectedOption}>Dr.</option>
-//                   <option value={selectedOption}>Pro.</option>
-//                 </select>
-//               </div>
-//               <div>
-//                 <label className="overview-label-form">First Name</label>
-//                 <input
-//                   // {...register("firstName")}
-//                   className="overview-input-form first-name"
-//                 />
-//               </div>
-
-//               <div>
-//                 <label className="overview-label-form">Last Name</label>
-//                 <input
-//                   // {...register("lastName")}
-//                   className="overview-input-form"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="dotted-horizontal-line-container">
-//           <hr className="dotted-horizontal-line" />
-//         </div>
-
-//         {/* second line form detailes */}
-
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <label className="overview-label-form-bottom">
-//                 OFFICE PHONE:
-//               </label>
-//               <input
-//                 // {...register("officePhone")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//           <div className="right-container">
-//             <div>
-//               <label className="overview-label-form-bottom">MOBILE:</label>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom"
-//                 onChange={phoneNumberValidation}
-//               />
-//               {/* {
-
-//               if(phoneNumber.length<=9){return <h1>enter 10 numbers</h1>}
-// } */}
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <label className="overview-label-form-bottom">JOB TITLE:</label>
-//               <input
-//                 // {...register("officePhone")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//           <div className="right-container">
-//             <div>
-//               <label className="overview-label-form-bottom">DEPARTMENT:</label>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <label className="overview-label-form-bottom">
-//                 ACCOUNT NAME:
-//               </label>
-//               <input
-//                 // {...register("officePhone")}
-//                 className="overview-input-form-bottom account-name"
-//               />
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-
-//           <div className="right-container">
-//             <div>
-//               <label className="overview-label-form-bottom">FAX:</label>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div>
-//           <div className="right-container">
-//             <div>
-//               <h3 className="overview-label-form-bottom">EMAIL ADDRESS:</h3>
-//               <div className="overview-form-email">
-//                 <label>Email Address</label>
-//               </div>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <h1 className="overview-label-form-bottom">PRIMARY ADDRESS:</h1>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address Street</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address Postal Code</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address City</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address State</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address Country</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-
-//           <div className="right-container">
-//             <div>
-//               <h1 className="overview-label-form-bottom">OTHER ADDRESS:</h1>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address Street</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address Postal Code</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address City</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address State</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address Country</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <label className="overview-label-form-bottom">DESCRIPTION:</label>
-//               <textarea
-//                 ref={textareaRef}
-//                 onChange={textAreaChange}
-//                 className="over-view-form-textarea"
-//               >
-//                 {value}
-//               </textarea>
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//           <div className="right-container">
-//             <div>
-//               <label className="overview-label-form-bottom">ASSIGNED TO:</label>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom assigned-to-form"
-//                 placeholder="type to search.."
-//               />
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
 export default BasicForm;
-
-
-       

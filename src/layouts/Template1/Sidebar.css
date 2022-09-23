@@ -49,21 +49,7 @@
   display: none;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-  height: 30px;
-  padding: 10px;
-}
-.search input {
-  border: none;
-  margin-left: 10px;
-  border-radius: 5px;
-  background: rgb(238, 238, 238);
-  width:100px !important;
-  color:black;
-}
+
 
 .routes {
   margin-top: 15px;

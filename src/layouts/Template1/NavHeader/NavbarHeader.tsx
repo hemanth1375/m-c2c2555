@@ -1,10 +1,6 @@
 import "./NavbarHeader.css";
 import { CgProfile } from "react-icons/cg";
-import Nav from "react-bootstrap/Nav";
 import Modal from "../Modal";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Navbar from "react-bootstrap/Navbar";
-import { BsFillBellFill } from "react-icons/bs";
 import { useState } from "react";
 const Header = () => {
   const [isDisplay, setIsDisplay] = useState(false);
@@ -12,35 +8,31 @@ const Header = () => {
     setIsDisplay(!isDisplay);
   };
   return (
-    <Nav className="nav-container navbar-fixed-top">
-      <span className="navbar-brand mb-0 h1">M-C2C</span>
-
-      {/* <Nav classNameName="navbar-profile-section">
-                <Navbar.Brand href="#home"><CgProfile/> Will Westin</Navbar.Brand>
-            
-           </Nav> */}
-      {/* <Nav>
-            <CgProfile className="navbar-header-profile-icon"/>   
-            <NavDropdown title="Will Westin" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#" id="drop">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#">
-                Employees
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#">Support Form</NavDropdown.Item>
-              <NavDropdown.Item href="#">About</NavDropdown.Item>
-              <NavDropdown.Item href="#">
-                Logout
-              </NavDropdown.Item>
-                </NavDropdown>
-                </Nav> */}
-
-      <button className="navbar-profile-container" onClick={displayModal}>
-        <CgProfile className="button-profile-icon" />
-        <p>Will Westin</p>
-      </button>
-
-      {isDisplay && <Modal />}
-    </Nav>
-  );
-};
+    <div className="container-fluid nav-container">
+      <div className="title-search-container">    
+       <h2 className="mb-0 title">M-C2C</h2>
+       <div>
+          <input type="search" placeholder="search" className="header-search"/>
+        </div>
+        </div>
+      <div className="navbar-header-select">
+        
+        <div>
+        <select className="select-button">
+          <option value="English">English</option>
+          <option value="German">German</option>
+          <option value="French">French</option>
+          </select>
+          </div>
+        <button className="navbar-profile-button" onClick={displayModal}>
+          <CgProfile className="button-profile-icon" />
+          Will Westin
+          </button>
+          </div>
+          {isDisplay && <Modal />}
+          
+         </div>
+    
+    )
+}
 export default Header;

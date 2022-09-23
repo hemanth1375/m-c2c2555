@@ -6,9 +6,9 @@ const Modal = () => {
         <div className="modal-card">
             <div className="modal-name">
                 <CgProfile className="modal-card-profile"/>
-                <p>Will Westin</p>
+                <p className="name">Will Westin</p>
             </div>
-            <div className="button-container">
+            <div className="modal-button-container">
                 <button className='btn btn-primary'>Profile</button>
                 <button className='btn btn-primary'>Signout</button>
             </div>
