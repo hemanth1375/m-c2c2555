@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import "./OverViewForm.css";
 import { BasicFormInput, BasicFormInputLabel } from "components/forms";
 import { withFormik, FormikProps } from "formik";
+import { translate } from "languages";
 import * as Yup from "yup";
 
 interface FormValues {
@@ -12,18 +13,18 @@ interface FormValues {
   jobTitle?: string;
   department?: string;
   accountName?: string;
-  fax?: string | number;
+  fax?: string;
   email?: string;
-  primaryAddressStreet?: string | number;
-  primaryAddressPostalCode?: string | number;
-  primaryAddressCity?: string | number;
-  primaryAddressState?: string | number;
-  primaryAddressCountry?: string | number;
-  alternateAddressStreet?: string | number;
-  alternateAddressPostalCode?: string | number;
-  alternateAddressCity?: string | number;
-  alternateAddressState?: string | number;
-  alternateAddressCountry?: string | number;
+  primaryAddressStreet?: string;
+  primaryAddressPostalCode?: string;
+  primaryAddressCity?: string;
+  primaryAddressState?: string;
+  primaryAddressCountry?: string;
+  alternateAddressStreet?: string;
+  alternateAddressPostalCode?: string;
+  alternateAddressCity?: string;
+  alternateAddressState?: string;
+  alternateAddressCountry?: string;
   assignTo?: string;
   description?: string;
   reportTo?: string;
@@ -33,11 +34,12 @@ interface FormValues {
 }
 
 interface OtherProps {
+
+  title?: string;
   ref?: any;
-  setSubmit: boolean;
 }
 
-interface MyFormProps {
+interface MyContactFormProps {
   initialFirstName?: string;
   initialLastName?: string;
   initialOfficePhone?: number;
@@ -48,16 +50,16 @@ interface MyFormProps {
   initialFax?: string;
   initialEmail?: string;
   initialDescription?: string;
-  initialprimaryAddressStreet?: string | number;
-  initialPrimaryAddressPostalCode?: string | number;
-  initialPrimaryAddressCity?: string | number;
-  initialPrimaryAddressState?: string | number;
-  initialPrimaryAddressCountry?: string | number;
-  initialAlternateAddressStreet?: string | number;
-  initialAlternateAddressPostalCode?: string | number;
-  initialAlternateAddressCity?: string | number;
-  initialAlternateAddressState?: string | number;
-  initialAlternateAddressCountry?: string | number;
+  initialprimaryAddressStreet?: string;
+  initialPrimaryAddressPostalCode?: string;
+  initialPrimaryAddressCity?: string;
+  initialPrimaryAddressState?: string;
+  initialPrimaryAddressCountry?: string;
+  initialAlternateAddressStreet?: string;
+  initialAlternateAddressPostalCode?: string;
+  initialAlternateAddressCity?: string;
+  initialAlternateAddressState?: string;
+  initialAlternateAddressCountry?: string;
   initialAssignTo?: string;
   initialReportTo?: string;
   initialCampaign?: string;
@@ -66,23 +68,11 @@ interface MyFormProps {
   login?: any;
 }
 
-// const [selectedOption, setSelectedOption] = useState<string>();
-// const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-// const [value, setValue] = useState<string>();
-// // This function is triggered when the select changes
-// const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//   const TriggredValue = event.target.value;
-//   setSelectedOption(TriggredValue);
-// };
-
-// const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-//   setValue(event.target.value);
-// };
-
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const [selectedOption, setSelectedOption] = useState<string>();
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [value, setValue] = useState<string>();
+
   // This function is triggered when the select changes
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const TriggredValue = event.target.value;
@@ -101,31 +91,21 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     handleBlur,
     handleSubmit,
     isSubmitting,
-    ref,
   } = props;
 
-  let submitStatus = true;
-  const disablingButton = () => {
-    isSubmitting ||
-    !!(errors.firstName && touched.firstName) ||
-    !!(errors.lastName && touched.lastName)
-      ? (submitStatus = false)
-      : (submitStatus = true);
-  };
-  disablingButton();
-  console.log(submitStatus);
 
   return (
     <React.Fragment>
+      
       <div className="heading-form-container">
-        <h5 className="heading-form"> OVERVIEW FORM</h5>
+        <h5 className="heading-form">{translate("overViewForm")}:</h5>
       </div>
-      <div className="contacts-white-form">
+      <div className="contacts-white-form mb-5">
         <form onSubmit={handleSubmit} className="overview-form">
           <div className="over-view-form-flex-container">
             <div className="half-overview-form">
               <div className="overview-form-name-container">
-                <strong className="overview-form-name">NAME :</strong>
+                <strong className="overview-form-name">{translate("name")}:</strong>
               </div>
               <div className="first-last-container">
                 <div className="dropdown-container">
@@ -134,18 +114,18 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     className="overview-select-item"
                     defaultValue={"Mr."}
                   >
-                    <option value={selectedOption}>Mr.</option>
-                    <option value={selectedOption}>Ms.</option>
-                    <option value={selectedOption}>Mrs.</option>
-                    <option value={selectedOption}>Miss.</option>
-                    <option value={selectedOption}>Dr.</option>
-                    <option value={selectedOption}>Pro.</option>
+                    <option value={selectedOption}>{translate("mr")}:</option>
+                    <option value={selectedOption}>{translate("ms")}:.</option>
+                    <option value={selectedOption}>{translate("mrs")}:.</option>
+                    <option value={selectedOption}>{translate("miss")}:.</option>
+                    <option value={selectedOption}>{translate("dr")}:.</option>
+                    <option value={selectedOption}>{translate("pro")}:.</option>
                   </select>
                 </div>
                 <div className="d-flex flex-column">
                   <div>
                     <BasicFormInputLabel htmlFor="formFirstName">
-                      First Name
+                    {translate("firstName")}:
                     </BasicFormInputLabel>
                     <BasicFormInput
                       type="text"
@@ -155,7 +135,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                       onBlur={handleBlur}
                       value={values.firstName}
                       className="overview-input-form"
-                      red={touched.firstName && errors.firstName && true}
+                      red={touched.firstName && errors.firstName}
                     />
                   </div>
                   {touched.firstName && errors.firstName && (
@@ -168,7 +148,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 <div className="d-flex flex-column">
                   <div>
                     <BasicFormInputLabel htmlFor="formLastName">
-                      Last Name
+                    {translate("lastName")}:
                     </BasicFormInputLabel>
                     <BasicFormInput
                       type="text"
@@ -178,7 +158,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                       onBlur={handleBlur}
                       value={values.lastName}
                       className="overview-input-form"
-                      red={touched.lastName && errors.lastName && true}
+                      red={touched.lastName && errors.lastName}
                     />
                   </div>
                   {touched.lastName && errors.lastName && (
@@ -214,7 +194,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               <div className="over-view-form-input-box-width">
                 <div>
                   <BasicFormInputLabel id="formOfficePhone">
-                    OFFICE PHONE:
+                  {translate("officePhone")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
@@ -223,7 +203,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.officePhone}
-                    red={touched.officePhone && errors.officePhone && true}
+                    red={touched.officePhone && errors.officePhone}
                   />
                 </div>
                 {touched.officePhone && errors.officePhone && (
@@ -238,7 +218,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               <div className="over-view-form-input-box-width">
                 <div>
                   <BasicFormInputLabel id="formMobile">
-                    MOBILE:
+                  {translate("mobile")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
@@ -247,7 +227,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.mobile}
-                    red={touched.mobile && errors.mobile && true}
+                    red={touched.mobile && errors.mobile}
                   />
                   {touched.mobile && errors.mobile && (
                     <div className="form-validation-errors">
@@ -264,7 +244,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               <div className="over-view-form-input-box-width">
                 <div>
                   <BasicFormInputLabel id="formJobTitle">
-                    JOB TITLE:
+                  {translate("jobTitle")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
@@ -273,7 +253,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.jobTitle}
-                    red={touched.jobTitle && errors.jobTitle && true}
+                    red={touched.jobTitle && errors.jobTitle}
                   />
                 </div>
                 {touched.jobTitle && errors.jobTitle && (
@@ -295,7 +275,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               <div className="over-view-form-input-box-width">
                 <div>
                   <BasicFormInputLabel htmlFor="formDepartment">
-                    DEPARTMENT:
+                  {translate("department")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
@@ -304,7 +284,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.department}
-                    red={touched.department && errors.department && true}
+                    red={touched.department && errors.department}
                   />
                 </div>
                 {touched.department && errors.department && (
@@ -319,7 +299,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               <div className="over-view-form-input-box-width">
                 <div>
                   <BasicFormInputLabel htmlFor="formAccountName">
-                    ACCOUNT NAME:
+                  {translate("accountName")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
@@ -328,7 +308,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.accountName}
-                    red={touched.accountName && errors.accountName && true}
+                    red={touched.accountName && errors.accountName}
                   />
                   {touched.accountName && errors.accountName && (
                     <div className="form-validation-errors">
@@ -344,7 +324,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
               <div className="over-view-form-input-box-width">
                 <div>
-                  <BasicFormInputLabel id="formFax">FAX:</BasicFormInputLabel>
+                  <BasicFormInputLabel id="formFax">{translate("fax")}:</BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
                     name="fax"
@@ -352,7 +332,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.fax}
-                    red={touched.fax && errors.fax && true}
+                    red={touched.fax && errors.fax}
                   />
                 </div>
                 {touched.fax && errors.fax && (
@@ -369,19 +349,17 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
           <div className="form-flex-container-row-three">
             <div className="over-view-form-bottom-containers">
-              <div className="over-view-form-input-box-width">
+            <div className="over-view-form-input-box-width">
                 <div>
-                  <BasicFormInputLabel id="formEmailAddress">
-                    EMAIL ADDRESS:
-                  </BasicFormInputLabel>
+                  <BasicFormInputLabel id="formEmail">{translate("email")}:</BasicFormInputLabel>
                   <BasicFormInput
-                    type="text"
-                    name="emailAddress"
-                    id="formEmailAddress"
+                    type="email"
+                    name="email"
+                    id="formEmail"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
-                    red={touched.email && errors.email && true}
+                    red={touched.email && errors.email}
                   />
                 </div>
                 {touched.email && errors.email && (
@@ -395,7 +373,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               <div className="over-view-form-input-box-width">
                 <div>
                   <BasicFormInputLabel htmlFor="assignTo">
-                    ASSIGNED TO:
+                  {translate("assignTo")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
@@ -404,7 +382,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.assignTo}
-                    red={touched.assignTo && errors.assignTo && true}
+                    red={touched.assignTo && errors.assignTo}
                     placeholder="type to search.."
                   />
                 </div>
@@ -420,7 +398,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               <div className="over-view-form-input-box-width">
                 <div>
                   <BasicFormInputLabel htmlFor="formDesription">
-                    DESCRIPTION:
+                  {translate("description")}:
                   </BasicFormInputLabel>
                   <textarea
                     className="over-view-form-textarea"
@@ -429,7 +407,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onBlur={handleBlur}
                     value={values.description}
                     rows={1}
-                    cols={54}
+                    cols={49}
                   ></textarea>
                   {touched.description && errors.description && (
                     <div className="form-validation-errors description-validation">
@@ -450,13 +428,13 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
           <div>
             <div>
               <div>
-                <h1 className="overview-label-form-bottom">PRIMARY ADDRESS:</h1>
+                <h1 className="overview-label-form-bottom">{translate("primaryAddress")}:</h1>
                 <div className="form-address-container-row">
                   <div className="over-view-form-input-box-width">
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form">
                         <BasicFormInputLabel htmlFor="primaryAddressStreet">
-                          Primary Address Street
+                        {translate("primaryAddressStreet")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -484,7 +462,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form">
                         <BasicFormInputLabel htmlFor="primaryAddressPostalCode">
-                          Primary Address Postal Code
+                        {translate("primaryAddressPostalCode")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -496,8 +474,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.primaryAddressPostalCode}
                         red={
                           touched.primaryAddressPostalCode &&
-                          errors.primaryAddressPostalCode &&
-                          true
+                          errors.primaryAddressPostalCode 
                         }
                       />
                     </div>
@@ -512,7 +489,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form">
                         <BasicFormInputLabel htmlFor="primaryAddressCity">
-                          Primary Address City
+                        {translate("primaryAddressCity")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -524,8 +501,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.primaryAddressCity}
                         red={
                           touched.primaryAddressCity &&
-                          errors.primaryAddressCity &&
-                          true
+                          errors.primaryAddressCity
                         }
                       />
                     </div>
@@ -543,7 +519,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form">
                         <BasicFormInputLabel htmlFor="primaryAddressState">
-                          Primary Address State
+                        {translate("primaryAddressState")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -555,8 +531,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.primaryAddressState}
                         red={
                           touched.primaryAddressState &&
-                          errors.primaryAddressState &&
-                          true
+                          errors.primaryAddressState
                         }
                       />
                     </div>
@@ -571,7 +546,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form address-form-margin">
                         <BasicFormInputLabel htmlFor="primaryAddressCountry">
-                          Primary Address Country
+                        {translate("primaryAddressCountry")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -584,8 +559,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.primaryAddressCountry}
                         red={
                           touched.primaryAddressCountry &&
-                          errors.primaryAddressCountry &&
-                          true
+                          errors.primaryAddressCountry
                         }
                       />
                     </div>
@@ -606,14 +580,14 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             <div>
               <div>
                 <h1 className="overview-label-form-bottom other-address-margin">
-                  OTHER ADDRESS:
+                {translate("otherAddress")}:
                 </h1>
                 <div className="form-address-container-row">
                   <div className="over-view-form-input-box-width">
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form">
                         <BasicFormInputLabel htmlFor="alternateAddressStreet">
-                          Alternate Address Street
+                        {translate("alternateAddressStreet")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -625,8 +599,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.alternateAddressStreet}
                         red={
                           touched.alternateAddressStreet &&
-                          errors.alternateAddressStreet &&
-                          true
+                          errors.alternateAddressStreet
                         }
                       />
                     </div>
@@ -641,7 +614,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form">
                         <BasicFormInputLabel htmlFor="alternateAddressPostalCode">
-                          Alternate Address Postal Code
+                        {translate("alternateAddressPostalCode")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -653,8 +626,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.alternateAddressPostalCode}
                         red={
                           touched.alternateAddressPostalCode &&
-                          errors.alternateAddressPostalCode &&
-                          true
+                          errors.alternateAddressPostalCode
                         }
                       />
                     </div>
@@ -669,7 +641,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form">
                         <BasicFormInputLabel htmlFor="alternateAddressCity">
-                          Alternate Address City
+                        {translate("alternateAddressCity")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -681,8 +653,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.alternateAddressCity}
                         red={
                           touched.alternateAddressCity &&
-                          errors.alternateAddressCity &&
-                          true
+                          errors.alternateAddressCity
                         }
                       />
                     </div>
@@ -699,7 +670,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form">
                         <BasicFormInputLabel htmlFor="alternateAddressState">
-                          Alternate Address State
+                        {translate("alternateAddressState")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -711,8 +682,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.alternateAddressState}
                         red={
                           touched.alternateAddressState &&
-                          errors.alternateAddressState &&
-                          true
+                          errors.alternateAddressState
                         }
                       />
                     </div>
@@ -727,7 +697,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     <div className="over-view-address-form">
                       <div className="over-view-address-label-form address-form-margin">
                         <BasicFormInputLabel htmlFor="alternateAddressCountry">
-                          Alternate Address Country
+                        {translate("alternateAddressCountry")}:
                         </BasicFormInputLabel>
                       </div>
                       <BasicFormInput
@@ -740,9 +710,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.alternateAddressCountry}
                         red={
                           touched.alternateAddressCountry &&
-                          errors.alternateAddressCountry &&
-                          true
-                        }
+                          errors.alternateAddressCountry}
                       />
                     </div>
                     {touched.alternateAddressCountry &&
@@ -762,41 +730,41 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         </form>
       </div>
       <div className="heading-form-container">
-        <h5 className="heading-form">MORE INFORMATION</h5>
+        <h5 className="heading-form">{translate("moreInformation")}:</h5>
       </div>
       <div className="contacts-white-form">
         <form onSubmit={handleSubmit} className="overview-form">
           <div className="contacts-white-form-moreinfo">
             <div className="more-info-form-flex-container-row-three">
               <div className="more-info-drop-down">
-                <BasicFormInputLabel>LEAD SOURCE</BasicFormInputLabel>
+                <BasicFormInputLabel>{translate("leadSource")}:</BasicFormInputLabel>
                 <div className="dropdown-container">
                   <select
                     onChange={selectChange}
                     className="overview-select-item"
                     placeholder="Select an item"
                   >
-                    <option value={selectedOption}>Cold Call</option>
-                    <option value={selectedOption}>Existing Customer</option>
-                    <option value={selectedOption}>Self Generated</option>
-                    <option value={selectedOption}>Employee</option>
-                    <option value={selectedOption}>Partner</option>
-                    <option value={selectedOption}>Public Relationship</option>
-                    <option value={selectedOption}>Direct Mail</option>
-                    <option value={selectedOption}>Conference</option>
-                    <option value={selectedOption}>Trade Show</option>
-                    <option value={selectedOption}>Website</option>
-                    <option value={selectedOption}>Word of Mouth</option>
-                    <option value={selectedOption}>Email</option>
-                    <option value={selectedOption}>Campaign</option>
-                    <option value={selectedOption}>Other</option>
+                    <option value={selectedOption}>{translate("coldCall")}:</option>
+                    <option value={selectedOption}>{translate("existingCustomer")}:</option>
+                    <option value={selectedOption}>{translate("selfGenerated")}:</option>
+                    <option value={selectedOption}>{translate("employee")}:</option>
+                    <option value={selectedOption}>{translate("partner")}:</option>
+                    <option value={selectedOption}>{translate("publicRelationship")}: {translate("relationship")}:</option>
+                    <option value={selectedOption}>{translate("directMail")}:</option>
+                    <option value={selectedOption}>{translate("conference")}:</option>
+                    <option value={selectedOption}>{translate("tradeShow")}:</option>
+                    <option value={selectedOption}>{translate("website")}:</option>
+                    <option value={selectedOption}>{translate("wordOfMouth")}:</option>
+                    <option value={selectedOption}>{translate("email")}:</option>
+                    <option value={selectedOption}>{translate("campaign")}:</option>
+                    <option value={selectedOption}>{translate("other")}:</option>
                   </select>
                 </div>
               </div>
               <div className="over-view-form-input-box-width">
                 <div>
                   <BasicFormInputLabel htmlFor="leadSource">
-                    REPORTS TO:
+                  {translate("reportTo")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
@@ -806,7 +774,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.reportTo}
-                    red={touched.reportTo && errors.reportTo && true}
+                    red={touched.reportTo && errors.reportTo}
                   />
                 </div>
                 {touched.reportTo && errors.reportTo && (
@@ -817,7 +785,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
               </div>
               <div className="over-view-form-input-box-width">
                 <BasicFormInputLabel htmlFor="leadSource">
-                  CAMPAIGN:
+                {translate("campaign")}:
                 </BasicFormInputLabel>
                 <BasicFormInput
                   type="text"
@@ -826,7 +794,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.campaign}
-                  red={touched.campaign && errors.campaign && true}
+                  red={touched.campaign && errors.campaign}
                 />
                 {touched.campaign && errors.campaign && (
                   <div className="form-validation-errors">
@@ -844,7 +812,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
           <div className="other-infromation-form-container">
             <div className="over-view-form-input-box-width">
               <BasicFormInputLabel htmlFor="dateCreated">
-                DATE CREATED:
+              {translate("dateCreated")}:
               </BasicFormInputLabel>
               <BasicFormInput
                 type="date"
@@ -853,7 +821,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.dateCreated}
-                red={touched.dateCreated && errors.dateCreated && true}
+                red={touched.dateCreated && errors.dateCreated}
               />
               {touched.dateCreated && errors.dateCreated && (
                 <div className="form-validation-errors">
@@ -866,7 +834,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 htmlFor="dateModified"
                 className="address-form-margin"
               >
-                DATE MODIFIED:
+                {translate("dateModified")}:
               </BasicFormInputLabel>
               <BasicFormInput
                 type="date"
@@ -876,7 +844,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.dateModified}
-                red={touched.dateModified && errors.dateModified && true}
+                red={touched.dateModified && errors.dateModified}
               />
               {touched.dateModified && errors.dateModified && (
                 <div className="form-validation-errors error-margin">
@@ -894,7 +862,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   );
 };
 
-const FirstForm = withFormik<MyFormProps, FormValues>({
+const FirstForm = withFormik<MyContactFormProps, FormValues>({
   mapPropsToValues: (props) => ({
     firstName: props.initialFirstName,
     lastName: props.initialLastName,
@@ -923,52 +891,64 @@ const FirstForm = withFormik<MyFormProps, FormValues>({
     dateModified: props.initialDateModified,
   }),
   validationSchema: Yup.object().shape({
-    firstName: Yup.string().required("* First Name is Required"),
-    lastName: Yup.string().required("* Last Name is Required"),
-    officePhone: Yup.number().required("* Phone Number is Required"),
-    mobile: Yup.number().required("* Mobile Number is Required"),
+    firstName: Yup.string().trim()
+   .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed")
+   .min(3, "Too Short!")
+    .max(20, "Too Long!")
+    .required("Firstname is required"),
+    lastName: Yup.string().trim()
+    .matches(/^[aA-zZ\s]+$/, 'Only alphabets are allowed')
+    .min(3, "Too Short!")
+    .max(20, "Too Long!")
+    .required("Lastname is required"),
+    officePhone: Yup.string().required("Mobile number is Required")
+    .matches(
+      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+      "phone number is required"
+    ).min(10).max(10),
+    mobile: Yup.string()
+    .required("Mobile number is Required")
+    .matches(
+      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+      "phone number is required"
+    ).min(10).max(10),
     jobTitle: Yup.string().required("* Job Title is Required"),
     department: Yup.string().required("* Department is Required"),
     accountName: Yup.string().required("* Account Name is Required"),
     fax: Yup.string().required("* Fax is Required"),
-    email: Yup.string().required("* Email is Required"),
+    email: Yup.string().email("Field should contain a valid e-mail").max(255).required("E-mail is required"),
     assignTo: Yup.string().required("* Assign to some one"),
     description: Yup.string().required("* Description is required"),
     primaryAddressStreet: Yup.string().required("* Required"),
     primaryAddressPostalCode: Yup.string().required("* Required"),
-    primaryAddressCity: Yup.string().required("* Required"),
-    primaryAddressState: Yup.string().required("* Required"),
-    primaryAddressCountry: Yup.string().required("* Required"),
+    primaryAddressCity: Yup.string().required("* Required").trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed"),
+    primaryAddressState: Yup.string().required("* Required").trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed"),
+    primaryAddressCountry: Yup.string().required("* Required").trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed"),
     alternateAddressStreet: Yup.string().required("*Required"),
     alternateAddressPostalCode: Yup.string().required("*Required"),
-    alternateAddressCity: Yup.string().required("*Required"),
-    alternateAddressState: Yup.string().required("*Required"),
-    alternateAddressCountry: Yup.string().required("*Required"),
+    alternateAddressCity: Yup.string().required("*Required").trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed"),
+    alternateAddressState: Yup.string().required("*Required").trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed"),
+    alternateAddressCountry: Yup.string().required("*Required").trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed"),
     reportTo: Yup.string().required("* Report to Someone"),
     campaign: Yup.string().required("* Campaign to Someone"),
     dateCreated: Yup.number().required("* Date is Required"),
     dateModified: Yup.number().required("* Modified Date is Required"),
   }),
-  handleSubmit({ firstName, lastName, officePhone }: FormValues) {
+  handleSubmit({ firstName, lastName, officePhone, mobile}: FormValues) {
     console.log("firstName", firstName);
     console.log("lastName", lastName);
     console.log("officePhone", officePhone);
+    console.log("mobile", mobile)
   },
 })(InnerForm);
 
-// const resolver: Resolver<FormValues> = async (values) => {
-//   return {
-//     values: !values.lastName ? {} : values,
-//     errors: !values.lastName
-//       ? {
-//           lastName: {
-//             type: "required",
-//             message: "This is required.",
-//           },
-//         }
-//       : {},
-//   };
-// };
+
 
 const OverViewForm = (props: any) => {
   return (
@@ -977,335 +957,5 @@ const OverViewForm = (props: any) => {
     </div>
   );
 };
-//   const [phoneNumber, setPhoneNumber] = useState<string>();
-//   const [selectedOption, setSelectedOption] = useState<string>();
-//   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-//   const [value, setValue] = useState<string>();
-//   // This function is triggered when the select changes
-//   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//     const TriggredValue = event.target.value;
-//     setSelectedOption(TriggredValue);
-//   };
-//   // const {
-//   //   register,
-//   //   formState: { errors },
-//   // } = useForm<FormValues>({
-//   //   resolver: resolver,
-//   // });
 
-//   const handleSubmit = (event: React.FormEvent) => {
-//     event.preventDefault();
-//   };
-//   const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-//     setValue(event.target.value);
-//   };
-
-//   const phoneNumberValidation = (event: any) => {
-//     setPhoneNumber(event.target.value);
-//   };
-
-//   return (
-//     //overview form
-//     <div className="App">
-//       <form onSubmit={handleSubmit} className="overview-form">
-//         <div className="over-view-form-flex-container">
-//           <div className="half-overview-form">
-//             <div className="overview-form-name-container">
-//               <strong className="overview-form-name">NAME :</strong>
-//             </div>
-//             <div className="first-last-container">
-//               <div className="dropdown-container">
-//                 <select
-//                   onChange={selectChange}
-//                   className="overview-select-item"
-//                 >
-//                   <option selected disabled>
-//                     Select an item
-//                   </option>
-//                   <option value={selectedOption}>Mr.</option>
-//                   <option value={selectedOption}>Ms.</option>
-//                   <option value={selectedOption}>Mrs.</option>
-//                   <option value={selectedOption}>Miss.</option>
-//                   <option value={selectedOption}>Dr.</option>
-//                   <option value={selectedOption}>Pro.</option>
-//                 </select>
-//               </div>
-//               <div>
-//                 <label className="overview-label-form">First Name</label>
-//                 <input
-//                   // {...register("firstName")}
-//                   className="overview-input-form first-name"
-//                 />
-//               </div>
-
-//               <div>
-//                 <label className="overview-label-form">Last Name</label>
-//                 <input
-//                   // {...register("lastName")}
-//                   className="overview-input-form"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="dotted-horizontal-line-container">
-//           <hr className="dotted-horizontal-line" />
-//         </div>
-
-//         {/* second line form detailes */}
-
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <label className="overview-label-form-bottom">
-//                 OFFICE PHONE:
-//               </label>
-//               <input
-//                 // {...register("officePhone")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//           <div className="right-container">
-//             <div>
-//               <label className="overview-label-form-bottom">MOBILE:</label>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom"
-//                 onChange={phoneNumberValidation}
-//               />
-//               {/* {
-
-//               if(phoneNumber.length<=9){return <h1>enter 10 numbers</h1>}
-// } */}
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <label className="overview-label-form-bottom">JOB TITLE:</label>
-//               <input
-//                 // {...register("officePhone")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//           <div className="right-container">
-//             <div>
-//               <label className="overview-label-form-bottom">DEPARTMENT:</label>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <label className="overview-label-form-bottom">
-//                 ACCOUNT NAME:
-//               </label>
-//               <input
-//                 // {...register("officePhone")}
-//                 className="overview-input-form-bottom account-name"
-//               />
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-
-//           <div className="right-container">
-//             <div>
-//               <label className="overview-label-form-bottom">FAX:</label>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div>
-//           <div className="right-container">
-//             <div>
-//               <h3 className="overview-label-form-bottom">EMAIL ADDRESS:</h3>
-//               <div className="overview-form-email">
-//                 <label>Email Address</label>
-//               </div>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom"
-//               />
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <h1 className="overview-label-form-bottom">PRIMARY ADDRESS:</h1>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address Street</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address Postal Code</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address City</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address State</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Primary Address Country</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-
-//           <div className="right-container">
-//             <div>
-//               <h1 className="overview-label-form-bottom">OTHER ADDRESS:</h1>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address Street</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address Postal Code</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address City</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address State</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//               <div className="over-view-address-form">
-//                 <div className="over-view-address-label-form">
-//                   <label>Alternate Address Country</label>
-//                 </div>
-//                 <input
-//                   // {...register("officePhone")}
-//                   className="overview-input-form-bottom"
-//                 />
-//               </div>
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="over-view-form-bottom-containers">
-//           <div className="left-container">
-//             <div>
-//               <label className="overview-label-form-bottom">DESCRIPTION:</label>
-//               <textarea
-//                 ref={textareaRef}
-//                 onChange={textAreaChange}
-//                 className="over-view-form-textarea"
-//               >
-//                 {value}
-//               </textarea>
-//             </div>
-//             <div className="dotted-horizontal-line-container">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//           <div className="right-container">
-//             <div>
-//               <label className="overview-label-form-bottom">ASSIGNED TO:</label>
-//               <input
-//                 // {...register("mobile")}
-//                 className="overview-input-form-bottom assigned-to-form"
-//                 placeholder="type to search.."
-//               />
-//             </div>
-
-//             <div className="dotted-horizontal-line-container-bottom">
-//               <hr className="dotted-horizontal-line-bottom" />
-//             </div>
-//           </div>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
 export default OverViewForm;

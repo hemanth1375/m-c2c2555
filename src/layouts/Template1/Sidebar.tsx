@@ -10,59 +10,59 @@ import Footer from './Footer/footer'
 const routes = [
   {
     path: "/accounts",
-    name: translate("ACCOUNTS"),
+    name: translate("accounts"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
         path: "/accounts",
-        name: translate("Create Account"),
+        name: translate("createAccount"),
         icon: <FaUser />,
       },
       {
         path: "/accounts/viewaccount",
-        name: translate("View Account"),
+        name: translate("viewAccount"),
         icon: <FaLock />,
       },
       {
         path: "/accounts/importaccounts",
-        name: translate("Import Account"),
+        name: translate("importAccount"),
         icon: <FaMoneyBill />,
       },
       {
         path: "/accounts/recentlyviewed",
-        name: translate("Recently Viewed"),
+        name: translate("recentlyViewed"),
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
     path: "/contacts",
-    name: translate("Contacts"),
+    name: translate("contacts"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
         path: "/contacts",
-        name: translate("Create contact"),
+        name: translate("createContact"),
         icon: <FaUser />,
       },
       {
         path: "/contacts/createcontactfromvcard",
-        name: translate("Create Contact From vCard"),
+        name: translate("createContactFromVCard"),
         icon: <FaUser />,
       },
       {
         path: "/contacts/viewcontacts",
-        name: translate("View Contact"),
+        name: translate("viewContacts"),
         icon: <FaLock />,
       },
       {
         path: "/contacts/importcontacts",
-        name: translate("Import Contacts"),
+        name: translate("importContacts"),
         icon: <FaMoneyBill />,
       },
       {
         path: "/contacts/recentlyviewed",
-        name: translate("Recently Viewed"),
+        name: translate("recentlyViewed"),
         icon: <FaMoneyBill />,
       },
     ],
@@ -70,7 +70,7 @@ const routes = [
 
   {
     path: "/oppotunities",
-    name: translate("Opportunities"),
+    name: translate("opportunities"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
@@ -80,120 +80,120 @@ const routes = [
       },
       {
         path: "/opportunities/viewopportunity",
-        name: translate("View Opportunity"),
+        name: translate("viewOpportunity"),
         icon: <FaLock />,
       },
       {
         path: "/opportunities/importopportunity",
-        name: translate("Import Opportunity"),
+        name: translate("importOpportunity"),
         icon: <FaMoneyBill />,
       },
       {
         path: "/opportunities/recentlyviewed",
-        name: translate("Recently Viewed"),
+        name: translate("recentlyViewed"),
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
     path: "/leads",
-    name: translate("Leads"),
+    name: translate("leads"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
         path: "/leads/createlead",
-        name: translate("Create Lead"),
+        name: translate("createLead"),
         icon: <FaUser />,
       },
       {
         path: "/leads/createleadfromvcard",
-        name: translate("Create Lead From vCard"),
+        name: translate("createLeadFromVCard"),
         icon: <FaUser />,
       },
       {
         path: "/leads/viewleads",
-        name: translate("View Leads"),
+        name: translate("viewLeads"),
         icon: <FaLock />,
       },
       {
         path: "/leads/importleads",
-        name: translate("Import Leads"),
+        name: translate("importLeads"),
         icon: <FaMoneyBill />,
       },
       {
         path: "/leads/recentlyviewed",
-        name: translate("Recently Viewed"),
+        name: translate("recentlyViewed"),
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
     path: "/quotes",
-    name: translate("Quotes"),
+    name: translate("quotes"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
         path: "/quotes/createquote",
-        name: translate("Create Quote"),
+        name: translate("createQuotes"),
         icon: <FaUser />,
       },
       {
         path: "/quotes/viewquotes",
-        name: translate("View Quotes"),
+        name: translate("viewQuotes"),
         icon: <FaLock />,
       },
       {
         path: "/quotes/importquotes",
-        name: translate("Import Quotes"),
+        name: translate("importQuotes"),
         icon: <FaMoneyBill />,
       },
       {
         path: "/quotes/importlineitems",
-        name: translate("Import Line Items"),
+        name: translate("importLineItems"),
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
     path: "/calender",
-    name: translate("Calender"),
+    name: translate("calender"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
         path: "/calender/schedulemeeting",
-        name: translate("Schedule Meeting"),
+        name: translate("scheduleMeeting"),
         icon: <FaUser />,
       },
       {
         path: "/calender/schedulecall",
-        name: translate("Schedule Call"),
+        name: translate("scheduleCall"),
         icon: <FaUser />,
       },
       {
         path: "/calender/createtask",
-        name: translate("Create Task"),
+        name: translate("createTask"),
         icon: <FaLock />,
       },
       {
         path: "/calender/today",
-        name: translate("Today"),
+        name: translate("today"),
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
     path: "/more",
-    name: translate("More"),
+    name: translate("more"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
         path: "/more/home",
-        name: translate("Home"),
+        name: translate("home"),
         icon: <FaUser />,
       },
       {
         path: "/more/opportunities",
-        name: translate("Opportunities"),
+        name: translate("opportunities"),
         icon: <FaUser />,
       },
       {
@@ -203,47 +203,47 @@ const routes = [
       },
       {
         path: "/more/email",
-        name: translate("Email"),
+        name: translate("email"),
         icon: <FaUser />,
       },
       {
         path: "/more/campaigns",
-        name: translate("Campaigns"),
+        name: translate("campaigns"),
         icon: <FaUser />,
       },
       {
         path: "/more/calls",
-        name: translate("Calls"),
+        name: translate("calls"),
         icon: <FaUser />,
       },
       {
         path: "/more/meeting",
-        name: translate("Meetings"),
+        name: translate("meetings"),
         icon: <FaUser />,
       },
       {
         path: "/more/task",
-        name: translate("Tasks"),
+        name: translate("tasks"),
         icon: <FaUser />,
       },
       {
         path: "/more/notes",
-        name: translate("Notes"),
+        name: translate("notes"),
         icon: <FaUser />,
       },
       {
         path: "/more/invoice",
-        name: translate("Invoices"),
+        name: translate("invoices"),
         icon: <FaUser />,
       },
       {
         path: "/more/contracts",
-        name: translate("Contracts"),
+        name: translate("contracts"),
         icon: <FaUser />,
       },
       {
         path: "/more/cases",
-        name: translate("Cases"),
+        name: translate("cases"),
         icon: <FaUser />,
       },
     ],

@@ -7,10 +7,10 @@ import { translate } from "languages";
 import { FormTabs } from "components/forms";
 import { over } from "lodash";
 
-const overview = translate("OVERVIEW");
+const overview = translate("overView");
 console.log(typeof overview);
-const moreInformation = translate("MORE INFORMATION");
-const other = translate("OTHER");
+const moreInformation = translate("moreInformation");
+const other = translate("other");
 
 type TabsType = {
   label: any;
@@ -44,13 +44,13 @@ const CreateAccount = () => {
       <div className="contacts-top-container">
         <div>
           <h4 className="contacts-h4-heading">
-            {translate("ACCOUNTS")} {translate("CREATE")}
+            {translate("accounts")} {translate("create")}
           </h4>
         </div>
         <div>
-          <button className="contact-save-button">{translate("SAVE")}</button>
+          <button className="contact-save-button">{translate("save")}</button>
           <button className="contact-cancel-button">
-            {translate("CANCEL")}
+            {translate("cancel")}
           </button>
         </div>
       </div>
