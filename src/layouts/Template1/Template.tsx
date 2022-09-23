@@ -12,9 +12,6 @@ const Template = (props:any) => {
         <div className='sidebar-container'>
         <SideBar {...props} />   
         </div>
-        {/* <div className='footer-container'>
-          <Footer/>
-        </div> */}
       </div>
       
     );

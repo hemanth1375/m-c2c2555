@@ -5,8 +5,8 @@ import Modal from "./Modal";
 import { useState, useContext } from "react";
 import { localeContextObj } from "context/context";
 import { LOCALES } from "languages";
-import Select from "react-select/";
-import Flags, { US } from "country-flag-icons/react/3x2";
+// import Select from "react-select/";
+// import Flags, { US } from "country-flag-icons/react/3x2";
 
 const Header = () => {
   const [isDisplay, setIsDisplay] = useState(false);
@@ -27,11 +27,11 @@ const Header = () => {
   // const Flag2 = Flags["DE"];
   // const Flag3 = Flags["FR"];
 
-  const languageOptions = [
-    { value: LOCALES.ENGLISH, label: "EN", icon: <US /> },
-    { value: LOCALES.GERMAN, label: "DE", icon: <US /> },
-    { value: LOCALES.FRENCH, label: "FR", icon: <US /> },
-  ];
+  // const languageOptions = [
+  //   { value: LOCALES.ENGLISH, label: "EN", icon: <US /> },
+  //   { value: LOCALES.GERMAN, label: "DE", icon: <US /> },
+  //   { value: LOCALES.FRENCH, label: "FR", icon: <US /> },
+  // ];
 
   return (
     <Nav className="nav-container1">
@@ -44,7 +44,7 @@ const Header = () => {
           placeholder="language"
         >
           <option value={LOCALES.ENGLISH}>
-            <span>{<US />}</span>
+            EN
           </option>
           <option value={LOCALES.GERMAN}>DE</option>
           <option value={LOCALES.FRENCH}>FR</option>
