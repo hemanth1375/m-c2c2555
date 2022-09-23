@@ -71,8 +71,9 @@ interface MyContactFormProps {
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const [selectedOption, setSelectedOption] = useState<string>();
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  console.log(textareaRef)
   const [value, setValue] = useState<string>();
-
+  console.log(value)
   // This function is triggered when the select changes
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const TriggredValue = event.target.value;
@@ -81,6 +82,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
   const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value);
+    console.log(textAreaChange)
   };
 
   const {
@@ -446,8 +448,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                         value={values.primaryAddressStreet}
                         red={
                           touched.primaryAddressStreet &&
-                          errors.primaryAddressStreet &&
-                          true
+                          errors.primaryAddressStreet 
                         }
                       />
                     </div>

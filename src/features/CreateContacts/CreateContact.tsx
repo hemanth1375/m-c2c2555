@@ -1,15 +1,10 @@
-
-
-
 import OverViewForm from "./OverViewForm";
-import {useState} from 'react'
 import './CreateContact.css';
 
 
 
   const CreateContact = () => {
 
-  const [submitStatus, setSubmitStatus]=useState(true)
     
     return(
       //form page
@@ -25,7 +20,7 @@ import './CreateContact.css';
             </div>
             <hr className="contacts-hr-line"/>
                 <div>
-                  <OverViewForm setSubmitStatus={setSubmitStatus}/>
+                  <OverViewForm/>
                 </div>
                 </div>
     
