@@ -1,5 +1,5 @@
 import React, { FC, Fragment } from "react";
-import { BasicFormInput, BasicFormInputLabel } from "components/forms";
+import { BasicFormInputLabel } from "components/forms";
 import { translate } from "languages";
 
 import "./MoreInformationTab.css";

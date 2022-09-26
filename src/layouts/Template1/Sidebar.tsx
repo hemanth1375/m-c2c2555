@@ -4,8 +4,10 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { translate } from "languages";
+import Footer from "./Footer/Footer";
 import "./Sidebar.css";
-import Footer from './Footer/footer'
+
+
 
 const routes = [
   {
@@ -75,7 +77,7 @@ const routes = [
     subRoutes: [
       {
         path: "/opportunities",
-        name: translate("Create Oppotunity"),
+        name: translate("createOpportunity"),
         icon: <FaUser />,
       },
       {
@@ -156,7 +158,7 @@ const routes = [
   },
   {
     path: "/calender",
-    name: translate("calender"),
+    name: translate("calendar"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
@@ -288,10 +290,9 @@ const SideBar = ({ children }: any) => {
   };
 
   return (
-      <div className="main-container">
-        <motion.div
-          animate={{
-        
+    <div className="main-container">
+      <motion.div
+        animate={{
           minWidth: isOpen ? "12%" : "3%",
           transition: {
             duration: 0.5,
@@ -316,57 +317,55 @@ const SideBar = ({ children }: any) => {
             )}
           </AnimatePresence>
 
-            <div className="bars">
-              <FaBars onClick={toggle} />
-            </div>
+          <div className="bars">
+            <FaBars onClick={toggle} />
           </div>
-          
-          <section className="routes">
-            {routes.map((route, index) => {
-              if (route.subRoutes) {
-                return (
-                  <SidebarMenu
-                    setIsOpen={setIsOpen}
-                    route={route}
-                    showAnimation={showAnimation}
-					isOpen={isOpen}
-					key={index}
-                  />
-                );
-              }
-
+        </div>
+        <section className="routes">
+          {routes.map((route, index) => {
+            if (route.subRoutes) {
               return (
                 <SidebarMenu
                   setIsOpen={setIsOpen}
                   route={route}
                   showAnimation={showAnimation}
                   isOpen={isOpen}
+                  key={index}
                 />
               );
-            })}
-          </section>
-        </motion.div>
-			
-			  <motion.div
-				  animate={{
-					width: isOpen ? "88%" : "97%",
-          backgroundColor:"#cccccc",
-					transition: {
-					  duration: 0.5,
-					  type: "spring",
-					  damping: 10,
-					},
-				  }}
-				 
-			  className='sidebar-children'>
-			  <div>{children}</div>
-			  <div><Footer /></div>
-        
-		  </motion.div>
-	
-      </div>
-    
-    
+            }
+
+            return (
+              <SidebarMenu
+                setIsOpen={setIsOpen}
+                route={route}
+                showAnimation={showAnimation}
+                isOpen={isOpen}
+                key={index}
+              />
+            );
+          })}
+        </section>
+      </motion.div>
+
+      <motion.div
+        animate={{
+          width: isOpen ? "88%" : "97%",
+          backgroundColor: "#cccccc",
+          transition: {
+            duration: 0.5,
+            type: "spring",
+            damping: 10,
+          },
+        }}
+        className="sidebar-children"
+      >
+        <div>{children}</div>
+        <div>
+          <Footer />
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

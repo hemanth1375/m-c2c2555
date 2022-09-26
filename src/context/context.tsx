@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import { LOCALES } from "languages";
+import React from "react";
 
-// const [locale, setLocale] = useState(LOCALES.ENGLISH);
-
-interface localeContextInterface {
+interface LocaleContextInterface {
   locale?: any;
   setLocale?: any;
 }
 
-export const localeContextObj = React.createContext<localeContextInterface>({});
+export const localeContextObj = React.createContext<LocaleContextInterface>({});

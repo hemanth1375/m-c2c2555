@@ -1,38 +1,89 @@
 import "./NavbarHeader.css";
 import { CgProfile } from "react-icons/cg";
+import Nav from "react-bootstrap/Nav";
 import Modal from "../Modal";
-import { useState } from "react";
+import { GrFormSearch } from 'react-icons/gr';
+import { useState, useContext } from "react";
+import { localeContextObj } from "context/context";
+import { LOCALES } from "languages";
+import Dropdown from "react-bootstrap/Dropdown";
+import FlagIcon from "../FlagIcon";
+
 const Header = () => {
   const [isDisplay, setIsDisplay] = useState(false);
   const displayModal = () => {
     setIsDisplay(!isDisplay);
   };
+
+  const { setLocale } = useContext(localeContextObj);
+
+  //storing countries in array with flag code and locales language code
+  const [countries] = useState([
+    { code: "de", title: "German", localeCode: LOCALES.GERMAN },
+    { code: "fr", title: "French", localeCode: LOCALES.FRENCH },
+    { code: "us", title: "English", localeCode: LOCALES.ENGLISH },
+  ]);
+
+  // initial toggle content as english
+  const initialToggleContent = (
+    <>
+      <FlagIcon code={countries[2].code} /> {countries[2].title}
+    </>
+  );
+  const [toggleContents, setToggleContents] =
+    useState<any>(initialToggleContent);
+
+  const changeLanguageHandler = (eventKey: any) => {
+    const { code, title, localeCode }: any = countries.find(
+      ({ code }) => eventKey === code
+    );
+    setLocale(localeCode);
+    setToggleContents(
+      <>
+        <FlagIcon code={code} /> {title}
+      </>
+    );
+  };
+
   return (
-    <div className="container-fluid nav-container">
+    <nav className="container-fluid nav-container">
       <div className="title-search-container">    
        <h2 className="mb-0 title">M-C2C</h2>
-       <div>
-          <input type="search" placeholder="search" className="header-search"/>
+       <div className="search-bar">
+          <input type="search" placeholder="search" className="header-search" />
+          <button type="submit"  ><GrFormSearch className="search-icon"/></button>
         </div>
         </div>
       <div className="navbar-header-select">
-        
-        <div>
-        <select className="select-button">
-          <option value="English">English</option>
-          <option value="German">German</option>
-          <option value="French">French</option>
-          </select>
-          </div>
+        <Dropdown onSelect={changeLanguageHandler}>
+          <Dropdown.Toggle
+            variant="secondary"
+            id="dropdown-flags"
+            className="language-dropdown text-left"
+            style={{ width: 300 }}
+          >
+            {toggleContents}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu className="language-dropdown-content-box">
+            {countries.map(({ code, title }) => (
+              <Dropdown.Item
+                className="language-dropdown-eact-item"
+                key={code}
+                eventKey={code}
+              >
+                <FlagIcon code={code} /> {title}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
         <button className="navbar-profile-button" onClick={displayModal}>
           <CgProfile className="button-profile-icon" />
           Will Westin
-          </button>
-          </div>
-          {isDisplay && <Modal />}
-          
-         </div>
-    
-    )
-}
+        </button>
+      </div>
+      {isDisplay && <Modal />}
+    </nav>
+  );
+};
 export default Header;

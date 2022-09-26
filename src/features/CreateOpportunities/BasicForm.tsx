@@ -5,29 +5,18 @@ import { withFormik, FormikProps } from "formik";
 import * as Yup from "yup";
 
 interface FormValues {
-  firstName?: string;
-  lastName?: string;
-  officePhone?: number;
-  mobile?: number;
-  jobTitle?: string;
-  department?: string;
+  opportunityName?: string;
   accountName?: string;
-  fax?: string | number;
-  email?: string;
-  primaryAddressStreet?: string | number;
-  primaryAddressPostalCode?: string | number;
-  primaryAddressCity?: string | number;
-  primaryAddressState?: string | number;
-  primaryAddressCountry?: string | number;
-  alternateAddressStreet?: string | number;
-  alternateAddressPostalCode?: string | number;
-  alternateAddressCity?: string | number;
-  alternateAddressState?: string | number;
-  alternateAddressCountry?: string | number;
+  opportunityAmount?: number;
+  expectedCloseDate?: number;
+  salesStage?: string;
+  type?: string;
+  probability?: number;
+  leadSource?: string;
+  nextStep?: string;
+  campaign?: string;
   assignTo?: string;
   description?: string;
-  reportTo?: string;
-  campaign?: string;
   dateModified?: number;
   dateCreated?: number;
 }
@@ -38,32 +27,20 @@ interface OtherProps {
 }
 
 interface MyFormProps {
-  initialFirstName?: string;
-  initialLastName?: string;
-  initialOfficePhone?: number;
-  initialMobile?: number;
-  initialDepartment?: string;
+  initialOpportunityName?: string;
   initialAccountName?: string;
-  initialJobTitle?: string;
-  initialFax?: string;
-  initialEmail?: string;
-  initialDescription?: string;
-  initialprimaryAddressStreet?: string | number;
-  initialPrimaryAddressPostalCode?: string | number;
-  initialPrimaryAddressCity?: string | number;
-  initialPrimaryAddressState?: string | number;
-  initialPrimaryAddressCountry?: string | number;
-  initialAlternateAddressStreet?: string | number;
-  initialAlternateAddressPostalCode?: string | number;
-  initialAlternateAddressCity?: string | number;
-  initialAlternateAddressState?: string | number;
-  initialAlternateAddressCountry?: string | number;
-  initialAssignTo?: string;
-  initialReportTo?: string;
+  initialOpportunityAmount?: number;
+  initialExpectedCloseDate?: number;
+  initialSalesStage?: string;
+  initialType?: string;
+  initialProbability?: number;
+  initialLeadSource?: string;
+  initialNextStep?: string;
   initialCampaign?: string;
+  initialAssignTo?: string;
+  initialDescription?: string;
   initialDateModified?: number;
   initialDateCreated?: number;
-  login?: any;
 }
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
@@ -91,19 +68,9 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     ref,
   } = props;
 
-  let submitStatus = true;
-  const disablingButton = () => {
-    isSubmitting ||
-    !!(errors.firstName && touched.firstName) ||
-    !!(errors.lastName && touched.lastName)
-      ? (submitStatus = false)
-      : (submitStatus = true);
-  };
-  disablingButton();
-  console.log(submitStatus);
-
   return (
     <React.Fragment>
+      <form onSubmit={handleSubmit}>
       <div className="form-heading-container">
         <h5 className="form-tab-heading">BASIC</h5>
       </div>
@@ -115,19 +82,25 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             <div className="row">
                 
                   <div className="col-sm-12 col-md-6 col-lg-3">
-                    <BasicFormInputLabel id="formOfficePhone">
+                    <BasicFormInputLabel id="formOpportunityName">
                       OPPORTUNITY NAME:
                     </BasicFormInputLabel>
                     <BasicFormInput
                       type="text"
-                      name="officePhone"
-                      id="formOfficePhone"
+                      name="opportunityName"
+                      id="formOpportunityName"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.officePhone}
-                      red={touched.officePhone && errors.officePhone && true}
-                    />
+                      value={values.opportunityName}
+                      red={touched.opportunityName && errors.opportunityName && true}
+                  />
+                  {touched.opportunityName && errors.opportunityName && (
+                  <div className="form-validation-errors">
+                    {errors.opportunityName}
                   </div>
+                )}
+                </div>
+                
                   <div className="col-sm-12 col-md-6 col-lg-3">
                   <BasicFormInputLabel htmlFor="formAccountName">
                     ACCOUNT NAME:
@@ -142,9 +115,14 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                       placeholder="Type to search"
                     red={touched.accountName && errors.accountName && true}
                   />
+                  {touched.accountName && errors.accountName && (
+                  <div className="form-validation-errors">
+                    {errors.accountName}
+                  </div>
+                )}
                   </div>
                   <div className="col-sm-12 col-md-8 col-lg-6">
-                  <BasicFormInputLabel htmlFor="formAccountName">
+                  <BasicFormInputLabel htmlFor="formOpportunityAmount">
                     OPPORTUNITY AMOUNT:
                     </BasicFormInputLabel>
                   <div className="row">
@@ -165,34 +143,44 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                             
                             <BasicFormInput
                               type="text"
-                              name="officePhone"
-                              id="formOfficePhone"
+                              name="opportunityAmount"
+                              id="formOpportunityAmount"
                               onChange={handleChange}
                               onBlur={handleBlur}
                               placeholder="Enter the amount"
-                              value={values.officePhone}
-                              red={touched.officePhone && errors.officePhone && true}
-                            />
+                              value={values.opportunityAmount}
+                              red={touched.opportunityAmount && errors.opportunityAmount && true}
+                      />
+                      {touched.opportunityAmount && errors.opportunityAmount && (
+                  <div className="form-validation-errors">
+                    {errors.opportunityAmount}
+                  </div>
+                )}
                       </div>
                     </div>
                   </div>
                   
                   <div className="col-sm-12 col-md-4 col-lg-3">
-                  <BasicFormInputLabel htmlFor="formAccountName">
+                  <BasicFormInputLabel htmlFor="formExpectedCloseDate">
                       EXPECTED CLOSE DATE:
                     </BasicFormInputLabel> 
                   <BasicFormInput
                     type="date"
-                    id="dateCreated"
+                    id="expectedCloseDate"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.dateCreated}
-                    red={touched.dateCreated && errors.dateCreated && true}
+                    value={values.expectedCloseDate}
+                    red={touched.expectedCloseDate && errors.expectedCloseDate && true}
                   />
+                  {touched.expectedCloseDate && errors.expectedCloseDate && (
+                  <div className="form-validation-errors">
+                    {errors.expectedCloseDate}
+                  </div>
+                )}
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
-                    <BasicFormInputLabel htmlFor="formAccountName">
+                    <BasicFormInputLabel htmlFor="formSalesStage">
                       SALES STAGE:
                     </BasicFormInputLabel>
                         <div>
@@ -211,7 +199,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
-                    <BasicFormInputLabel htmlFor="formAccountName">
+                    <BasicFormInputLabel htmlFor="formType">
                       TYPE:
                     </BasicFormInputLabel>
                         <div>
@@ -230,22 +218,22 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
-                    <BasicFormInputLabel id="formOfficePhone">
+                    <BasicFormInputLabel id="formProbability">
                       PROBABILITY(%):
                     </BasicFormInputLabel>
                     <BasicFormInput
                       type="text"
-                      name="officePhone"
-                      id="formOfficePhone"
+                      name="probability"
+                      id="formProbability"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.officePhone}
-                      red={touched.officePhone && errors.officePhone && true}
+                      value={values.probability}
+                      red={touched.probability && errors.probability && true}
                     />
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
-                    <BasicFormInputLabel htmlFor="formAccountName">
+                    <BasicFormInputLabel htmlFor="formLeadSource">
                       LEAD SOURCE:
                     </BasicFormInputLabel>
                         <div>
@@ -275,33 +263,33 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
-                    <BasicFormInputLabel id="formOfficePhone">
+                    <BasicFormInputLabel id="formNextStep">
                       NEXT STEP:
                     </BasicFormInputLabel>
                     <BasicFormInput
                       type="text"
-                      name="officePhone"
-                      id="formOfficePhone"
+                      name="nextStep"
+                      id="formNextStep"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.officePhone}
-                      red={touched.officePhone && errors.officePhone && true}
+                      value={values.nextStep}
+                      red={touched.nextStep && errors.nextStep && true}
                     />
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
-                    <BasicFormInputLabel htmlFor="formAccountName">
+                    <BasicFormInputLabel htmlFor="formCampaign">
                       CAMPAIGN:
                     </BasicFormInputLabel>
                     <BasicFormInput
                     type="text"
-                    name="accountName"
-                    id="formAccountName"
+                    name="campaign"
+                    id="formCampaign"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                      value={values.accountName}
+                      value={values.campaign}
                       placeholder="Type to search"
-                    red={touched.accountName && errors.accountName && true}
+                    red={touched.campaign && errors.campaign && true}
                   />
                   </div>
 
@@ -349,20 +337,20 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
           <div className='container-fluid'>
             <div className="row">
               <div className="col-sm-12 col-md-6 col-lg-6">
-              <BasicFormInputLabel htmlFor="formAccountName">
+              <BasicFormInputLabel htmlFor="formDateModified">
                       DATE MODIFIED:
                     </BasicFormInputLabel> 
                   <BasicFormInput
                     type="date"
-                    id="dateCreated"
+                    id="dateModified"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.dateCreated}
-                    red={touched.dateCreated && errors.dateCreated && true}
+                    value={values.dateModified}
+                    red={touched.dateModified && errors.dateModified && true}
                   />
               </div>
               <div className="col-sm-12 col-md-6 col-lg-6">
-              <BasicFormInputLabel htmlFor="formAccountName">
+              <BasicFormInputLabel htmlFor="formDateCreated">
                       DATE CREATED:
                     </BasicFormInputLabel> 
                   <BasicFormInput
@@ -371,7 +359,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.dateCreated}
-                    red={touched.dateCreated && errors.dateCreated && true}
+                    red={touched.dateCreated && errors.dateCreated}
                 />
                 </div>
             </div>
@@ -382,74 +370,68 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
       <div className="container p-4">
         <div className="row">
           <div className="col-sm-12 text-sm-center text-md-right">
-            <button className="btn btn-primary mr-3">Save</button>
+            <button className="btn btn-primary mr-3" disabled={
+                isSubmitting
+              }
+              type="submit">Save</button>
             <button className="btn btn-primary">Cancel</button>
           </div>
         </div>
-      </div>
+        
+        </div>
+        </form>
     </React.Fragment>
   );
 };
 
 const FirstForm = withFormik<MyFormProps, FormValues>({
   mapPropsToValues: (props) => ({
-    firstName: props.initialFirstName,
-    lastName: props.initialLastName,
-    officePhone: props.initialOfficePhone,
-    mobile: props.initialMobile,
-    jobTitle: props.initialJobTitle,
-    department: props.initialDepartment,
+    opportunityName: props.initialOpportunityName,
     accountName: props.initialAccountName,
-    fax: props.initialFax,
-    email: props.initialEmail,
-    assignTo: props.initialAssignTo,
-    description: props.initialDescription,
-    primaryAddressStreet: props.initialprimaryAddressStreet,
-    primaryAddressPostalCode: props.initialPrimaryAddressPostalCode,
-    primaryAddressCity: props.initialPrimaryAddressCity,
-    primaryAddressState: props.initialPrimaryAddressState,
-    primaryAddressCountry: props.initialPrimaryAddressCountry,
-    alternateAddressCity: props.initialAlternateAddressCity,
-    alternateAddressCountry: props.initialAlternateAddressCountry,
-    alternateAddressPostalCode: props.initialAlternateAddressPostalCode,
-    alternateAddressState: props.initialAlternateAddressState,
-    alternateAddressStreet: props.initialAlternateAddressStreet,
-    reportTo: props.initialReportTo,
-    campaign: props.initialCampaign,
-    dateCreated: props.initialDateCreated,
-    dateModified: props.initialDateModified,
+    opportunityAmount: props.initialOpportunityAmount,
+    expectedCloseDate: props.initialExpectedCloseDate,
+    salesStage: props.initialSalesStage,
+    type: props.initialType,
+    probability:props.initialProbability,
+    leadSource:props.initialLeadSource,
+    nextStep:props.initialNextStep,
+    campaign:props.initialCampaign,
+    assignTo:props.initialAssignTo,
+    description:props.initialDescription,
+    dateModified:props.initialDateModified,
+    dateCreated:props.initialDateCreated
   }),
   validationSchema: Yup.object().shape({
-    firstName: Yup.string().required("* First Name is Required"),
-    lastName: Yup.string().required("* Last Name is Required"),
-    officePhone: Yup.number().required("* Phone Number is Required"),
-    mobile: Yup.number().required("* Mobile Number is Required"),
-    jobTitle: Yup.string().required("* Job Title is Required"),
-    department: Yup.string().required("* Department is Required"),
-    accountName: Yup.string().required("* Account Name is Required"),
-    fax: Yup.string().required("* Fax is Required"),
-    email: Yup.string().required("* Email is Required"),
-    assignTo: Yup.string().required("* Assign to some one"),
-    description: Yup.string().required("* Description is required"),
-    primaryAddressStreet: Yup.string().required("* Required"),
-    primaryAddressPostalCode: Yup.string().required("* Required"),
-    primaryAddressCity: Yup.string().required("* Required"),
-    primaryAddressState: Yup.string().required("* Required"),
-    primaryAddressCountry: Yup.string().required("* Required"),
-    alternateAddressStreet: Yup.string().required("*Required"),
-    alternateAddressPostalCode: Yup.string().required("*Required"),
-    alternateAddressCity: Yup.string().required("*Required"),
-    alternateAddressState: Yup.string().required("*Required"),
-    alternateAddressCountry: Yup.string().required("*Required"),
-    reportTo: Yup.string().required("* Report to Someone"),
+    opportunityName: Yup.string().trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed")
+    .min(3, "Too Short!")
+    .max(20, "Too Long!")
+    .required("* Opportunity Name is Required"),
+    accountName: Yup.string().trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed")
+    .min(3, "Too Short!")
+    .max(20, "Too Long!")
+    .required("* Account Name is Required"),
+    opportunityAmount: Yup.string().required("* Opportunity Amount is Required")
+    .matches(
+      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+      "phone number is required"
+    ).min(1).max(10),
+    expectedCloseDate: Yup.number().required("* Close Date is Required"),
+    salesStage: Yup.string().required("* Required"),
+    type: Yup.string().required("* Type is Required"),
+    probability: Yup.string().required("* Required"),
+    leadSource: Yup.string().required("* Required"),
+    nextStep: Yup.string().required("* Required"),
     campaign: Yup.string().required("* Campaign to Someone"),
+    assignTo: Yup.string().required("* Assign to some one"),
+    description: Yup.string().required("* Description is required"),    
     dateCreated: Yup.number().required("* Date is Required"),
     dateModified: Yup.number().required("* Modified Date is Required"),
   }),
-  handleSubmit({ firstName, lastName, officePhone }: FormValues) {
-    console.log("firstName", firstName);
-    console.log("lastName", lastName);
-    console.log("officePhone", officePhone);
+  handleSubmit({ opportunityName }: FormValues) {
+    console.log("opportunityName", opportunityName);
+   
   },
 })(InnerForm);
 
