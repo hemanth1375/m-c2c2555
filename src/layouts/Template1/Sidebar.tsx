@@ -4,8 +4,10 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { translate } from "languages";
+import Footer from "./Footer/Footer";
 import "./Sidebar.css";
-import Footer from './Footer/footer'
+
+
 
 const routes = [
   {
