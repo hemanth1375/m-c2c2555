@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.6",
     "bootstrap": "4.5",
     "country-flag-icons": "^1.5.5",
+    "flag-icons": "^6.6.6",
     "formik": "^2.2.9",
     "framer-motion": "^7.3.5",
     "lodash": "^4.17.21",
@@ -21,6 +22,7 @@
     "react-bootstrap-sidebar": "^0.0.1",
     "react-bootstrap-sidebar-menu": "^2.0.3",
     "react-dom": "^18.2.0",
+    "react-flag-icon-css": "^1.0.25",
     "react-hook-form": "^7.35.0",
     "react-icons": "^4.4.0",
     "react-intl": "^6.1.1",
@@ -62,6 +64,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.185",
     "@types/pascalcase": "^1.0.1",
+    "@types/react-flag-icon-css": "^1.0.5",
     "@types/styled-components": "^5.1.26",
     "jest-sonar-reporter": "^2.0.0"
   },

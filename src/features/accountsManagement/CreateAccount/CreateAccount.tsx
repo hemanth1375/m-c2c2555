@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import "./CreateAccount.css";
 import OverViewForm from "./OverViewForm";
 import MoreInformationTab from "./MoreInformationTab";
-import Other from "./Other";
+import Other from "./OtherFormTab";
 import { translate } from "languages";
 import { FormTabs } from "components/forms";
-import { over } from "lodash";
 
 const overview = translate("overView");
 console.log(typeof overview);
@@ -30,6 +29,28 @@ const tabs: TabsType = [
     index: 2,
     Component: MoreInformationTab,
   },
+  {
+    label: other,
+    index: 3,
+    Component: Other,
+  },
+];
+
+const overViewTab: TabsType = [
+  {
+    label: overview,
+    index: 1,
+    Component: OverViewForm,
+  },
+];
+const moreInfoTab: TabsType = [
+  {
+    label: moreInformation,
+    index: 2,
+    Component: MoreInformationTab,
+  },
+];
+const otherTab: TabsType = [
   {
     label: other,
     index: 3,
