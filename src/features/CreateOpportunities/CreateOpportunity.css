@@ -1,11 +1,7 @@
 *, :after, :before {
     box-sizing: border-box;
 }
-.opportunities-hr-line{
-    background-color: black;
-    width: 97%;
-    height: 1px;
-}
+
 
 
 .form-container{
@@ -14,3 +10,4 @@
 .form-title{
     font-size:20px;
 }
+

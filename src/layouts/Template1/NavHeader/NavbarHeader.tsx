@@ -2,6 +2,7 @@ import "./NavbarHeader.css";
 import { CgProfile } from "react-icons/cg";
 import Nav from "react-bootstrap/Nav";
 import Modal from "../Modal";
+import { GrFormSearch } from "react-icons/gr";
 import { useState, useContext } from "react";
 import { localeContextObj } from "context/context";
 import { LOCALES } from "languages";
@@ -45,8 +46,16 @@ const Header = () => {
   };
 
   return (
-    <div className="nav-container1">
-      <span className="navbar-brand mb-0 h1">M-C2C</span>
+    <nav className="container-fluid nav-container">
+      <div className="title-search-container">
+        <h2 className="mb-0 title">M-C2C</h2>
+        <div className="search-bar">
+          <input type="search" placeholder="search" className="header-search" />
+          <button type="submit">
+            <GrFormSearch className="search-icon" />
+          </button>
+        </div>
+      </div>
       <div className="navbar-header-select">
         <Dropdown onSelect={changeLanguageHandler}>
           <Dropdown.Toggle
@@ -70,13 +79,13 @@ const Header = () => {
             ))}
           </Dropdown.Menu>
         </Dropdown>
-        <button className="navbar-profile-container" onClick={displayModal}>
+        <button className="navbar-profile-button" onClick={displayModal}>
           <CgProfile className="button-profile-icon" />
-          <p>Will Westin</p>
+          Will Westin
         </button>
       </div>
       {isDisplay && <Modal />}
-    </div>
+    </nav>
   );
 };
 export default Header;

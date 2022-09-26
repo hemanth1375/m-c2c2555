@@ -1,33 +1,27 @@
-
-
-
 import OverViewForm from "./OverViewForm";
-import {useState} from 'react'
+import { translate } from "languages";
 import './CreateContact.css';
 
 
 
   const CreateContact = () => {
 
-  const [submitStatus, setSubmitStatus]=useState(true)
     
     return(
-      //form page
-        <div className="create-contacts-bg-container">
-            <div className="contacts-top-container">
-            <div>
-                <h4 className="contacts-h4-heading">CONTACTS CREATE</h4>
-            </div>
-            <div>
-                <button className="contact-save-button">Save</button>
-                <button className="contact-cancel-button">Cancel</button>
-            </div>
-            </div>
-            <hr className="contacts-hr-line"/>
-                <div>
-                  <OverViewForm setSubmitStatus={setSubmitStatus}/>
-                </div>
-                </div>
+
+       //form page
+
+      <div className='container-fluid form-container'>
+        <div className='row'>
+          <div className='col-sm-12 pl-0 pr-0'>
+            <h4 className="text-left pl-3 pt-3 form-title">{translate("createContact")}</h4>
+            <hr className="form-horizontal-line-for-devide" />
+              <OverViewForm /> 
+          </div>
+        </div>
+      </div>
+     
+        
     
     )
 }
