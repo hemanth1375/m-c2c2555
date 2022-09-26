@@ -49,7 +49,7 @@
   "importOpportunity": "IMPORTER UNE OPPORTUNITÉ",
   "leads": "LEADS",
   "createLead": "CRÉER UN PROSPECT",
-  "createLeadFromVcard": "CRÉER UN PROSPECT À PARTIR D'UNE VCARD",
+  "createLeadFromVCard": "CRÉER UN PROSPECT À PARTIR D'UNE VCARD",
   "viewLeads": "AFFICHER LES PISTES",
   "importLeads": "IMPORTER DES PISTES",
   "quotes": "DEVIS",
@@ -75,12 +75,11 @@
   "contracts": "CONTRATS",
   "cases": "DOSSIERS",
 
-
   "mr": "M.",
   "ms": "MS",
   "mrs": "MRS",
   "miss": "MISS",
-  "pro": "PRO", 
+  "pro": "PRO",
   "firstName": "PRÉNOM",
   "firstNameIsRequired": "LE PRÉNOM EST OBLIGATOIRE",
   "lastName": "NOM DE FAMILLE",
@@ -124,10 +123,9 @@
   "wordOfMouth": " BOUCHE À OREILLE",
   "reportTo": "RAPPORT",
   "reportToSomeone": "SIGNALER À QUELQU'UN",
-  "typeToSearch":  "TYPE DE RECHERCHE",
+  "typeToSearch": "TYPE DE RECHERCHE",
   "campaignToSomeone": "CAMPAGNE AUPRÈS DE QUELQU'UN",
   "ddMmYyyy": "DDMMYYYY",
   "dateIsRequired": "LA DATE EST REQUISE",
   "modifiedDateIsRequired": "LA DATE DE MODIFICATION EST REQUISE"
 }
-

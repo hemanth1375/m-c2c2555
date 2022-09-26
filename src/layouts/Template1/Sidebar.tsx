@@ -75,7 +75,7 @@ const routes = [
     subRoutes: [
       {
         path: "/opportunities",
-        name: translate("Create Oppotunity"),
+        name: translate("createOpportunity"),
         icon: <FaUser />,
       },
       {
