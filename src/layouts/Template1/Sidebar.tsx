@@ -5,26 +5,26 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { translate } from "languages";
 import "./Sidebar.css";
-import Footer from "./Footer/footer";
+import Footer from "./Footer/Footer";
 
 const routes = [
   {
-    path: "/accounts",
+    path: "/accounts/",
     name: translate("accounts"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
-        path: "/accounts",
+        path: "/accounts/createAccount",
         name: translate("createAccount"),
         icon: <FaUser />,
       },
       {
-        path: "/accounts/viewaccount",
+        path: "/accounts/viewAccounts",
         name: translate("viewAccount"),
         icon: <FaLock />,
       },
       {
-        path: "/accounts/importaccounts",
+        path: "/accounts/importAccounts",
         name: translate("importAccount"),
         icon: <FaMoneyBill />,
       },

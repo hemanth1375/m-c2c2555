@@ -24,12 +24,12 @@ function App() {
             <Template>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/accounts" element={<Accounts />} />
-                <Route path="/contacts" element={<Contacts />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/leads" element={<Leads />} />
-                <Route path="/opportunities" element={<Opportunities />} />
-                <Route path="/quotes" element={<Quotes />} />
+                <Route path="/accounts/*" element={<Accounts />} />
+                <Route path="/contacts/*" element={<Contacts />} />
+                <Route path="/calendar/*" element={<Calendar />} />
+                <Route path="/leads/*" element={<Leads />} />
+                <Route path="/opportunities/*" element={<Opportunities />} />
+                <Route path="/quotes/*" element={<Quotes />} />
               </Routes>
             </Template>
           </BrowserRouter>
