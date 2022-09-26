@@ -1,5 +1,7 @@
 import styled from "styled-components";
-export interface inputProps {
+
+
+export interface colorProps {
   red?:any
 }
 
@@ -7,7 +9,7 @@ export const BasicFormInput = styled.input`
 &{
 // property2: ${(props:any) => (props.name === "" ? "value2" : "value3")};
 border-radius: 4px;
-border: ${(props:inputProps) => (props.red? "1px solid red" : "1px solid #ccc")};;
+border: ${(props:colorProps) => (props.red? "1px solid red" : "1px solid #ccc")};;
 margin-top:5px;
 margin-bottom: 5px;
 width: 100%;
@@ -35,7 +37,8 @@ text-align: left;
     margin-bottom: 10px;
     margin-top: 12px;
     color: black;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight:600;
     font-weight: ${(props:Props) => (props.bold? "bold" : "null")};
 
 `;

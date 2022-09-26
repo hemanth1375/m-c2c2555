@@ -1,16 +1,11 @@
-import { NavLink } from "react-router-dom";
 import { FaBars, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
-
-import { BiSearch } from "react-icons/bi";
-
 import { AiTwotoneFileExclamation } from "react-icons/ai";
-
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { translate } from "languages";
 import "./Sidebar.css";
-import Footer from "./Footer";
+import Footer from "./Footer/footer";
 
 const routes = [
   {
@@ -79,8 +74,8 @@ const routes = [
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
-        path: "/opportunities/createopportunity",
-        name: translate("createOpportunity"),
+        path: "/opportunities",
+        name: translate("Create Oppotunity"),
         icon: <FaUser />,
       },
       {
@@ -296,8 +291,7 @@ const SideBar = ({ children }: any) => {
     <div className="main-container">
       <motion.div
         animate={{
-          width: isOpen ? "12%" : "3%",
-
+          minWidth: isOpen ? "12%" : "3%",
           transition: {
             duration: 0.5,
             type: "spring",
@@ -325,23 +319,6 @@ const SideBar = ({ children }: any) => {
             <FaBars onClick={toggle} />
           </div>
         </div>
-        <div className="search">
-          <div className="search_icon">
-            <BiSearch />
-          </div>
-          <AnimatePresence>
-            {isOpen && (
-              <motion.input
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                variants={inputAnimation}
-                type="text"
-                placeholder="Search"
-              />
-            )}
-          </AnimatePresence>
-        </div>
         <section className="routes">
           {routes.map((route, index) => {
             if (route.subRoutes) {
@@ -362,6 +339,7 @@ const SideBar = ({ children }: any) => {
                 route={route}
                 showAnimation={showAnimation}
                 isOpen={isOpen}
+                key={index}
               />
             );
           })}
@@ -371,7 +349,7 @@ const SideBar = ({ children }: any) => {
       <motion.div
         animate={{
           width: isOpen ? "88%" : "97%",
-
+          backgroundColor: "#cccccc",
           transition: {
             duration: 0.5,
             type: "spring",

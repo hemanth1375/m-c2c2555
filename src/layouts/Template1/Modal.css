@@ -13,7 +13,7 @@
     padding:10px;
     text-align:center;
 }
-.modal-name p{
+.modal-name .name{
     color:white;
     font-size:20px;
 }
@@ -22,11 +22,8 @@
     height:50px;
     color:white;
 }
-.button-container{
+.modal-button-container{
     padding:10px;
     display:flex;
     justify-content: space-between;
-}
-.button-container button{
-    border:lightgray;
 }
