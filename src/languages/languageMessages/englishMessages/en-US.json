@@ -74,6 +74,8 @@
   "contracts": "CONTRACTS",
   "cases": "CASES",
 
+
+
   "overView": "OVERVIEW",
   "mr": "MR",
   "miss": "MISS",
@@ -94,7 +96,6 @@
   "accountNameIsRequired": "ACCOUNT NAME IS REQUIRED",
   "faxIsRequired": "FAX IS REQUIRED",
   "eMailIsRequired": "EMAIL IS REQUIRED",
-  "assignTo": "ASSIGNE TO",
   "assignToSomeOne": "ASSIGNE TO SOMEONE",
   "descriptionIsRequired": "DESCRIPTION IS REQUIRED",
   "primaryAddress": "PRIMARY ADDRESS",
@@ -127,6 +128,8 @@
   "campaignToSomeone": "CAMPAIGN TO SOMEONE",
   "ddMmYyyy": "DDMMYYYY",
   "dateIsRequired": "DATE IS REQUIRED",
-  "modifiedDateIsRequired": "MODIFIED DATE IS REQUIRED"
-  
+  "modifiedDateIsRequired": "MODIFIED DATE IS REQUIRED",
+  "importVCard": "IMPORT VCARD",
+  "automaticallyCreateANewContactByImportingAVCardFromYourFileSystem": "AUTOMATICALLY CREATE A NEW CONTACT BY IMPORTING A VCARD FROM YOUR FILE SYSTEM"
+ 
 }

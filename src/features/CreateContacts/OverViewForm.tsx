@@ -91,7 +91,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     handleChange,
     handleBlur,
     handleSubmit,
-    isSubmitting,
+    // isSubmitting,
   } = props;
 
   return (
@@ -297,7 +297,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
               <div className="col-sm-12 col-md-4 col-lg-3">
                 <BasicFormInputLabel htmlFor="assignTo">
-                {translate("assignTo")}:
+                {translate("assignedTo")}:
                 </BasicFormInputLabel>
                 <BasicFormInput
                   type="text"
@@ -306,7 +306,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.assignTo}
-                  red={touched.assignTo && errors.assignTo && true}
+                  red={touched.assignTo && errors.assignTo}
                   placeholder="type to search..."
                 />
                 {touched.assignTo && errors.assignTo ? (
@@ -556,6 +556,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                       id="formDescription"
                       onChange={handleChange}
                       onBlur={handleBlur}
+                    
                       value={values.description}
                       rows={2}
                       cols={54}
@@ -568,7 +569,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         </form>
       </div>
       <div className="form-heading-container">
-        <h5 className="form-tab-heading"> {translate("MoreInformation")}</h5>
+        <h5 className="form-tab-heading"> {translate("moreInformation")}</h5>
       </div>
       <div className="basic-white-form">
         <form>
@@ -714,12 +715,12 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
       <div className="container p-4">
         <div className="row">
           <div className="col-sm-12 text-sm-center text-md-right">
-            <button className="btn btn-primary m-1"
+            <button className="create-contact-save-cancle-button m-1"
               type="submit"
             >
               {translate("save")}
             </button>
-            <button className="btn btn-primary">{translate("cancel")}</button>
+            <button className="create-contact-save-cancle-button">{translate("cancel")}</button>
           </div>
 
         </div>
@@ -771,7 +772,7 @@ const FirstForm = withFormik<MyContactFormProps, FormValues>({
       .max(20, "Too Long!")
       .required("* Lastname is required"),
     officePhone: Yup.string()
-      .required("Mobile number is Required")
+      .required("* Mobile number is Required")
       .matches(
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
         "* phone number is required"
@@ -779,14 +780,15 @@ const FirstForm = withFormik<MyContactFormProps, FormValues>({
       .min(10)
       .max(10),
     mobile: Yup.string()
-      .required("Mobile number is Required")
+      .required("* Mobile number is Required")
       .matches(
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
         "* phone number is required"
       )
       .min(10)
       .max(10),
-    jobTitle: Yup.string().required("* Job Title is Required"),
+    jobTitle: Yup.string().trim()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed").required("* Title is required"),
     department: Yup.string().required("* Department is Required"),
     accountName: Yup.string().required("* Account Name is Required"),
     fax: Yup.string().required("* Fax is Required"),

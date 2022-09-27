@@ -1,0 +1,64 @@
+*{
+    font-family: 'Lato',Lato,Arial,sans-serif;
+}
+
+
+.contact-vcard{
+    background-color: #f8f8f8;
+    border-radius:0.3125rem ;
+    padding: 0.9375rem;
+    background-size: cover;
+    width: 100%;
+}
+
+.contact-vcard-heading{
+    color: black;
+    font-size: 1.563rem;
+    font-weight: thin;
+    text-align: left;
+
+}
+
+.contact-vcard-paragraph{
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.contct-vcard-input-file{
+    text-align: left;
+}
+
+.contact-vcard-flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    align-self: flex-start;
+}
+
+.contact-vcard-button{
+    background-color: #3e94de;
+    border: none;
+    width: 8.438rem;
+    height: 1.875rem;
+    border-radius: 0.188rem;
+    color: white;
+}
+
+.contact-vcard-button:hover{
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
+}

@@ -1,69 +1,62 @@
-.inner-label{
-    text-align:left;
-  }
-  .inner-label-currency{
-    margin-top:-34px;
-    text-align: left;
-  }
+  
   .basic-white-form{
     background-color: #f8f8f8;
-    border-radius: 0px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin: 30px 30px 0px 30px;
-    padding: 15px;
+    border-radius: 	0rem;
+    border-top-right-radius: 0.3125rem;
+    border-bottom-left-radius: 0.3125rem;
+    border-bottom-right-radius: 0.3125rem;
+    margin: 	1.875rem 	1.875rem 	0rem 	1.875rem;
+    padding: 0.9375rem;
   }
   .form-heading-container{
-    border: solid 1px #e9ecef;
-    height: 40px;
-    width: 196px !important;
-    margin-left: 30px !important;
-    margin-bottom: -30px !important;
+    border: solid 0.0625rem #e9ecef;
+    height: 2.5rem;
+    width: 12.25rem !important;
+    margin-left: 	1.875rem !important;
+    margin-bottom: -1.875rem !important;
     background-color: #f8f8f8;
-    border-radius: 1px;
+    border-radius: 0.0625rem;
     
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 0.3125rem;
+    border-top-right-radius: 0.3125rem;
     color: black;
   }
   
   
   .overview-select-item{
-    margin-top:5px;
-    padding: 5;
-    width: 200;
+    margin-top:0.3125rem;
+    padding: 0.3125rem;
     width: 100%;
-    font-size: 12px;
-    border-radius: 3px;
-    height: 30px;
+    font-size: 0.75rem;
+    border-radius: 0.19rem;
+    height: 	1.875rem;
     border-top: none;
     border-right: none;
     border-left: none;
   }
   
   .overview-select-item:focus{
-    border: 2px solid #007bff;
+    border: 0.13rem solid #007bff;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   }
   
   .over-view-form-textarea{
-    padding: 5;
+    padding: 0.3125rem;
   width: 100%;
   display: "block";
   resize: "none";
-  border-radius: 3px;
-  border: 1px solid #ccc;
+  border-radius: 0.19rem;
+  border: 0.0625rem solid #ccc;
   }
   
   .form-horizontal-line-for-devide{
 
-        background-color: black;
-       margin: 10px 30px 20px 30px;
-        height: 1px;
+    background-color: black;
+    margin: 0.625rem 	1.875rem 1.25rem 	1.875rem;
+    height: 0.0625rem;
   }
 
   .form-title{
-    font-size:20px;
-    margin-left: 10px;
+    font-size:1.25rem;
+    margin-left: 0.625rem;
   }

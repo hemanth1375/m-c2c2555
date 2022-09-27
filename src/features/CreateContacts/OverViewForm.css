@@ -11,18 +11,18 @@
 
 
 .address-heading{
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: bold;
 }
 
 .name-heading{
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: bold;
 }
 
 .form-validation-errors{
   color: red;
-  font-size: 12px;
+  font-size: 0.75rem;
   text-align: left;
 }
 
@@ -31,9 +31,34 @@
 }
 
 .form-tab-heading{
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: bold;
  
   text-align: center;
-  padding-top: 5px;
+  padding-top: 0.3125rem;
+}
+
+.create-contact-save-cancle-button{
+  background-color: #3e94de;
+  border: none;
+  width: 7.5rem;
+  height: 1.875rem;
+  border-radius: 0.188rem;
+  color: white;
+}
+
+.create-contact-save-cancle-button:hover{
+  background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
 }

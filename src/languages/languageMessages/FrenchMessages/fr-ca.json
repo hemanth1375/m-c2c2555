@@ -127,5 +127,7 @@
   "campaignToSomeone": "CAMPAGNE AUPRÈS DE QUELQU'UN",
   "ddMmYyyy": "DDMMYYYY",
   "dateIsRequired": "LA DATE EST REQUISE",
-  "modifiedDateIsRequired": "LA DATE DE MODIFICATION EST REQUISE"
+  "modifiedDateIsRequired": "LA DATE DE MODIFICATION EST REQUISE",
+  "automaticallyCreateANewContactByImportingAVCardFromYourFileSystem": "CRÉER AUTOMATIQUEMENT UN NOUVEAU CONTACT EN IMPORTANT UNE VCARD DEPUIS VOTRE SYSTÈME DE FICHIERS",
+  "importVCard": "IMPORTATION VCARD"
 }
