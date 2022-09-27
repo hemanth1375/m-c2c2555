@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./CreateAccount.css";
-import OverViewForm from "./OverViewForm";
-import MoreInformationTab from "./MoreInformationTab";
-import Other from "./OtherFormTab";
+import OverViewForm from "features/ContactsManagement/CreateContacts/OverViewForm";
 import { translate } from "languages";
 import { FormTabs } from "components/forms";
 
@@ -24,39 +22,8 @@ const tabs: TabsType = [
     index: 1,
     Component: OverViewForm,
   },
-  {
-    label: moreInformation,
-    index: 2,
-    Component: MoreInformationTab,
-  },
-  {
-    label: other,
-    index: 3,
-    Component: Other,
-  },
 ];
 
-const overViewTab: TabsType = [
-  {
-    label: overview,
-    index: 1,
-    Component: OverViewForm,
-  },
-];
-const moreInfoTab: TabsType = [
-  {
-    label: moreInformation,
-    index: 2,
-    Component: MoreInformationTab,
-  },
-];
-const otherTab: TabsType = [
-  {
-    label: other,
-    index: 3,
-    Component: Other,
-  },
-];
 const CreateAccount = () => {
   const [selectedTab, setSelectedTab] = useState<number>(tabs[0].index);
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
-import CreateContact from 'features/CreateContacts/CreateContact';
+import ContactsManagement from "features/ContactsManagement";
 
 const Contacts = () => {
     return (
         <div>
-            <CreateContact/>
+            <ContactsManagement/>
         </div>
     );
 };
