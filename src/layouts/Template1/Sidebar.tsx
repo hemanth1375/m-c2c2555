@@ -7,26 +7,24 @@ import { translate } from "languages";
 import "./Sidebar.css";
 import Footer from "./Footer/Footer";
 
-
-
 const routes = [
   {
-    path: "/accounts",
+    path: "/accounts/",
     name: translate("accounts"),
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
-        path: "/accounts",
+        path: "/accounts/createAccount",
         name: translate("createAccount"),
         icon: <FaUser />,
       },
       {
-        path: "/accounts/viewaccount",
+        path: "/accounts/viewAccounts",
         name: translate("viewAccount"),
         icon: <FaLock />,
       },
       {
-        path: "/accounts/importaccounts",
+        path: "/accounts/importAccounts",
         name: translate("importAccount"),
         icon: <FaMoneyBill />,
       },
@@ -43,17 +41,17 @@ const routes = [
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
-        path: "/contacts",
+        path: "/contacts/createContacts",
         name: translate("createContact"),
         icon: <FaUser />,
       },
       {
-        path: "/contacts/createcontactfromvcard",
+        path: "/contacts/createContactFromVCard",
         name: translate("createContactFromVCard"),
         icon: <FaUser />,
       },
       {
-        path: "/contacts/viewcontacts",
+        path: "/contacts/",
         name: translate("viewContacts"),
         icon: <FaLock />,
       },
@@ -360,7 +358,7 @@ const SideBar = ({ children }: any) => {
         }}
         className="sidebar-children"
       >
-        <div>{children}</div>
+        <div className="sidebar-children-container">{children}</div>
         <div>
           <Footer />
         </div>

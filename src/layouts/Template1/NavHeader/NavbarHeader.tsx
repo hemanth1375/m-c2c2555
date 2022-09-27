@@ -2,7 +2,7 @@ import "./NavbarHeader.css";
 import { CgProfile } from "react-icons/cg";
 import Nav from "react-bootstrap/Nav";
 import Modal from "../Modal";
-import { GrFormSearch } from 'react-icons/gr';
+import { GrFormSearch } from "react-icons/gr";
 import { useState, useContext } from "react";
 import { localeContextObj } from "context/context";
 import { LOCALES } from "languages";
@@ -47,13 +47,15 @@ const Header = () => {
 
   return (
     <nav className="container-fluid nav-container">
-      <div className="title-search-container">    
-       <h2 className="mb-0 title">M-C2C</h2>
-       <div className="search-bar">
+      <div className="title-search-container">
+        <h2 className="mb-0 title">M-C2C</h2>
+        <div className="search-bar">
           <input type="search" placeholder="search" className="header-search" />
-          <button type="submit"  ><GrFormSearch className="search-icon"/></button>
+          <button type="submit">
+            <GrFormSearch className="search-icon" />
+          </button>
         </div>
-        </div>
+      </div>
       <div className="navbar-header-select">
         <Dropdown onSelect={changeLanguageHandler}>
           <Dropdown.Toggle

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Home from "pages/Home";
 import Accounts from "pages/Accounts";
 import Contacts from "pages/Contacts";
@@ -11,7 +11,6 @@ import { IntlProvider, LOCALES } from "./languages";
 import Template from "layouts/Template1/Template";
 import { localeContextObj } from "context/context";
 import "./App.css";
-import CreateContactFromVcard from "features/CreateContacts/CreateContactFromVcard/CreateContactFromVcard";
 
 function App() {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
@@ -25,13 +24,12 @@ function App() {
             <Template>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/accounts" element={<Accounts />} />
-                <Route path="/contacts" element={<Contacts />} />
-                <Route path="/contacts/createcontactfromvcard" element={<CreateContactFromVcard />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/leads" element={<Leads />} />
-                <Route path="/opportunities" element={<Opportunities />} />
-                <Route path="/quotes" element={<Quotes />} />
+                <Route path="/accounts/*" element={<Accounts />} />
+                <Route path="/contacts/*" element={<Contacts />} />
+                <Route path="/calendar/*" element={<Calendar />} />
+                <Route path="/leads/*" element={<Leads />} />
+                <Route path="/opportunities/*" element={<Opportunities />} />
+                <Route path="/quotes/*" element={<Quotes />} />
               </Routes>
             </Template>
           </BrowserRouter>
