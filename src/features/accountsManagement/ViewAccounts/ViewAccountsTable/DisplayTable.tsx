@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Container, Table, TableContainer } from "./tableStyledComponents";
 import { PaginationData, User } from "./TableTypes";
 
-function DisplayTable() {
+function DisplayTable(props: any) {
   const [data, setData] = useState<PaginationData<User>>();
-  const [limit, setLimit] = useState(10);
-  const [offset, setOffset] = useState(0);
+  const { limit, offset, setTotal } = props;
+  console.log(limit);
 
   useEffect(() => {
     const getData = async () => {
@@ -13,8 +13,12 @@ function DisplayTable() {
         limit,
         offset,
       });
+      setTotal(tableData.pagination.total);
+      console.log(tableData.pagination.total);
       setData(tableData);
     };
+
+    // getData is in objet format
     getData();
   }, [limit, offset]);
 

@@ -6,8 +6,8 @@ import {
 } from "react-icons/fa";
 import styled from "styled-components";
 
-const Container = styled.div`
-  width: 600px;
+const PaginationContainer = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr auto;
   font-size: 0.65rem;
@@ -16,6 +16,7 @@ const Container = styled.div`
 
 const factory = (Component: any = FaChevronLeft) => styled(Component)`
   cursor: pointer;
+  height: 1rem;
 `;
 
 const Left = factory(FaChevronLeft);
@@ -35,6 +36,8 @@ const Page = factory(
   styled.div<{ isActive?: boolean }>`
     padding: 0.2rem;
     font-weight: ${({ isActive }) => isActive && "bold"};
+    font-size: 14px;
+    margin-top: -0.8rem;
   `
 );
 
@@ -43,10 +46,11 @@ const PageInfo = styled.div`
   grid-template-columns: auto auto 1fr;
   grid-gap: 0.4rem;
   align-items: center;
+  font-size: 14px;
 `;
 
 export {
-  Container,
+  PaginationContainer,
   Left,
   AllLeft,
   PageContainer,

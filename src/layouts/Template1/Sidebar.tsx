@@ -358,7 +358,7 @@ const SideBar = ({ children }: any) => {
         }}
         className="sidebar-children"
       >
-        <div>{children}</div>
+        <div className="sidebar-children-container">{children}</div>
         <div>
           <Footer />
         </div>

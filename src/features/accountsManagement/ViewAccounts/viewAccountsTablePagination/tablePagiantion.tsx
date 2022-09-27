@@ -3,7 +3,7 @@ import Select from "react-select";
 import {
   AllLeft,
   AllRight,
-  Container,
+  PaginationContainer,
   Left,
   Page,
   PageContainer,
@@ -27,7 +27,7 @@ const TablePagination: React.FC<PProps> = ({
   setOffset,
 }) => {
   if (typeof total !== "number") {
-    return <Container>Loading...</Container>;
+    return <PaginationContainer>Loading...</PaginationContainer>;
   }
   const limitOptions = [10, 20, 30, 40, 50].map((value) => ({
     value,
@@ -42,12 +42,14 @@ const TablePagination: React.FC<PProps> = ({
     .map((v) => currentPage + v)
     .filter((page) => page > 0 && page <= pageCount);
   return (
-    <Container>
+    <PaginationContainer>
       <PageInfo>
         Showing {from} to {to} of {total} items
         <Select
           options={limitOptions}
-          value={limitOptions.find((v) => v.value === limit)}
+          value={limitOptions.find((v) => {
+            return v.value === limit;
+          })}
           onChange={(v) => {
             setLimit(v?.value || 10);
             setOffset(0);
@@ -106,7 +108,7 @@ const TablePagination: React.FC<PProps> = ({
           <Right onClick={() => setOffset(highestPossibleOffset)} />
         </PageContainer>
       )}
-    </Container>
+    </PaginationContainer>
   );
 };
 

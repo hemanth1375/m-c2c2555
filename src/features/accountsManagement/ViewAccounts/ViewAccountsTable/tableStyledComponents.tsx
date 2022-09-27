@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -11,7 +10,7 @@ const Container = styled.div`
 `;
 
 const TableContainer = styled.div`
-  width: 80%;
+  width: 100%;
   overflow: auto;
   border-radius: 5px;
 `;
