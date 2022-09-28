@@ -73,5 +73,16 @@
   "notes": "ANMERKUNGEN",
   "invoices": "RECHNUNGEN",
   "contracts": "VERTRÄGE",
-  "cases": "FÄLLE"
+  "cases": "FÄLLE",
+
+
+
+  "basic":"BASIC",
+  "opportunityName":" NAME DER CHANCE",
+  "opportunityAmount":"BETRAG DER VERKAUFSCHANCE",
+  "expectedCloseDate":"VORAUSSICHTLICHES ABSCHLUSSDATUM",
+  "salesStage":"VERKAUFSSTADIUM",
+  "probability(%)":"  WAHRSCHEINLICHKEIT(%)",
+  "nextStep":"NÄCHSTER SCHRITT",
+  "accountName":"KONTO NAME"
 }

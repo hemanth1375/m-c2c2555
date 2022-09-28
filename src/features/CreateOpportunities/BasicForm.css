@@ -1,46 +1,39 @@
-.inner-label{
-  text-align:left;
-}
-.inner-label-currency{
-  margin-top:-34px;
-  text-align: left;
-}
 .basic-white-form{
   background-color: #f8f8f8;
-  border-radius: 0px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin: 30px 30px 0px 30px;
-  padding: 15px;
+  border-radius: 0rem;
+  border-top-right-radius: 0.313rem;
+  border-bottom-left-radius: 0.313rem;
+  border-bottom-right-radius: 0.313rem;
+  margin: 1.875rem 1.875rem 0rem 1.875rem;
+  padding: 0.938rem;
 }
 .form-heading-container{
   border: solid 1px #e9ecef;
-  height: 40px;
-  width: 200px;
-  margin-left: 30px;
-  margin-bottom: -30px !important;
+  height: 2.5rem;
+  width: 12.5rem;
+  margin-left: 1.875rem;
+  margin-bottom: -1.875rem !important;
   background-color: #f8f8f8;
-  border-radius: 1px;
+  border-radius: 0.063rem;
   
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 0.313rem;
+  border-top-right-radius: 0.313rem;
   color: black;
 }
 .form-tab-heading{
-  font-size: 15px;
+  font-size: 0.938rem;
   font-weight: bold;
  
   text-align: center;
-  padding-top: 5px;
+  padding-top: 0.313rem;
 }
 
 .overview-select-item{
-  margin-top:5px;
+  margin-top:0.313rem;
   padding: 5;
   width: 100%;
-  border-radius: 3px;
-  height: 30px;
+  border-radius: 0.188rem;
+  height: 1.875rem;
   border-top: none;
   border-right: none;
   border-left: none;
@@ -52,10 +45,10 @@
 }
 
 .over-view-form-textarea{
-  padding: 5;
+  padding: 0.313rem;
 width: 100%;
 display: "block";
 resize: "none";
-border-radius: 3px;
-border: 1px solid #ccc;
+border-radius: 0.188rem;
+border: 0.063rem solid #ccc;
 }

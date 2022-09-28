@@ -127,5 +127,16 @@
   "campaignToSomeone": "CAMPAGNE AUPRÈS DE QUELQU'UN",
   "ddMmYyyy": "DDMMYYYY",
   "dateIsRequired": "LA DATE EST REQUISE",
-  "modifiedDateIsRequired": "LA DATE DE MODIFICATION EST REQUISE"
+  "modifiedDateIsRequired": "LA DATE DE MODIFICATION EST REQUISE",
+
+
+
+
+  "basic":"BASE",
+  "opportunityName":" NOM DE L'OPPORTUNITÉ",
+  "opportunityAmount":"MONTANT DE L'OPPORTUNITÉ",
+  "expectedCloseDate":"DATE DE CLÔTURE PRÉVUE",
+  "salesStage":"STAGE DE VENTE",
+  "probability(%)":"PROBABILITÉ(%)",
+  "nextStep":"PROCHAINE ÉTAPE"
 }

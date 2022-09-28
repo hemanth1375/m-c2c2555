@@ -1,6 +1,5 @@
 import "./NavbarHeader.css";
 import { CgProfile } from "react-icons/cg";
-import Nav from "react-bootstrap/Nav";
 import Modal from "../Modal";
 import { GrFormSearch } from 'react-icons/gr';
 import { useState, useContext } from "react";
@@ -17,14 +16,12 @@ const Header = () => {
 
   const { setLocale } = useContext(localeContextObj);
 
-  //storing countries in array with flag code and locales language code
   const [countries] = useState([
     { code: "de", title: "German", localeCode: LOCALES.GERMAN },
     { code: "fr", title: "French", localeCode: LOCALES.FRENCH },
     { code: "us", title: "English", localeCode: LOCALES.ENGLISH },
   ]);
 
-  // initial toggle content as english
   const initialToggleContent = (
     <>
       <FlagIcon code={countries[2].code} /> {countries[2].title}

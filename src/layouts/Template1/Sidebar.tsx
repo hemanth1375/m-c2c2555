@@ -1,19 +1,24 @@
-import { FaBars, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
-import { AiTwotoneFileExclamation } from "react-icons/ai";
+import { FaBars, FaEye, FaFileContract, FaFileInvoice, FaPeopleArrows, FaUser } from "react-icons/fa";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { translate } from "languages";
 import Footer from "./Footer/Footer";
+import { TiContacts } from 'react-icons/ti';
+import { MdAddCall, MdGroups, MdOutlineCampaign, MdOutlineContactPhone, MdOutlineLeaderboard, MdOutlineMail, MdOutlineTask, MdSwitchAccount } from 'react-icons/md';
 import "./Sidebar.css";
-
+import { BsChatLeftQuote, BsClockHistory } from "react-icons/bs";
+import { IoCalendarNumberOutline } from 'react-icons/io5';
+import { CgFileDocument, CgMoreVerticalR, CgNotes } from "react-icons/cg";
+import { TbBriefcase, TbFileImport } from 'react-icons/tb';
+import { AiOutlineHome, AiOutlineSchedule } from 'react-icons/ai';
 
 
 const routes = [
   {
     path: "/accounts",
     name: translate("accounts"),
-    icon: <AiTwotoneFileExclamation />,
+    icon: <TiContacts />,
     subRoutes: [
       {
         path: "/accounts",
@@ -23,24 +28,24 @@ const routes = [
       {
         path: "/accounts/viewaccount",
         name: translate("viewAccount"),
-        icon: <FaLock />,
+        icon: <FaEye />,
       },
       {
         path: "/accounts/importaccounts",
         name: translate("importAccount"),
-        icon: <FaMoneyBill />,
+        icon: <TbFileImport />,
       },
       {
         path: "/accounts/recentlyviewed",
         name: translate("recentlyViewed"),
-        icon: <FaMoneyBill />,
+        icon: <BsClockHistory />,
       },
     ],
   },
   {
     path: "/contacts",
     name: translate("contacts"),
-    icon: <AiTwotoneFileExclamation />,
+    icon: <MdSwitchAccount />,
     subRoutes: [
       {
         path: "/contacts",
@@ -50,22 +55,22 @@ const routes = [
       {
         path: "/contacts/createcontactfromvcard",
         name: translate("createContactFromVCard"),
-        icon: <FaUser />,
+        icon: <MdOutlineContactPhone />,
       },
       {
         path: "/contacts/viewcontacts",
         name: translate("viewContacts"),
-        icon: <FaLock />,
+        icon: <FaEye />,
       },
       {
         path: "/contacts/importcontacts",
         name: translate("importContacts"),
-        icon: <FaMoneyBill />,
+        icon: <TbFileImport />,
       },
       {
         path: "/contacts/recentlyviewed",
         name: translate("recentlyViewed"),
-        icon: <FaMoneyBill />,
+        icon: <BsClockHistory />,
       },
     ],
   },
@@ -73,7 +78,7 @@ const routes = [
   {
     path: "/oppotunities",
     name: translate("opportunities"),
-    icon: <AiTwotoneFileExclamation />,
+    icon: <FaPeopleArrows />,
     subRoutes: [
       {
         path: "/opportunities",
@@ -83,24 +88,24 @@ const routes = [
       {
         path: "/opportunities/viewopportunity",
         name: translate("viewOpportunity"),
-        icon: <FaLock />,
+        icon: <FaEye />,
       },
       {
         path: "/opportunities/importopportunity",
         name: translate("importOpportunity"),
-        icon: <FaMoneyBill />,
+        icon: <TbFileImport />,
       },
       {
         path: "/opportunities/recentlyviewed",
         name: translate("recentlyViewed"),
-        icon: <FaMoneyBill />,
+        icon: <BsClockHistory />,
       },
     ],
   },
   {
     path: "/leads",
     name: translate("leads"),
-    icon: <AiTwotoneFileExclamation />,
+    icon: <MdOutlineLeaderboard />,
     subRoutes: [
       {
         path: "/leads/createlead",
@@ -110,29 +115,29 @@ const routes = [
       {
         path: "/leads/createleadfromvcard",
         name: translate("createLeadFromVCard"),
-        icon: <FaUser />,
+        icon: <MdOutlineContactPhone />,
       },
       {
         path: "/leads/viewleads",
         name: translate("viewLeads"),
-        icon: <FaLock />,
+        icon: <FaEye />,
       },
       {
         path: "/leads/importleads",
         name: translate("importLeads"),
-        icon: <FaMoneyBill />,
+        icon: <TbFileImport />,
       },
       {
         path: "/leads/recentlyviewed",
         name: translate("recentlyViewed"),
-        icon: <FaMoneyBill />,
+        icon: <BsClockHistory />,
       },
     ],
   },
   {
     path: "/quotes",
     name: translate("quotes"),
-    icon: <AiTwotoneFileExclamation />,
+    icon: <BsChatLeftQuote />,
     subRoutes: [
       {
         path: "/quotes/createquote",
@@ -142,111 +147,111 @@ const routes = [
       {
         path: "/quotes/viewquotes",
         name: translate("viewQuotes"),
-        icon: <FaLock />,
+        icon: <FaEye />,
       },
       {
         path: "/quotes/importquotes",
         name: translate("importQuotes"),
-        icon: <FaMoneyBill />,
+        icon: <TbFileImport />,
       },
       {
         path: "/quotes/importlineitems",
         name: translate("importLineItems"),
-        icon: <FaMoneyBill />,
+        icon: <TbFileImport />,
       },
     ],
   },
   {
     path: "/calender",
     name: translate("calendar"),
-    icon: <AiTwotoneFileExclamation />,
+    icon: <IoCalendarNumberOutline />,
     subRoutes: [
       {
         path: "/calender/schedulemeeting",
         name: translate("scheduleMeeting"),
-        icon: <FaUser />,
+        icon: <AiOutlineSchedule />,
       },
       {
         path: "/calender/schedulecall",
         name: translate("scheduleCall"),
-        icon: <FaUser />,
+        icon: <MdAddCall />,
       },
       {
         path: "/calender/createtask",
         name: translate("createTask"),
-        icon: <FaLock />,
+        icon: <FaEye />,
       },
       {
         path: "/calender/today",
         name: translate("today"),
-        icon: <FaMoneyBill />,
+        icon: <BsClockHistory />,
       },
     ],
   },
   {
     path: "/more",
     name: translate("more"),
-    icon: <AiTwotoneFileExclamation />,
+    icon: <CgMoreVerticalR />,
     subRoutes: [
       {
         path: "/more/home",
         name: translate("home"),
-        icon: <FaUser />,
+        icon: <AiOutlineHome />,
       },
       {
         path: "/more/opportunities",
         name: translate("opportunities"),
-        icon: <FaUser />,
+        icon: <FaPeopleArrows />,
       },
       {
         path: "/more/documents",
         name: translate("documents"),
-        icon: <FaUser />,
+        icon: <CgFileDocument />,
       },
       {
         path: "/more/email",
         name: translate("email"),
-        icon: <FaUser />,
+        icon: <MdOutlineMail />,
       },
       {
         path: "/more/campaigns",
         name: translate("campaigns"),
-        icon: <FaUser />,
+        icon: <MdOutlineCampaign />,
       },
       {
         path: "/more/calls",
         name: translate("calls"),
-        icon: <FaUser />,
+        icon: <MdAddCall />,
       },
       {
         path: "/more/meeting",
         name: translate("meetings"),
-        icon: <FaUser />,
+        icon: <MdGroups />,
       },
       {
         path: "/more/task",
         name: translate("tasks"),
-        icon: <FaUser />,
+        icon: <MdOutlineTask />,
       },
       {
         path: "/more/notes",
         name: translate("notes"),
-        icon: <FaUser />,
+        icon: <CgNotes />,
       },
       {
         path: "/more/invoice",
         name: translate("invoices"),
-        icon: <FaUser />,
+        icon: <FaFileInvoice />,
       },
       {
         path: "/more/contracts",
         name: translate("contracts"),
-        icon: <FaUser />,
+        icon: <FaFileContract />,
       },
       {
         path: "/more/cases",
         name: translate("cases"),
-        icon: <FaUser />,
+        icon: <TbBriefcase />,
       },
     ],
   },
@@ -264,8 +269,8 @@ const SideBar = ({ children }: any) => {
       },
     },
     show: {
-      width: "140px",
-      padding: "5px 15px",
+      width: "8.75rem",
+      padding: "0.313rem 0.938rem",
       transition: {
         duration: 0.2,
       },

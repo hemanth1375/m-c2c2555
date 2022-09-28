@@ -3,6 +3,7 @@ import "./BasicForm.css";
 import { BasicFormInput, BasicFormInputLabel } from "components/forms";
 import { withFormik, FormikProps } from "formik";
 import * as Yup from "yup";
+import { translate } from 'languages';
 
 interface FormValues {
   opportunityName?: string;
@@ -15,7 +16,7 @@ interface FormValues {
   leadSource?: string;
   nextStep?: string;
   campaign?: string;
-  assignTo?: string;
+  assignedTo?: string;
   description?: string;
   dateModified?: number;
   dateCreated?: number;
@@ -37,7 +38,7 @@ interface MyFormProps {
   initialLeadSource?: string;
   initialNextStep?: string;
   initialCampaign?: string;
-  initialAssignTo?: string;
+  initialAssignedTo?: string;
   initialDescription?: string;
   initialDateModified?: number;
   initialDateCreated?: number;
@@ -46,8 +47,9 @@ interface MyFormProps {
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const [selectedOption, setSelectedOption] = useState<string>();
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  console.log(textareaRef)
   const [value, setValue] = useState<string>();
-  // This function is triggered when the select changes
+  console.log(value)
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const TriggredValue = event.target.value;
     setSelectedOption(TriggredValue);
@@ -56,6 +58,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const textAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value);
   };
+  console.log(textAreaChange)
 
   const {
     values,
@@ -72,7 +75,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     <React.Fragment>
       <form onSubmit={handleSubmit}>
       <div className="form-heading-container">
-        <h5 className="form-tab-heading">BASIC</h5>
+        <h5 className="form-tab-heading">{translate("basic")}</h5>
       </div>
       
       <div className="basic-white-form mb-4">
@@ -82,7 +85,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 
                   <div className="col-sm-12 col-md-6 col-lg-3">
                     <BasicFormInputLabel id="formOpportunityName">
-                      OPPORTUNITY NAME:
+                    {translate("opportunityName")}:
                     </BasicFormInputLabel>
                     <BasicFormInput
                       type="text"
@@ -91,7 +94,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.opportunityName}
-                      red={touched.opportunityName && errors.opportunityName && true}
+                      red={touched.opportunityName && errors.opportunityName}
                   />
                   {touched.opportunityName && errors.opportunityName && (
                   <div className="form-validation-errors">
@@ -102,7 +105,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                 
                   <div className="col-sm-12 col-md-6 col-lg-3">
                   <BasicFormInputLabel htmlFor="formAccountName">
-                    ACCOUNT NAME:
+                  {translate("accountName")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
@@ -112,7 +115,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onBlur={handleBlur}
                       value={values.accountName}
                       placeholder="Type to search"
-                    red={touched.accountName && errors.accountName && true}
+                    red={touched.accountName && errors.accountName}
                   />
                   {touched.accountName && errors.accountName && (
                   <div className="form-validation-errors">
@@ -122,10 +125,10 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                   </div>
                   <div className="col-sm-12 col-md-8 col-lg-6">
                   <BasicFormInputLabel htmlFor="formOpportunityAmount">
-                    OPPORTUNITY AMOUNT:
+                  {translate("opportunityAmount")}:
                     </BasicFormInputLabel>
                   <div className="row">
-                      <div className="col-sm-6 inner-label">
+                      <div className="col-sm-6">
                         <div>
                           <select
                             onChange={selectChange}
@@ -134,11 +137,11 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                           >
                             <option value={selectedOption}>Currency</option>
                             <option value={selectedOption}>USD</option>
-                            
+                          
                           </select>
                         </div>
                   </div>
-                  <div className="col-sm-6 inner-label">
+                  <div className="col-sm-6">
                             
                             <BasicFormInput
                               type="text"
@@ -148,7 +151,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                               onBlur={handleBlur}
                               placeholder="Enter the amount"
                               value={values.opportunityAmount}
-                              red={touched.opportunityAmount && errors.opportunityAmount && true}
+                              red={touched.opportunityAmount && errors.opportunityAmount}
                       />
                       {touched.opportunityAmount && errors.opportunityAmount && (
                   <div className="form-validation-errors">
@@ -161,7 +164,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                   
                   <div className="col-sm-12 col-md-4 col-lg-3">
                   <BasicFormInputLabel htmlFor="formExpectedCloseDate">
-                      EXPECTED CLOSE DATE:
+                  {translate("expectedCloseDate")}:
                     </BasicFormInputLabel> 
                   <BasicFormInput
                     type="date"
@@ -169,7 +172,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.expectedCloseDate}
-                    red={touched.expectedCloseDate && errors.expectedCloseDate && true}
+                    red={touched.expectedCloseDate && errors.expectedCloseDate}
                   />
                   {touched.expectedCloseDate && errors.expectedCloseDate && (
                   <div className="form-validation-errors">
@@ -180,7 +183,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
                     <BasicFormInputLabel htmlFor="formSalesStage">
-                      SALES STAGE:
+                    {translate("salesStage")}:
                     </BasicFormInputLabel>
                         <div>
                           <select
@@ -199,7 +202,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
                     <BasicFormInputLabel htmlFor="formType">
-                      TYPE:
+                    {translate("type")}:
                     </BasicFormInputLabel>
                         <div>
                           <select
@@ -218,7 +221,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
                     <BasicFormInputLabel id="formProbability">
-                      PROBABILITY(%):
+                    {translate("probability(%)")}:
                     </BasicFormInputLabel>
                     <BasicFormInput
                       type="text"
@@ -227,13 +230,18 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.probability}
-                      red={touched.probability && errors.probability && true}
-                    />
+                      red={touched.probability && errors.probability}
+                  />
+                  {touched.probability && errors.probability && (
+                  <div className="form-validation-errors">
+                    {errors.probability}
+                  </div>
+                )}
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
                     <BasicFormInputLabel htmlFor="formLeadSource">
-                      LEAD SOURCE:
+                    {translate("leadSource")}:
                     </BasicFormInputLabel>
                         <div>
                           <select
@@ -263,7 +271,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
                     <BasicFormInputLabel id="formNextStep">
-                      NEXT STEP:
+                    {translate("nextStep")}:
                     </BasicFormInputLabel>
                     <BasicFormInput
                       type="text"
@@ -272,13 +280,18 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.nextStep}
-                      red={touched.nextStep && errors.nextStep && true}
-                    />
+                      red={touched.nextStep && errors.nextStep}
+                  />
+                  {touched.nextStep && errors.nextStep && (
+                  <div className="form-validation-errors">
+                    {errors.nextStep}
+                  </div>
+                )}
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
                     <BasicFormInputLabel htmlFor="formCampaign">
-                      CAMPAIGN:
+                    {translate("campaign")}:
                     </BasicFormInputLabel>
                     <BasicFormInput
                     type="text"
@@ -288,29 +301,39 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onBlur={handleBlur}
                       value={values.campaign}
                       placeholder="Type to search"
-                    red={touched.campaign && errors.campaign && true}
+                    red={touched.campaign && errors.campaign}
                   />
+                  {touched.campaign && errors.campaign && (
+                  <div className="form-validation-errors">
+                    {errors.campaign}
+                  </div>
+                )}
                   </div>
 
                   <div className="col-sm-12 col-md-4 col-lg-3">
-                  <BasicFormInputLabel htmlFor="assignTo">
-                    ASSIGNED TO:
+                  <BasicFormInputLabel htmlFor="assignedTo">
+                  {translate("assignedTo")}:
                   </BasicFormInputLabel>
                   <BasicFormInput
                     type="text"
-                    name="assignTo"
-                    id="assignTo"
+                    name="assignedTo"
+                    id="assignedTo"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.assignTo}
-                    red={touched.assignTo && errors.assignTo && true}
+                    value={values.assignedTo}
+                    red={touched.assignedTo && errors.assignedTo}
                     placeholder="type to search.."
                   />
+                  {touched.assignedTo && errors.assignedTo && (
+                  <div className="form-validation-errors">
+                    {errors.assignedTo}
+                  </div>
+                )}
                   </div>
               
                   <div className="col-sm-12 col-md-8 col-lg-6">
                     <BasicFormInputLabel htmlFor="formDesription">
-                      DESCRIPTION:
+                    {translate("description")}:
                     </BasicFormInputLabel>
                     <textarea
                       className="over-view-form-textarea"
@@ -322,14 +345,12 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                       cols={54}
                     ></textarea>
                   </div>
-                
-              
             </div>
           </div>
         </form>
       </div>
       <div className="form-heading-container">
-        <h5 className="form-tab-heading"> OTHER</h5>
+        <h5 className="form-tab-heading"> {translate("other")}</h5>
       </div>
       <div className="basic-white-form">
         <form onSubmit={handleSubmit}>
@@ -337,7 +358,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             <div className="row">
               <div className="col-sm-12 col-md-6 col-lg-6">
               <BasicFormInputLabel htmlFor="formDateModified">
-                      DATE MODIFIED:
+              {translate("dateModified")}:
                     </BasicFormInputLabel> 
                   <BasicFormInput
                     type="date"
@@ -345,12 +366,17 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.dateModified}
-                    red={touched.dateModified && errors.dateModified && true}
+                    red={touched.dateModified && errors.dateModified}
                   />
+                   {touched.dateModified && errors.dateModified && (
+                  <div className="form-validation-errors">
+                    {errors.dateModified}
+                  </div>
+                )}
               </div>
               <div className="col-sm-12 col-md-6 col-lg-6">
               <BasicFormInputLabel htmlFor="formDateCreated">
-                      DATE CREATED:
+              {translate("dateCreated")}:
                     </BasicFormInputLabel> 
                   <BasicFormInput
                     type="date"
@@ -359,7 +385,12 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
                     onBlur={handleBlur}
                     value={values.dateCreated}
                     red={touched.dateCreated && errors.dateCreated}
-                />
+                  />
+                  {touched.dateCreated && errors.dateCreated && (
+                  <div className="form-validation-errors">
+                    {errors.dateCreated}
+                  </div>
+                )}
                 </div>
             </div>
 
@@ -395,14 +426,14 @@ const FirstForm = withFormik<MyFormProps, FormValues>({
     leadSource:props.initialLeadSource,
     nextStep:props.initialNextStep,
     campaign:props.initialCampaign,
-    assignTo:props.initialAssignTo,
+    assignedTo:props.initialAssignedTo,
     description:props.initialDescription,
     dateModified:props.initialDateModified,
     dateCreated:props.initialDateCreated
   }),
   validationSchema: Yup.object().shape({
     opportunityName: Yup.string().trim()
-    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed")
     .min(3, "Too Short!")
     .max(20, "Too Long!")
     .required("* Opportunity Name is Required"),
@@ -411,13 +442,10 @@ const FirstForm = withFormik<MyFormProps, FormValues>({
     .min(3, "Too Short!")
     .max(20, "Too Long!")
     .required("* Account Name is Required"),
-    opportunityAmount: Yup.string().required("* Opportunity Amount is Required")
-    .matches(
-      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-      "phone number is required"
-    ).min(1).max(10),
+    opportunityAmount: Yup.number().typeError('you must specify a number').min(0, 'Min value 0.').required("Amount is required"),
+    
     expectedCloseDate: Yup.number().required("* Close Date is Required"),
-    salesStage: Yup.string().required("* Required"),
+    salesStage: Yup.string().required( "* Required"),
     type: Yup.string().required("* Type is Required"),
     probability: Yup.string().required("* Required"),
     leadSource: Yup.string().required("* Required"),
