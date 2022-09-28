@@ -37,8 +37,8 @@ text-align: left;
     margin-bottom: 10px;
     margin-top: 12px;
     color: black;
-    font-size: 14px;
-    font-weight:600;
+    font-size: 12px;
+    font-weight:thin;
     font-weight: ${(props:Props) => (props.bold? "bold" : "null")};
 
 `;

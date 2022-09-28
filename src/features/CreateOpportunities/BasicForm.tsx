@@ -79,6 +79,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
       </div>
       
       <div className="basic-white-form mb-4">
+        
         <form onSubmit={handleSubmit}>
           <div className='container-fluid'>
             <div className="row">

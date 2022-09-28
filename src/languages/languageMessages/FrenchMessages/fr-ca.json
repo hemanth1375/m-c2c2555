@@ -138,5 +138,7 @@
   "expectedCloseDate":"DATE DE CLÔTURE PRÉVUE",
   "salesStage":"STAGE DE VENTE",
   "probability(%)":"PROBABILITÉ(%)",
-  "nextStep":"PROCHAINE ÉTAPE"
+  "nextStep":"PROCHAINE ÉTAPE",
+  "automaticallyCreateANewContactByImportingAVCardFromYourFileSystem": "CRÉER AUTOMATIQUEMENT UN NOUVEAU CONTACT EN IMPORTANT UNE VCARD DEPUIS VOTRE SYSTÈME DE FICHIERS",
+  "importVCard": "IMPORTATION VCARD"
 }

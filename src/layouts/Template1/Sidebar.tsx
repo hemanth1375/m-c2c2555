@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { translate } from "languages";
-import Footer from "./Footer/Footer";
+
 import { TiContacts } from 'react-icons/ti';
 import { MdAddCall, MdGroups, MdOutlineCampaign, MdOutlineContactPhone, MdOutlineLeaderboard, MdOutlineMail, MdOutlineTask, MdSwitchAccount } from 'react-icons/md';
 import "./Sidebar.css";
@@ -13,25 +13,27 @@ import { CgFileDocument, CgMoreVerticalR, CgNotes } from "react-icons/cg";
 import { TbBriefcase, TbFileImport } from 'react-icons/tb';
 import { AiOutlineHome, AiOutlineSchedule } from 'react-icons/ai';
 
+import "./Sidebar.css";
+import Footer from "./Footer/Footer";
 
 const routes = [
   {
-    path: "/accounts",
+    path: "/accounts/",
     name: translate("accounts"),
     icon: <TiContacts />,
     subRoutes: [
       {
-        path: "/accounts",
+        path: "/accounts/createAccount",
         name: translate("createAccount"),
         icon: <FaUser />,
       },
       {
-        path: "/accounts/viewaccount",
+        path: "/accounts/viewAccounts",
         name: translate("viewAccount"),
         icon: <FaEye />,
       },
       {
-        path: "/accounts/importaccounts",
+        path: "/accounts/importAccounts",
         name: translate("importAccount"),
         icon: <TbFileImport />,
       },
@@ -48,17 +50,17 @@ const routes = [
     icon: <MdSwitchAccount />,
     subRoutes: [
       {
-        path: "/contacts",
+        path: "/contacts/createContacts",
         name: translate("createContact"),
         icon: <FaUser />,
       },
       {
-        path: "/contacts/createcontactfromvcard",
+        path: "/contacts/createContactFromVCard",
         name: translate("createContactFromVCard"),
         icon: <MdOutlineContactPhone />,
       },
       {
-        path: "/contacts/viewcontacts",
+        path: "/contacts/",
         name: translate("viewContacts"),
         icon: <FaEye />,
       },
@@ -365,7 +367,7 @@ const SideBar = ({ children }: any) => {
         }}
         className="sidebar-children"
       >
-        <div>{children}</div>
+        <div className="sidebar-children-container">{children}</div>
         <div>
           <Footer />
         </div>

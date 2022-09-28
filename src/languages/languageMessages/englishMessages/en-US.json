@@ -23,7 +23,6 @@
   "accounts": "ACCOUNTS",
   "create": "CREATE",
   "new": "NEW",
-  "overView": "OVERVIEW",
   "moreInformation": "MORE INFORMATION",
   "other": "OTHER",
   "type": "TYPE",
@@ -76,6 +75,8 @@
   "cases": "CASES",
 
 
+
+  "overView": "OVERVIEW",
   "mr": "MR",
   "miss": "MISS",
   "mrs": "MRS",
@@ -95,7 +96,6 @@
   "accountNameIsRequired": "ACCOUNT NAME IS REQUIRED",
   "faxIsRequired": "FAX IS REQUIRED",
   "eMailIsRequired": "EMAIL IS REQUIRED",
-  "assignTo": "ASSIGNE TO",
   "assignToSomeOne": "ASSIGNE TO SOMEONE",
   "descriptionIsRequired": "DESCRIPTION IS REQUIRED",
   "primaryAddress": "PRIMARY ADDRESS",
@@ -105,20 +105,20 @@
   "primaryAddressCity": "PRIMARY ADDRESS CITY",
   "primaryAddressState": "PRIMARY ADDRESS STATE",
   "primaryAddressCountry": "PRIMARY ADDRESS COUNTRY",
-  "otherAddress": "OTHER ADDRESS",
+  "alternateAddress": "ALTERNATE ADDRESS",
   "alternateAddressStreet": "ALTERNATE ADDRESS STREET",
   "alternateAddressPostalCode": "ALTERNATE ADDRESS POSTAL CODE",
   "alternateAddressCity": "ALTERNATE ADDRESS CITY",
   "alternateAddressState": "ALTERNATE ADDRESS STATE",
   "alternateAddressCountry": "ALTERNATE ADDRESS COUNTRY",
-  "leadSource": "LEADSOURCE",
-  "coldCall": "COLDCALL",
+  "leadSource": "LEAD SOURCE",
+  "coldCall": "COLD CALL",
   "existingCustomer": "EXISTING CUSTOMER",
-  "employee": "EMPLOYEE0",
+  "employee": "EMPLOYEE",
   "partner": "PARTNER",
   "selfGenerated": "SELF GENERATED",
   "publicRelationship": "PUBLIC RELATIONSHIP",
-  "DirectMail": "DIRECT MAIL",
+  "directMail": "DIRECT MAIL",
   "conference": "CONFERENCE",
   "tradeShow": "TRADE SHOW",
   "wordOfMouth": "WORD OF MOUTH",
@@ -138,7 +138,10 @@
   "expectedCloseDate":"EXPECTED CLOSE DATE",
   "salesStage":"SALES STAGE",
   "probability(%)":"PROBABILITY(%)",
-  "nextStep":"NEXT STEP"
+  "nextStep":"NEXT STEP",
   
   
+  "importVCard": "IMPORT VCARD",
+  "automaticallyCreateANewContactByImportingAVCardFromYourFileSystem": "AUTOMATICALLY CREATE A NEW CONTACT BY IMPORTING A VCARD FROM YOUR FILE SYSTEM"
+ 
 }
