@@ -70,17 +70,13 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
     isSubmitting,
     ref,
   } = props;
+  console.log({errors})
 
   return (
     <React.Fragment>
-      <form onSubmit={handleSubmit}>
-      <div className="form-heading-container">
-        <h5 className="form-tab-heading">{translate("basic")}</h5>
-      </div>
-      
       <div className="basic-white-form mb-4">
         
-        <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="my-opportunity-form">
           <div className='container-fluid'>
             <div className="row">
                 
@@ -349,68 +345,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             </div>
           </div>
         </form>
-      </div>
-      <div className="form-heading-container">
-        <h5 className="form-tab-heading"> {translate("other")}</h5>
-      </div>
-      <div className="basic-white-form">
-        <form onSubmit={handleSubmit}>
-          <div className='container-fluid'>
-            <div className="row">
-              <div className="col-sm-12 col-md-6 col-lg-6">
-              <BasicFormInputLabel htmlFor="formDateModified">
-              {translate("dateModified")}:
-                    </BasicFormInputLabel> 
-                  <BasicFormInput
-                    type="date"
-                    id="dateModified"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.dateModified}
-                    red={touched.dateModified && errors.dateModified}
-                  />
-                   {touched.dateModified && errors.dateModified && (
-                  <div className="form-validation-errors">
-                    {errors.dateModified}
-                  </div>
-                )}
-              </div>
-              <div className="col-sm-12 col-md-6 col-lg-6">
-              <BasicFormInputLabel htmlFor="formDateCreated">
-              {translate("dateCreated")}:
-                    </BasicFormInputLabel> 
-                  <BasicFormInput
-                    type="date"
-                    id="dateCreated"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.dateCreated}
-                    red={touched.dateCreated && errors.dateCreated}
-                  />
-                  {touched.dateCreated && errors.dateCreated && (
-                  <div className="form-validation-errors">
-                    {errors.dateCreated}
-                  </div>
-                )}
-                </div>
-            </div>
-
-          </div>
-        </form>
-      </div>
-      <div className="container p-4">
-        <div className="row">
-          <div className="col-sm-12 text-sm-center text-md-right">
-            <button className="btn btn-primary mr-3" disabled={
-                isSubmitting
-              }
-              type="submit">Save</button>
-            <button className="btn btn-primary">Cancel</button>
-          </div>
-        </div>
-        
-        </div>
-        </form>
+      </div> 
     </React.Fragment>
   );
 };
@@ -467,6 +402,7 @@ const FirstForm = withFormik<MyFormProps, FormValues>({
 
 const BasicForm = (props: any) => {
   return (
+    
     <div>
       <FirstForm />
     </div>

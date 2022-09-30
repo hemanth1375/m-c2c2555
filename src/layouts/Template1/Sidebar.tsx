@@ -3,7 +3,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { translate } from "languages";
-
 import { TiContacts } from 'react-icons/ti';
 import { MdAddCall, MdGroups, MdOutlineCampaign, MdOutlineContactPhone, MdOutlineLeaderboard, MdOutlineMail, MdOutlineTask, MdSwitchAccount } from 'react-icons/md';
 import "./Sidebar.css";
@@ -83,22 +82,22 @@ const routes = [
     icon: <FaPeopleArrows />,
     subRoutes: [
       {
-        path: "/opportunities",
+        path: "/opportunities/createOpportunity",
         name: translate("createOpportunity"),
         icon: <FaUser />,
       },
       {
-        path: "/opportunities/viewopportunity",
+        path: "/opportunities/viewOpportunity",
         name: translate("viewOpportunity"),
         icon: <FaEye />,
       },
       {
-        path: "/opportunities/importopportunity",
+        path: "/opportunities/importOpportunity",
         name: translate("importOpportunity"),
         icon: <TbFileImport />,
       },
       {
-        path: "/opportunities/recentlyviewed",
+        path: "/opportunities/recentlyViewed",
         name: translate("recentlyViewed"),
         icon: <BsClockHistory />,
       },
@@ -358,7 +357,7 @@ const SideBar = ({ children }: any) => {
       <motion.div
         animate={{
           width: isOpen ? "88%" : "97%",
-          backgroundColor: "#cccccc",
+          // backgroundColor: "#cccccc",
           transition: {
             duration: 0.5,
             type: "spring",

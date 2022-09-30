@@ -6,7 +6,7 @@ import ViewAccounts from "./ViewAccounts/ViewAccounts";
 const index = () => {
   return (
     <Routes>
-      <Route path="/" element={<CreateAccount />} />
+      <Route path="/" element={<ViewAccounts />} />
       <Route path="/createAccount" element={<CreateAccount />} />
       <Route path="/viewAccounts" element={<ViewAccounts />} />
     </Routes>

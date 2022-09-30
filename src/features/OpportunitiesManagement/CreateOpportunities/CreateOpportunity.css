@@ -1,0 +1,34 @@
+*, :after, :before {
+    box-sizing: border-box;
+}
+.opportunities-hr-line{
+    background-color: black;
+    width: 97%;
+    height: 0.063rem;
+}
+
+
+.form-container{
+    background-color: white;
+    padding:30px !important;
+}
+.form-title{
+    font-size:1.25rem;
+}
+
+.button-tabs{
+    background-color: transparent;
+    border:none;
+    font-weight: bold;
+    color:lightslategray;
+}
+.button-tabs:hover,
+.button-tabs:focus,
+.button-tabs:active{
+    outline: none;
+    color:black;
+
+}
+.button-tabs:focus{
+    text-decoration: underline;
+}

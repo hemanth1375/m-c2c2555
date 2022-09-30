@@ -1,4 +1,4 @@
-import AccountsManagement from "features/AccountsManagement";
+import AccountsManagement from "features/accountsManagement";
 import React from "react";
 
 const Accounts = () => {

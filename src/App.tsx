@@ -11,7 +11,6 @@ import { IntlProvider, LOCALES } from "./languages";
 import Template from "layouts/Template1/Template";
 import { localeContextObj } from "context/context";
 import "./App.css";
-import ViewOpportunity from "features/CreateOpportunities/ViewOpportunity";
 
 function App() {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);

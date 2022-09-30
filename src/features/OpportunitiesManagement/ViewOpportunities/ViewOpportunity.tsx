@@ -1,5 +1,4 @@
 import React from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
 import './ViewOpportunity.css';
 const ViewOpportunity = () => {
     return (
@@ -27,14 +26,3 @@ const ViewOpportunity = () => {
 
 export default ViewOpportunity;
 
-
-
-                        // <Dropdown>
-                        //     <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                        //         More
-                        //     </Dropdown.Toggle>
-
-                        //     <Dropdown.Menu>
-                        //         <Dropdown.Item href="#/action-1">Import</Dropdown.Item>
-                        //     </Dropdown.Menu>
-                        // </Dropdown>
