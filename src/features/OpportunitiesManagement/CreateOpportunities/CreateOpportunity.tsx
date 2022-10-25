@@ -1,53 +1,51 @@
-import BasicForm from './BasicForm';
-import {useState} from 'react'
+import { useState } from "react";
 import './CreateOpportunity.css';
-import { translate } from 'languages';
-import OtherForm from './OtherForm';
+import StepOne from "./StepOne";
+import StepTwo from "./StepTwo";
 
-const CreateOpportunity = (props:any) => {
-  const [isBasicFormDisplay, setIsBasicFormDisplay] = useState(true);
-  const [isOtherFormDisplay, setIsOtherFormDisplay] = useState(false);
-
+const CreateOpportunity=()=> {
+  const [data, setData] = useState({
+    opportunity_name: "",
+    account_name: "",
+    opportunity_amount: "",
+    expected_close_date:"",
+    probability: "",
+    next_step: "",
+    campaign: "",
+    assigned_to:"",
+    date_created: "",
+    date_modified:""
+  });
+  const [currentStep, setCurrentStep] = useState(0);
+  const [errors, setErrors] = useState({});
   
-  const displayBasicForm = () => {
-    setIsOtherFormDisplay(false);
-      setIsBasicFormDisplay(true);
-      
-  }
-  const displayOtherForm = () => {
-    setIsBasicFormDisplay(false);
-    setIsOtherFormDisplay(true);
-    
-  }
+  const makeRequest = (formData:any) => {
+    console.log("Form Submitted", formData);
+  };
 
-    
-    return(
-     
-      <div className='container-fluid form-container'>
-        <div className='row'>
-          <div className='col-sm-12 pl-0 pr-0'>
-            <h4 className="text-left form-title">{translate("createOpportunity")}</h4>
-            
-            <hr className="opportunities-hr-line" />
-            <div className='d-flex mb-5 ml-4'>
-              <button className="button-tabs mr-4" onClick={displayBasicForm}>BASIC</button>
-                <button className="button-tabs" onClick={displayOtherForm}>OTHER</button>
-            </div>
-            {isBasicFormDisplay && <BasicForm/>} 
-            {isOtherFormDisplay && <OtherForm />}
-            <div className="container p-4">
-        <div className="row">
-          <div className="col-sm-12 text-sm-center text-md-right">
-            <button className="btn btn-primary mr-3"
-              type="submit" form="my-opportunity-form">Save</button>
-              <button className="btn btn-primary">Cancel</button>
-          </div>
-        </div>  
-      </div>  
-          </div>
-        </div>
-      </div>
-          
-    )
+  const handleNextStep = (newData:any, final = false) => {
+    setData((prev) => ({ ...prev, ...newData }));
+
+    if (final) {
+      makeRequest(newData);
+      return;
+    }
+
+    setCurrentStep((prev) => prev + 1);
+  };
+
+  const handlePrevStep = (newData:any) => {
+    setData((prev) => ({ ...prev, ...newData }));
+    setCurrentStep((prev) => prev - 1);
+  };
+
+  const steps = [
+    <StepOne next={handleNextStep} data={data} errors={errors} />,
+    <StepTwo next={handleNextStep} prev={handlePrevStep} data={data} />,
+  ];
+
+  console.log("data", data);
+
+  return <div className="App">{steps[currentStep]}</div>;
 }
 export default CreateOpportunity;

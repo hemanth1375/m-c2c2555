@@ -4,3 +4,10 @@
 .view-bottom-button{
     background-color: #93a4b3 !important;
 }
+.header-cell{
+    background-color: rgb(153, 121, 183);
+}
+.view-opportunities-body-container{
+    padding:1.5rem;
+    width: 80%;
+}

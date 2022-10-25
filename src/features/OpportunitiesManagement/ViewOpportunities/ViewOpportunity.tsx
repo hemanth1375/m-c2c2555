@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from "react";
+import DisplayTable from "./ViewOpportunitiesTable/DisplayTable";
+import TablePagination from "./viewOpportunitiesTablePagination/tablePagiantion";
 import './ViewOpportunity.css';
+
 const ViewOpportunity = () => {
-    return (
-        <div className='container-fluid p-2'>
+  const [limit, setLimit] = useState<number>(10);
+  const [offset, setOffset] = useState<number>(0);
+  const [total, setTotal] = useState<number>(0);
+
+  return (
+    <div>
+      <div className='container-fluid p-2'>
             <div className="row">
                 <div className='col-sm-12 col-md-4 text-left'>
                     <h3>OPPORTUNITIES</h3>
@@ -19,10 +27,24 @@ const ViewOpportunity = () => {
                     </div>
                 </div>
             </div><hr/>
-
+            
+    
+      <div className="view-opportunities-body-container">
+        <TablePagination
+          offset={offset}
+          total={total}
+          limit={limit}
+          setLimit={setLimit}
+          setOffset={setOffset}
+        />
+        <DisplayTable limit={limit} offset={offset} setTotal={setTotal} />
         </div>
-    );
+          </div>
+    </div>
+  );
 };
 
 export default ViewOpportunity;
+
+
 
